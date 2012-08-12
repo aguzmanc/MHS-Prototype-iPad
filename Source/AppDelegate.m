@@ -1,7 +1,5 @@
 #import "AppDelegate.h"
 
-#import "LoginController.h"
-
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -11,14 +9,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // create and setup main window
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    [self.window makeKeyAndVisible];
     
+    // Setup all Views
+    _logic = [[Logic alloc] init];
+    _assignedInterviewsController = [[AssignedInterviewsController alloc] init];
+    
+    // Setup View at the beginning
     _loginController = [[LoginController alloc] initWithNibName:@"LoginView" bundle:nil];
     self.window.rootViewController = _loginController;
-     
-    [self.window makeKeyAndVisible];
+    
     return YES;
-
 }
 
 
@@ -71,6 +74,14 @@
 }
 
 
+#pragma mark View Changer Delegate
+
+-(void)switchToInitialization{}
+-(void)switchToAssignedInterviews{}
+-(void)switchToLogin{}
+-(void)switchToInterview{}
+
+
 
 
 
@@ -80,6 +91,7 @@
 {
     [_window release];
     [_loginController release];
+    [_assignedInterviewsController release];
     [super dealloc];
 }
 

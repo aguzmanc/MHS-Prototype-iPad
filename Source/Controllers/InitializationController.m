@@ -1,14 +1,6 @@
-//
-//  InitializeController.m
-//  MHS Prototype
-//
-//  Created by arn on 8/11/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
+#import "InitializationController.h"
 
-#import "InitializeController.h"
-
-@implementation InitializeController
+@implementation InitializationController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
