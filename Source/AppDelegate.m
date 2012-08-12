@@ -1,36 +1,26 @@
-//
-//  AppDelegate.m
-//  MHS Prototype
-//
-//  Created by arn on 8/11/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "LoginController.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize viewController = _viewController;
 
-- (void)dealloc
-{
-    [_window release];
-    [_viewController release];
-    [super dealloc];
-}
+
+#pragma mark Event Handlers
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
+    _window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+
+    _loginController = [[[LoginController alloc] init] autorelease];
+
+    _window.rootViewController = _loginController;
+    [_window makeKeyAndVisible];
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -40,6 +30,8 @@
      */
 }
 
+
+
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     /*
@@ -48,6 +40,8 @@
      */
 }
 
+
+
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     /*
@@ -55,12 +49,16 @@
      */
 }
 
+
+
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
 }
+
+
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
@@ -70,5 +68,22 @@
      See also applicationDidEnterBackground:.
      */
 }
+
+
+
+
+
+#pragma mark Memory Management
+
+- (void)dealloc
+{
+    [_window release];
+    [_loginController release];
+    [super dealloc];
+}
+
+
+
+
 
 @end

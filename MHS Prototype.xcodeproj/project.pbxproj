@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		163AC9D715D7545500B019CA /* AssignedInterviewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 163AC9D515D7545500B019CA /* AssignedInterviewsController.m */; };
+		163AC9DB15D7549100B019CA /* AssignedInterviewsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163AC9DA15D7549100B019CA /* AssignedInterviewsView.xib */; };
+		163AC9DF15D754DC00B019CA /* FinishInterviewDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 163AC9DD15D754DC00B019CA /* FinishInterviewDialog.m */; };
+		163AC9E215D7550600B019CA /* FinishInterviewDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163AC9E115D7550600B019CA /* FinishInterviewDialog.xib */; };
+		163AC9E715D7559F00B019CA /* InitializeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 163AC9E515D7559F00B019CA /* InitializeController.m */; };
+		163AC9EA15D755BC00B019CA /* InitializeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163AC9E915D755BC00B019CA /* InitializeView.xib */; };
+		163AC9F315D757BF00B019CA /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 163AC9F115D757BF00B019CA /* LoginController.m */; };
+		163AC9F615D757DD00B019CA /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163AC9F515D757DD00B019CA /* LoginView.xib */; };
 		16F2E87B15D6AD1D005031A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F2E87A15D6AD1D005031A2 /* UIKit.framework */; };
 		16F2E87D15D6AD1D005031A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F2E87C15D6AD1D005031A2 /* Foundation.framework */; };
 		16F2E87F15D6AD1D005031A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F2E87E15D6AD1D005031A2 /* CoreGraphics.framework */; };
@@ -17,6 +25,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		163AC9D415D7545500B019CA /* AssignedInterviewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssignedInterviewsController.h; path = Source/Controllers/AssignedInterviewsController.h; sourceTree = "<group>"; };
+		163AC9D515D7545500B019CA /* AssignedInterviewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssignedInterviewsController.m; path = Source/Controllers/AssignedInterviewsController.m; sourceTree = "<group>"; };
+		163AC9DA15D7549100B019CA /* AssignedInterviewsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AssignedInterviewsView.xib; path = Resources/Views/AssignedInterviewsView.xib; sourceTree = "<group>"; };
+		163AC9DC15D754DC00B019CA /* FinishInterviewDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FinishInterviewDialog.h; path = Source/Controllers/FinishInterviewDialog.h; sourceTree = "<group>"; };
+		163AC9DD15D754DC00B019CA /* FinishInterviewDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FinishInterviewDialog.m; path = Source/Controllers/FinishInterviewDialog.m; sourceTree = "<group>"; };
+		163AC9E115D7550600B019CA /* FinishInterviewDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FinishInterviewDialog.xib; path = Resources/Views/FinishInterviewDialog.xib; sourceTree = "<group>"; };
+		163AC9E415D7559F00B019CA /* InitializeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitializeController.h; path = Source/Controllers/InitializeController.h; sourceTree = "<group>"; };
+		163AC9E515D7559F00B019CA /* InitializeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitializeController.m; path = Source/Controllers/InitializeController.m; sourceTree = "<group>"; };
+		163AC9E915D755BC00B019CA /* InitializeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InitializeView.xib; path = Resources/Views/InitializeView.xib; sourceTree = "<group>"; };
+		163AC9F015D757BF00B019CA /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = Source/Controllers/LoginController.h; sourceTree = "<group>"; };
+		163AC9F115D757BF00B019CA /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = Source/Controllers/LoginController.m; sourceTree = "<group>"; };
+		163AC9F515D757DD00B019CA /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginView.xib; path = Resources/Views/LoginView.xib; sourceTree = "<group>"; };
 		169E6BAC15D6BC5800BA7DEE /* MHS Prototype-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MHS Prototype-Info.plist"; path = "Resources/PLists/MHS Prototype-Info.plist"; sourceTree = "<group>"; };
 		16BDEA5E15D6C2A800DE2A5E /* MHS Prototype-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MHS Prototype-Prefix.pch"; path = "Source/MHS Prototype-Prefix.pch"; sourceTree = "<group>"; };
 		16F2E87615D6AD1D005031A2 /* MHS Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MHS Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +147,10 @@
 		16F2E8AC15D6B172005031A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				163AC9F515D757DD00B019CA /* LoginView.xib */,
+				163AC9E915D755BC00B019CA /* InitializeView.xib */,
+				163AC9E115D7550600B019CA /* FinishInterviewDialog.xib */,
+				163AC9DA15D7549100B019CA /* AssignedInterviewsView.xib */,
 				16F2E8AD15D6B200005031A2 /* ViewController.xib */,
 			);
 			name = Views;
@@ -137,6 +161,14 @@
 			children = (
 				16F2E8B215D6B30C005031A2 /* ViewController.h */,
 				16F2E8B315D6B30C005031A2 /* ViewController.m */,
+				163AC9D415D7545500B019CA /* AssignedInterviewsController.h */,
+				163AC9D515D7545500B019CA /* AssignedInterviewsController.m */,
+				163AC9DC15D754DC00B019CA /* FinishInterviewDialog.h */,
+				163AC9DD15D754DC00B019CA /* FinishInterviewDialog.m */,
+				163AC9E415D7559F00B019CA /* InitializeController.h */,
+				163AC9E515D7559F00B019CA /* InitializeController.m */,
+				163AC9F015D757BF00B019CA /* LoginController.h */,
+				163AC9F115D757BF00B019CA /* LoginController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -206,6 +238,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				16F2E8AE15D6B200005031A2 /* ViewController.xib in Resources */,
+				163AC9DB15D7549100B019CA /* AssignedInterviewsView.xib in Resources */,
+				163AC9E215D7550600B019CA /* FinishInterviewDialog.xib in Resources */,
+				163AC9EA15D755BC00B019CA /* InitializeView.xib in Resources */,
+				163AC9F615D757DD00B019CA /* LoginView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +255,10 @@
 				16F2E8A315D6AFD9005031A2 /* AppDelegate.m in Sources */,
 				16F2E8A715D6B079005031A2 /* main.m in Sources */,
 				16F2E8B415D6B30C005031A2 /* ViewController.m in Sources */,
+				163AC9D715D7545500B019CA /* AssignedInterviewsController.m in Sources */,
+				163AC9DF15D754DC00B019CA /* FinishInterviewDialog.m in Sources */,
+				163AC9E715D7559F00B019CA /* InitializeController.m in Sources */,
+				163AC9F315D757BF00B019CA /* LoginController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
