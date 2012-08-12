@@ -11,13 +11,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    _window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-
-    _loginController = [[[LoginController alloc] init] autorelease];
-
-    _window.rootViewController = _loginController;
-    [_window makeKeyAndVisible];
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    
+    _loginController = [[LoginController alloc] initWithNibName:@"LoginView" bundle:nil];
+    self.window.rootViewController = _loginController;
+     
+    [self.window makeKeyAndVisible];
     return YES;
+
 }
 
 
