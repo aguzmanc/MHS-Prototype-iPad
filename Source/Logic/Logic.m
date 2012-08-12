@@ -13,4 +13,14 @@
     return self;
 }
 
+
+
+
+#pragma mark Public Methods
+
+-(void)switchToInitialization
+{
+    [_viewChangerDelegate switchToInitialization];
+}
+
 @end

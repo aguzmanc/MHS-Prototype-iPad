@@ -13,12 +13,14 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     [self.window makeKeyAndVisible];
     
+    // Setup Logic
+    _logic = [[Logic alloc] initWithViewChangerDelegate:self];
     // Setup all Views
-    _logic = [[Logic alloc] init];
+    _loginController = [[LoginController alloc] initWithLogic:_logic];
+    _initializationController = [[InitializationController alloc] init];
     _assignedInterviewsController = [[AssignedInterviewsController alloc] init];
     
     // Setup View at the beginning
-    _loginController = [[LoginController alloc] initWithNibName:@"LoginView" bundle:nil];
     self.window.rootViewController = _loginController;
     
     return YES;
@@ -76,10 +78,30 @@
 
 #pragma mark View Changer Delegate
 
--(void)switchToInitialization{}
--(void)switchToAssignedInterviews{}
--(void)switchToLogin{}
--(void)switchToInterview{}
+-(void)switchToInitialization
+{
+    self.window.rootViewController = _initializationController;
+}
+
+
+
+-(void)switchToAssignedInterviews
+{
+    
+}
+
+
+
+-(void)switchToLogin
+{
+}
+
+
+
+-(void)switchToInterview
+{
+    
+}
 
 
 

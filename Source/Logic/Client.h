@@ -1,13 +1,15 @@
-//
-//  Client.h
-//  MHS Prototype
-//
-//  Created by arn on 8/12/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
 @interface Client : NSObject
+{
+    NSString * _firstName;
+    NSString * _lastName;
+    NSDate * _lastVisitedDate;
+    NSString * _profileNumber;
+    int _age;
+    NSDate * _birthDate;
+    
+    NSArray * _interviews;
+}
 
 @end

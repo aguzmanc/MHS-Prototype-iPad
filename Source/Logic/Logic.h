@@ -13,6 +13,9 @@
 // Initialization
 -(id)initWithViewChangerDelegate:(id<ViewChangerDelegate>)viewChanger;
 
+// Public Methods
+-(void)switchToInitialization;
+
 @end
 
 

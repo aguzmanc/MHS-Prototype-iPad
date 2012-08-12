@@ -2,14 +2,32 @@
 
 @implementation LoginController
 
-- (id)init
+#pragma mark Initialization
+
+-(id)initWithLogic:(Logic *)logic
 {
     self = [super initWithNibName:@"LoginView" bundle:nil];
+    _logic = logic;
+    
     if (self) {
         // Custom initialization
     }
     return self;
 }
+
+
+
+
+
+
+#pragma mark Event Handlers
+
+-(IBAction)test
+{
+    [_logic switchToInitialization];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
