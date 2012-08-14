@@ -1,7 +1,7 @@
 #import "LoginController.h"
 
 @implementation LoginController
-
+@synthesize user, pass;
 #pragma mark Initialization
 
 -(id)initWithLogic:(Logic *)logic
@@ -27,6 +27,13 @@
     [_logic switchToInitialization];
 }
 
+
+-(IBAction)loginClick:(id)sender
+{
+
+    [_logic switchToInitialization];
+
+}
 
 
 - (void)didReceiveMemoryWarning
