@@ -27,6 +27,8 @@
 		16F2E8A715D6B079005031A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2E8A615D6B079005031A2 /* main.m */; };
 		16F2E8AE15D6B200005031A2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16F2E8AD15D6B200005031A2 /* ViewController.xib */; };
 		16F2E8B415D6B30C005031A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2E8B315D6B30C005031A2 /* ViewController.m */; };
+		B3A70D0415DB122B0050B674 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A70D0315DB122B0050B674 /* login.png */; };
+		B3A70D0715DB12450050B674 /* text-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A70D0615DB12450050B674 /* text-bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		16F2E8B215D6B30C005031A2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Source/Controllers/ViewController.h; sourceTree = "<group>"; };
 		16F2E8B315D6B30C005031A2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Source/Controllers/ViewController.m; sourceTree = "<group>"; };
 		16F2E8BE15D6B832005031A2 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Resources/PLists/InfoPlist.strings; sourceTree = "<group>"; };
+		B3A70D0315DB122B0050B674 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		B3A70D0615DB12450050B674 /* text-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-bg.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 		16F2E8A915D6B141005031A2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B3A70D0615DB12450050B674 /* text-bg.png */,
+				B3A70D0315DB122B0050B674 /* login.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -266,6 +272,8 @@
 				163AC9EA15D755BC00B019CA /* InitializationView.xib in Resources */,
 				163AC9F615D757DD00B019CA /* LoginView.xib in Resources */,
 				16BE1C5F15D8053A0038A68B /* InterviewController.xib in Resources */,
+				B3A70D0415DB122B0050B674 /* login.png in Resources */,
+				B3A70D0715DB12450050B674 /* text-bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
