@@ -27,6 +27,8 @@
 		16F2E8A715D6B079005031A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2E8A615D6B079005031A2 /* main.m */; };
 		16F2E8AE15D6B200005031A2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16F2E8AD15D6B200005031A2 /* ViewController.xib */; };
 		16F2E8B415D6B30C005031A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2E8B315D6B30C005031A2 /* ViewController.m */; };
+		B3906B3215DC437D0089D494 /* LoginUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B3906B3115DC437D0089D494 /* LoginUserService.m */; };
+		B3906B3915DC65AC0089D494 /* loading-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3906B3815DC65AC0089D494 /* loading-bg.png */; };
 		B396B90015DB3479007BED61 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B396B8F515DB3479007BED61 /* NSObject+SBJSON.m */; };
 		B396B90115DB3479007BED61 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B396B8F715DB3479007BED61 /* NSString+SBJSON.m */; };
 		B396B90215DB3479007BED61 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B396B8F915DB3479007BED61 /* SBJSON.m */; };
@@ -73,6 +75,9 @@
 		16F2E8B215D6B30C005031A2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Source/Controllers/ViewController.h; sourceTree = "<group>"; };
 		16F2E8B315D6B30C005031A2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Source/Controllers/ViewController.m; sourceTree = "<group>"; };
 		16F2E8BE15D6B832005031A2 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Resources/PLists/InfoPlist.strings; sourceTree = "<group>"; };
+		B3906B3015DC437D0089D494 /* LoginUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserService.h; path = Source/LoginUserService.h; sourceTree = "<group>"; };
+		B3906B3115DC437D0089D494 /* LoginUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUserService.m; path = Source/LoginUserService.m; sourceTree = "<group>"; };
+		B3906B3815DC65AC0089D494 /* loading-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading-bg.png"; sourceTree = "<group>"; };
 		B396B8F315DB3479007BED61 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		B396B8F415DB3479007BED61 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		B396B8F515DB3479007BED61 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -162,6 +167,7 @@
 		16F2E8A915D6B141005031A2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B3906B3815DC65AC0089D494 /* loading-bg.png */,
 				B3A70D0615DB12450050B674 /* text-bg.png */,
 				B3A70D0315DB122B0050B674 /* login.png */,
 			);
@@ -219,6 +225,8 @@
 		16F2E8B015D6B2B3005031A2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B3906B3015DC437D0089D494 /* LoginUserService.h */,
+				B3906B3115DC437D0089D494 /* LoginUserService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -314,6 +322,7 @@
 				16BE1C5F15D8053A0038A68B /* InterviewController.xib in Resources */,
 				B3A70D0415DB122B0050B674 /* login.png in Resources */,
 				B3A70D0715DB12450050B674 /* text-bg.png in Resources */,
+				B3906B3915DC65AC0089D494 /* loading-bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +350,7 @@
 				B396B90315DB3479007BED61 /* SBJsonBase.m in Sources */,
 				B396B90415DB3479007BED61 /* SBJsonParser.m in Sources */,
 				B396B90515DB3479007BED61 /* SBJsonWriter.m in Sources */,
+				B3906B3215DC437D0089D494 /* LoginUserService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

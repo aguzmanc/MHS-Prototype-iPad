@@ -4,7 +4,6 @@
 
 @synthesize window = _window;
 
-
 #pragma mark Event Handlers
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -94,6 +93,7 @@
 
 -(void)switchToLogin
 {
+    
 }
 
 

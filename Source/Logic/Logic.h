@@ -1,13 +1,17 @@
 #import <Foundation/Foundation.h>
 
-
+#import "LoginUserService.h"
 
 @protocol ViewChangerDelegate;
 
-@interface Logic : NSObject
+
+@interface Logic : NSObject <LoginUserServiceDelegate>
 {
     // delegates
     id<ViewChangerDelegate> _viewChangerDelegate;
+    
+    
+    LoginUserService * _loginUserService;
 }
 
 // Properties
@@ -17,10 +21,9 @@
 
 // Public Methods
 -(void)switchToInitialization;
+-(void)loginUser:(NSString *)user Pass:(NSString *)pass;
 
 @end
-
-
 
 
 

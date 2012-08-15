@@ -1,7 +1,7 @@
 #import "LoginController.h"
 
 @implementation LoginController
-@synthesize user, pass;
+
 #pragma mark Initialization
 
 -(id)initWithLogic:(Logic *)logic
@@ -22,17 +22,14 @@
 
 #pragma mark Event Handlers
 
--(IBAction)test
-{
-    [_logic switchToInitialization];
-}
-
-
 -(IBAction)loginClick:(id)sender
 {
-
-    [_logic switchToInitialization];
-
+    NSString * user = _user.text;
+    NSString * pass = _pass.text;
+    NSLog(@"%@-%@",user, pass);
+    
+    [_logic loginUser:user Pass:pass];    
+    
 }
 
 
@@ -40,9 +37,6 @@
 {
     [super didReceiveMemoryWarning];
 }
-
-
-
 
 
 
