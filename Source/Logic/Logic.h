@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 
+
+
 @protocol ViewChangerDelegate;
 
 @interface Logic : NSObject
