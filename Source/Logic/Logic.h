@@ -1,7 +1,5 @@
 /*
- 
- prueba gian
- */
+  modifique algo de la vista loading */
 
 #import <Foundation/Foundation.h>
 
