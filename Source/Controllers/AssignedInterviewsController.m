@@ -18,6 +18,40 @@
     return self;
 }
 
+
+#pragma mark Public Methods
+
+-(void)reloadTable
+{
+}
+
+
+#pragma mark - TableView Data Source Methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [tableData count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = nil;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    if (cell==nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    }
+    
+    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+    
+    return cell;
+    
+}
+
+
+
 - (void)didReceiveMemoryWarning
 {    
     [super didReceiveMemoryWarning];    
@@ -43,28 +77,6 @@
 	return YES;
 }
 
-#pragma mark - TableView Data Source Methods
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [tableData count];
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = nil;
-    
-    cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    
-    if (cell==nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-    }
-    
-    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
-    
-    return cell;
-
-}
 
 @end

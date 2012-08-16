@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 
 #import "LoginUserService.h"
+#import "Client.h"
+#import "Interview.h"
 
 @protocol ViewChangerDelegate;
 
@@ -10,11 +12,16 @@
     // delegates
     id<ViewChangerDelegate> _viewChangerDelegate;
     
-    
+    // Services
     LoginUserService * _loginUserService;
+    
+    // Logic data 
+    NSArray * _interviewList;
 }
 
 // Properties
+
+@property (strong, nonatomic) NSArray * interviewList;
 
 // Initialization
 -(id)initWithViewChangerDelegate:(id<ViewChangerDelegate>)viewChanger;
@@ -26,6 +33,7 @@
 -(void)switchToInterview;
 
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass;
+
 
 @end
 

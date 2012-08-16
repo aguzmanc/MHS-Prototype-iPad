@@ -2,6 +2,8 @@
 
 @implementation Logic
 
+@synthesize interviewList = _interviewList;
+
 
 #pragma mark Initialization
 
@@ -15,11 +17,17 @@
     return self;
 }
 
+
+
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass
 {
     NSLog(@"entro a loginc isloginuser");
     [_loginUserService loginUser:user Pass:pass];
 }
+
+
+
+
 
 
 #pragma mark Public Methods
@@ -29,10 +37,13 @@
     [_viewChangerDelegate switchToInitialization];
 }
 
+
+
 -(void)switchToLogin
 {
     [_viewChangerDelegate switchToLogin];
 }
+
 
 
 -(void)switchToAssignedInterviews

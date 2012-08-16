@@ -88,6 +88,7 @@
 -(void)switchToAssignedInterviews
 {
     self.window.rootViewController = _assignedInterviewsController;
+    [_assignedInterviewsController reloadTable];
 }
 
 
