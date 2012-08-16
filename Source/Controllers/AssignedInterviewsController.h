@@ -16,6 +16,9 @@
 // Initialization
 -(id)initWithLogic:(Logic *)logic;
 
+// Public Methods
+-(void)reloadTable;
+
 
 
 @end
