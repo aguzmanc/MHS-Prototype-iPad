@@ -29,6 +29,24 @@
     [_viewChangerDelegate switchToInitialization];
 }
 
+-(void)switchToLogin
+{
+    [_viewChangerDelegate switchToLogin];
+}
+
+
+-(void)switchToAssignedInterviews
+{
+    [_viewChangerDelegate switchToAssignedInterviews];
+}
+
+
+
+-(void)switchToInterview
+{
+    [_viewChangerDelegate switchToInterview];
+}
+
 
 #pragma mark LoginUserServiceDelegate
 

@@ -2,14 +2,22 @@
 
 @implementation InterviewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark Initialization
+
+-(id)initWithLogic:(Logic *)logic
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"LoginView" bundle:nil];
+    _logic = logic;
+    
     if (self) {
         // Custom initialization
     }
     return self;
 }
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

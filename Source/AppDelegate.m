@@ -18,9 +18,10 @@
     _loginController = [[LoginController alloc] initWithLogic:_logic];
     _initializationController = [[InitializationController alloc] initWithLogic:_logic];
     _assignedInterviewsController = [[AssignedInterviewsController alloc] initWithLogic:_logic];
+    _interviewController = [[InterviewController alloc] initWithLogic:_logic];
     
     // Setup View at the beginning
-    self.window.rootViewController = _assignedInterviewsController;
+    [_logic switchToAssignedInterviews];
     
     return YES;
 }
@@ -86,21 +87,21 @@
 
 -(void)switchToAssignedInterviews
 {
-    
+    self.window.rootViewController = _assignedInterviewsController;
 }
 
 
 
 -(void)switchToLogin
 {
-    
+    self.window.rootViewController = _loginController;
 }
 
 
 
 -(void)switchToInterview
 {
-    
+    self.window.rootViewController =  _interviewController;
 }
 
 

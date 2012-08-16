@@ -21,6 +21,10 @@
 
 // Public Methods
 -(void)switchToInitialization;
+-(void)switchToLogin;
+-(void)switchToAssignedInterviews;
+-(void)switchToInterview;
+
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass;
 
 @end
