@@ -2,9 +2,16 @@
 
 @implementation AssignedInterviewsController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+
+@synthesize tableData;
+
+#pragma mark Initialization
+
+- (id)initWithLogic:(Logic *)logic
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"AssignedInterviewsView" bundle:nil];
+    _logic = logic;
+    
     if (self) {
         // Custom initialization
     }
@@ -12,32 +19,52 @@
 }
 
 - (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+{    
+    [super didReceiveMemoryWarning];    
 }
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
+    tableData = [[ NSArray alloc] initWithObjects:@"", @"", @"", @"", @"", nil];
+            
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
+    
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
+{    
 	return YES;
+}
+
+#pragma mark - TableView Data Source Methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [tableData count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = nil;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    if (cell==nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    }
+    
+    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+    
+    return cell;
+
 }
 
 @end

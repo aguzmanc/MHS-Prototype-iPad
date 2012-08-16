@@ -30,7 +30,7 @@
 {
     
     // Build request URL with al parameters
-	NSString * requestURL = [NSString stringWithFormat:@"%@?user=%@&pass=%@", REGISTER_USER_SERVICE_REQUEST_PAGE, user, pass];
+	NSString * requestURL = [NSString stringWithFormat:@"%@?user=%@&pass=%@", LOGIN_USER_SERVICE_REQUEST_PAGE, user, pass];
 	
 	responseData = [[NSMutableData data] retain];
     

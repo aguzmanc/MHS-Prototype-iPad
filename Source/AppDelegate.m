@@ -16,11 +16,11 @@
     _logic = [[Logic alloc] initWithViewChangerDelegate:self];
     // Setup all Views
     _loginController = [[LoginController alloc] initWithLogic:_logic];
-    _initializationController = [[InitializationController alloc] init];
-    _assignedInterviewsController = [[AssignedInterviewsController alloc] init];
+    _initializationController = [[InitializationController alloc] initWithLogic:_logic];
+    _assignedInterviewsController = [[AssignedInterviewsController alloc] initWithLogic:_logic];
     
     // Setup View at the beginning
-    self.window.rootViewController = _loginController;
+    self.window.rootViewController = _assignedInterviewsController;
     
     return YES;
 }

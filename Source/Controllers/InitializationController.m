@@ -2,9 +2,13 @@
 
 @implementation InitializationController
 
-- (id)init
+#pragma mark Initialization
+
+- (id)initWithLogic:(Logic *)logic
 {
     self = [super initWithNibName:@"InitializationView" bundle:nil];
+    _logic = logic;
+    
     if (self) {
         // Custom initialization
     }
@@ -12,31 +16,24 @@
 }
 
 - (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+{    
+    [super didReceiveMemoryWarning];        
 }
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [super viewDidLoad];   
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
+{    
 	return YES;
 }
 
