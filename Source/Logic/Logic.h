@@ -6,19 +6,21 @@
 // Cambio marcelo
 
 #import "LoginUserService.h"
+#import "SizeUserService.h"
 #import "Client.h"
 #import "Interview.h"
 
 @protocol ViewChangerDelegate;
 
 
-@interface Logic : NSObject <LoginUserServiceDelegate>
+@interface Logic : NSObject <LoginUserServiceDelegate, SizeUserServiceDelegate>
 {
     // delegates
     id<ViewChangerDelegate> _viewChangerDelegate;
     
     // Services
     LoginUserService * _loginUserService;
+    SizeUserService  * _sizeUserService;
     
     // Logic data 
     NSArray * _interviewList;
@@ -38,6 +40,7 @@
 -(void)switchToInterview;
 
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass;
+-(void)userService:(NSString *)service UserId:(NSString *)userid;
 
 
 @end

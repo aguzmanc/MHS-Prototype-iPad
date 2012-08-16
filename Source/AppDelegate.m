@@ -21,7 +21,7 @@
     _interviewController = [[InterviewController alloc] initWithLogic:_logic];
     
     // Setup View at the beginning
-    [_logic switchToAssignedInterviews];
+    [_logic switchToInitialization];
     
     return YES;
 }

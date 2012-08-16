@@ -13,6 +13,7 @@
     
     _viewChangerDelegate = viewChanger;
     _loginUserService = [[LoginUserService alloc] initWithDelegate:self];
+    _sizeUserService = [[SizeUserService alloc] initWithDelegate:self];
     
     return self;
 }
@@ -25,6 +26,13 @@
     [_loginUserService loginUser:user Pass:pass];
 }
 
+
+
+-(void)userService:(NSString *)service UserId:(NSString *)userid
+{
+    NSLog(@"entro a size ");
+    [_sizeUserService userService:service UserId:userid];
+}
 
 
 
@@ -74,5 +82,19 @@
     }    
 }
 
+
+
+#pragma mark SizeUserServiceDelegate
+-(void)sizeStatus:(BOOL)status AndMessage:(NSString *)message
+{
+	if (status == YES) 
+	{
+		NSLog(@"status yes en size%@",message);
+	}
+	else
+    {
+        NSLog(@"status no en size");        
+    }    
+}
 
 @end

@@ -27,6 +27,7 @@
 		16F2E8A715D6B079005031A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2E8A615D6B079005031A2 /* main.m */; };
 		16F2E8AE15D6B200005031A2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16F2E8AD15D6B200005031A2 /* ViewController.xib */; };
 		16F2E8B415D6B30C005031A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2E8B315D6B30C005031A2 /* ViewController.m */; };
+		B3512C7315DD4D08005DC0E2 /* SizeUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B3512C7215DD4D08005DC0E2 /* SizeUserService.m */; };
 		B3906B3215DC437D0089D494 /* LoginUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B3906B3115DC437D0089D494 /* LoginUserService.m */; };
 		B3906B3915DC65AC0089D494 /* loading-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3906B3815DC65AC0089D494 /* loading-bg.png */; };
 		B396B90015DB3479007BED61 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B396B8F515DB3479007BED61 /* NSObject+SBJSON.m */; };
@@ -78,6 +79,8 @@
 		16F2E8B215D6B30C005031A2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Source/Controllers/ViewController.h; sourceTree = "<group>"; };
 		16F2E8B315D6B30C005031A2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Source/Controllers/ViewController.m; sourceTree = "<group>"; };
 		16F2E8BE15D6B832005031A2 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Resources/PLists/InfoPlist.strings; sourceTree = "<group>"; };
+		B3512C7115DD4D08005DC0E2 /* SizeUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizeUserService.h; sourceTree = "<group>"; };
+		B3512C7215DD4D08005DC0E2 /* SizeUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizeUserService.m; sourceTree = "<group>"; };
 		B3906B3015DC437D0089D494 /* LoginUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserService.h; path = Source/LoginUserService.h; sourceTree = "<group>"; };
 		B3906B3115DC437D0089D494 /* LoginUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUserService.m; path = Source/LoginUserService.m; sourceTree = "<group>"; };
 		B3906B3815DC65AC0089D494 /* loading-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading-bg.png"; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 			children = (
 				B3906B3015DC437D0089D494 /* LoginUserService.h */,
 				B3906B3115DC437D0089D494 /* LoginUserService.m */,
+				B3512C7115DD4D08005DC0E2 /* SizeUserService.h */,
+				B3512C7215DD4D08005DC0E2 /* SizeUserService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 				B396B90515DB3479007BED61 /* SBJsonWriter.m in Sources */,
 				B3906B3215DC437D0089D494 /* LoginUserService.m in Sources */,
 				B397D2A915DC9C840054AE92 /* InterviewTableController.m in Sources */,
+				B3512C7315DD4D08005DC0E2 /* SizeUserService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,6 +2,7 @@
 
 @implementation InitializationController
 
+
 #pragma mark Initialization
 
 - (id)initWithLogic:(Logic *)logic
@@ -14,16 +15,31 @@
     }
     return self;
 }
+/*
+-(void)moreprogress
+{
+    _myprogressview.progress += 0.1 ;
+   
+    
+    NSString *theValue = [[NSString alloc]initWithFormat:@"%.0f %%",_myprogressview.progress * 100]; 
+    _mylabel.text = theValue;
 
-- (void)didReceiveMemoryWarning
-{    
-    [super didReceiveMemoryWarning];        
 }
+*/
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
+    //aqui es donde recibe de loginview el user logeado
+    [_logic userService:@"interview_list" UserId:@"1"];  
+         
+    
     [super viewDidLoad];   
 }
 
