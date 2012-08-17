@@ -12,7 +12,6 @@
 
 @implementation SizeUserService
 
-
 #pragma mark Initialization
 
 -(id)initWithDelegate:(id<SizeUserServiceDelegate>)delegate
@@ -45,7 +44,11 @@
 {
 	NSHTTPURLResponse *HTTPresponse = (NSHTTPURLResponse *)response; 
 	NSInteger statusCode = [HTTPresponse statusCode]; 
-	if ( 404 == statusCode || 500 == statusCode ) {
+	
+    //totalbyte = response.expectedContentLength;
+   
+   // NSLog(@" total%@",totalbyte);
+    if ( 404 == statusCode || 500 == statusCode ) {
 		NSLog(@"Server Error - %@", [ NSHTTPURLResponse localizedStringForStatusCode: statusCode ]);
 	} else { 
 		[ responseData setLength:0 ];
@@ -57,6 +60,10 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
 {
 	[responseData appendData:data];
+             
+    recibidobyte  += [responseData length];  
+     NSLog(@" recibido%@",recibidobyte);
+   // [_delegate updateStatus:recibidobyte];
 }
 
 

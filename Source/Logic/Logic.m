@@ -97,4 +97,10 @@
     }    
 }
 
+-(void)updateStatus:(float)valor
+{
+    NSLog(@"status no en size %@:",valor);
+
+}
+
 @end

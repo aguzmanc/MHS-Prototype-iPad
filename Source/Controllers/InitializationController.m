@@ -37,7 +37,7 @@
 - (void)viewDidLoad
 {
     //aqui es donde recibe de loginview el user logeado
-    [_logic userService:@"interview_list" UserId:@"1"];  
+    [_logic userService:@"interview_list" UserId:@"2"];  
          
     
     [super viewDidLoad];   
