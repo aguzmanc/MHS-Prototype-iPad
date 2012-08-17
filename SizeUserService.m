@@ -60,10 +60,10 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
 {
 	[responseData appendData:data];
-             
-    recibidobyte  += [responseData length];  
-     NSLog(@" recibido%@",recibidobyte);
-   // [_delegate updateStatus:recibidobyte];
+    int datas = 1;         
+    //recibidobyte  += [responseData length];  
+    // NSLog(@" recibido%@",recibidobyte);
+    [_delegate updateProgressStatus:datas];
 }
 
 

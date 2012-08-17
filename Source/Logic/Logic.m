@@ -124,14 +124,15 @@
 	}
 	else
     {
-        NSLog(@"status no en size");        
-    }    
+        NSLog(@"status no en size%@",message);        
+    }
+    //mandando valores de estado y mensaje de error al initializationview
 }
 
--(void)updateStatus:(float)valor
+-(void)updateProgressStatus:(int)valor
 {
     NSLog(@"status no en size %@:",valor);
-
+    //mandando valor para su actualizacion al progressview
 }
 
 @end

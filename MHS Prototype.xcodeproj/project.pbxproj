@@ -247,12 +247,12 @@
 		16F2E8A915D6B141005031A2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				16DBEB3115DD92010005559F /* WeekdayButtons */,
 				16DBEB6715DDD8610005559F /* default_photo.png */,
 				16DBEB6515DDC6B10005559F /* tick.png */,
 				16DBEB6315DDC1AF0005559F /* btn_image.png */,
 				16DBEB6115DDC0370005559F /* photo_border.png */,
 				16DBEB5215DD95850005559F /* logo_watermark.png */,
-				16DBEB3115DD92010005559F /* WeekdayButtons */,
 				16DBEB2F15DD91AE0005559F /* header_interviews.png */,
 				B3906B3815DC65AC0089D494 /* loading-bg.png */,
 				B3A70D0615DB12450050B674 /* text-bg.png */,

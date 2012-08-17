@@ -26,10 +26,6 @@
 
 }
 */
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
 
 
 #pragma mark - View lifecycle
@@ -37,8 +33,7 @@
 - (void)viewDidLoad
 {
     //aqui es donde recibe de loginview el user logeado
-    [_logic userService:@"interview_list" UserId:@"2"];  
-         
+    [_logic userService:@"interview_list" UserId:@"2"];          
     
     [super viewDidLoad];   
 }
