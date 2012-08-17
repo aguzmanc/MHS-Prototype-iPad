@@ -15,6 +15,9 @@
     _loginUserService = [[LoginUserService alloc] initWithDelegate:self];
     _sizeUserService = [[SizeUserService alloc] initWithDelegate:self];
     
+    // init cache of images
+	_userImageCache = [[NSMutableDictionary alloc] init];
+    
     return self;
 }
 
@@ -65,6 +68,34 @@
 {
     [_viewChangerDelegate switchToInterview];
 }
+
+
+
+-(void)obtainImageForProfileNumber:(NSString *)profileNumber
+{
+	// Delegates Receiver for async event
+	//GetFacebookUserPhotoService * service = [[GetFacebookUserPhotoService alloc] initWithImageReceiverDelegate:self];
+	
+	//[service obtainImageForIdentifier:identifier];
+}
+
+
+
+-(bool)existsImageForProfileNumber:(NSString *)profileNumber
+{
+	return ([[_userImageCache allKeys] containsObject:profileNumber] == YES);
+}
+
+
+
+-(UIImage *)getImageForProfileNumber:(NSString *)profileNumber;
+{
+	return [_userImageCache objectForKey:profileNumber];
+}
+
+
+
+
 
 
 #pragma mark LoginUserServiceDelegate

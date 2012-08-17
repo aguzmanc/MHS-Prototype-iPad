@@ -2,14 +2,19 @@
 
 @interface Client : NSObject
 {
-    NSString * _firstName;
-    NSString * _lastName;
-    NSDate * _lastVisitedDate;
     NSString * _profileNumber;
-    int _age;
-    NSDate * _birthDate;
-    
-    NSArray * _interviews;
+    NSString * _firstName;
+    NSString * _middleName;
+    NSString * _lastName;
+    NSString * _info;
+    NSDate * _lastVisitDate;
 }
+
+@property (strong, nonatomic) NSString * profileNumber;
+@property (strong, nonatomic) NSString * firstName;
+@property (strong, nonatomic) NSString * middleName;
+@property (strong, nonatomic) NSString * lastName;
+@property (strong, nonatomic) NSString * info;
+@property (strong, nonatomic) NSDate * lastVisitDate;
 
 @end

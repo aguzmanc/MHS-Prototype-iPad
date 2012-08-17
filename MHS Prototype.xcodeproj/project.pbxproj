@@ -38,6 +38,12 @@
 		16DBEB5015DD92C90005559F /* wed_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DBEB4015DD92C90005559F /* wed_selected.png */; };
 		16DBEB5115DD92C90005559F /* wed_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DBEB4115DD92C90005559F /* wed_unselected.png */; };
 		16DBEB5315DD95850005559F /* logo_watermark.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DBEB5215DD95850005559F /* logo_watermark.png */; };
+		16DBEB5D15DDBAA30005559F /* InterviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DBEB5C15DDBAA20005559F /* InterviewCell.m */; };
+		16DBEB6015DDBCC90005559F /* InterviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DBEB5F15DDBCC90005559F /* InterviewCell.xib */; };
+		16DBEB6215DDC0370005559F /* photo_border.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DBEB6115DDC0370005559F /* photo_border.png */; };
+		16DBEB6415DDC1AF0005559F /* btn_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DBEB6315DDC1AF0005559F /* btn_image.png */; };
+		16DBEB6615DDC6B10005559F /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DBEB6515DDC6B10005559F /* tick.png */; };
+		16DBEB6815DDD8610005559F /* default_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DBEB6715DDD8610005559F /* default_photo.png */; };
 		16F2E87B15D6AD1D005031A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F2E87A15D6AD1D005031A2 /* UIKit.framework */; };
 		16F2E87D15D6AD1D005031A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F2E87C15D6AD1D005031A2 /* Foundation.framework */; };
 		16F2E87F15D6AD1D005031A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F2E87E15D6AD1D005031A2 /* CoreGraphics.framework */; };
@@ -102,6 +108,13 @@
 		16DBEB4015DD92C90005559F /* wed_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wed_selected.png; path = Resources/Images/WeekdayButtons/wed_selected.png; sourceTree = "<group>"; };
 		16DBEB4115DD92C90005559F /* wed_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wed_unselected.png; path = Resources/Images/WeekdayButtons/wed_unselected.png; sourceTree = "<group>"; };
 		16DBEB5215DD95850005559F /* logo_watermark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_watermark.png; path = Resources/Images/logo_watermark.png; sourceTree = "<group>"; };
+		16DBEB5B15DDBAA00005559F /* InterviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InterviewCell.h; path = Source/Controllers/InterviewCell.h; sourceTree = "<group>"; };
+		16DBEB5C15DDBAA20005559F /* InterviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InterviewCell.m; path = Source/Controllers/InterviewCell.m; sourceTree = "<group>"; };
+		16DBEB5F15DDBCC90005559F /* InterviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InterviewCell.xib; path = Resources/Views/InterviewCell.xib; sourceTree = "<group>"; };
+		16DBEB6115DDC0370005559F /* photo_border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = photo_border.png; path = Resources/Images/photo_border.png; sourceTree = "<group>"; };
+		16DBEB6315DDC1AF0005559F /* btn_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_image.png; path = Resources/Images/btn_image.png; sourceTree = "<group>"; };
+		16DBEB6515DDC6B10005559F /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tick.png; path = Resources/Images/tick.png; sourceTree = "<group>"; };
+		16DBEB6715DDD8610005559F /* default_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_photo.png; path = Resources/Images/default_photo.png; sourceTree = "<group>"; };
 		16F2E87615D6AD1D005031A2 /* MHS Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MHS Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F2E87A15D6AD1D005031A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		16F2E87C15D6AD1D005031A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -234,6 +247,10 @@
 		16F2E8A915D6B141005031A2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				16DBEB6715DDD8610005559F /* default_photo.png */,
+				16DBEB6515DDC6B10005559F /* tick.png */,
+				16DBEB6315DDC1AF0005559F /* btn_image.png */,
+				16DBEB6115DDC0370005559F /* photo_border.png */,
 				16DBEB5215DD95850005559F /* logo_watermark.png */,
 				16DBEB3115DD92010005559F /* WeekdayButtons */,
 				16DBEB2F15DD91AE0005559F /* header_interviews.png */,
@@ -270,6 +287,7 @@
 				163AC9DA15D7549100B019CA /* AssignedInterviewsView.xib */,
 				16F2E8AD15D6B200005031A2 /* ViewController.xib */,
 				B397D2AC15DCA48C0054AE92 /* InterviewTableView.xib */,
+				16DBEB5F15DDBCC90005559F /* InterviewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -291,6 +309,8 @@
 				16BE1C5A15D805090038A68B /* InterviewController.m */,
 				B397D2A715DC9C830054AE92 /* InterviewTableController.h */,
 				B397D2A815DC9C830054AE92 /* InterviewTableController.m */,
+				16DBEB5B15DDBAA00005559F /* InterviewCell.h */,
+				16DBEB5C15DDBAA20005559F /* InterviewCell.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -417,6 +437,11 @@
 				16DBEB5015DD92C90005559F /* wed_selected.png in Resources */,
 				16DBEB5115DD92C90005559F /* wed_unselected.png in Resources */,
 				16DBEB5315DD95850005559F /* logo_watermark.png in Resources */,
+				16DBEB6015DDBCC90005559F /* InterviewCell.xib in Resources */,
+				16DBEB6215DDC0370005559F /* photo_border.png in Resources */,
+				16DBEB6415DDC1AF0005559F /* btn_image.png in Resources */,
+				16DBEB6615DDC6B10005559F /* tick.png in Resources */,
+				16DBEB6815DDD8610005559F /* default_photo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +472,7 @@
 				B3906B3215DC437D0089D494 /* LoginUserService.m in Sources */,
 				B397D2A915DC9C840054AE92 /* InterviewTableController.m in Sources */,
 				B3512C7315DD4D08005DC0E2 /* SizeUserService.m in Sources */,
+				16DBEB5D15DDBAA30005559F /* InterviewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

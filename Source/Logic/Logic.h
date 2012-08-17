@@ -1,9 +1,4 @@
-/*
-  modifique algo de la vista loading */
-
 #import <Foundation/Foundation.h>
-
-// Cambio marcelo
 
 #import "LoginUserService.h"
 #import "SizeUserService.h"
@@ -24,6 +19,7 @@
     
     // Logic data 
     NSArray * _interviewList;
+    NSMutableDictionary * _userImageCache;
 }
 
 // Properties
@@ -38,6 +34,10 @@
 -(void)switchToLogin;
 -(void)switchToAssignedInterviews;
 -(void)switchToInterview;
+
+-(bool)existsImageForProfileNumber:(NSString *)profileNumber;
+-(UIImage *)getImageForProfileNumber:(NSString *)profileNumber;
+-(void)obtainImageForProfileNumber:(NSString *)profileNumber;
 
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass;
 -(void)userService:(NSString *)service UserId:(NSString *)userid;
