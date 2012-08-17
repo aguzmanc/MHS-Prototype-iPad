@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1620AC1A15DE7D8F00B14271 /* PhotoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1620AC1915DE7D8F00B14271 /* PhotoService.m */; };
+		1620AC2815DEE5E700B14271 /* progress_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1620AC2715DEE5E600B14271 /* progress_bar.png */; };
 		163AC9D715D7545500B019CA /* AssignedInterviewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 163AC9D515D7545500B019CA /* AssignedInterviewsController.m */; };
 		163AC9DB15D7549100B019CA /* AssignedInterviewsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163AC9DA15D7549100B019CA /* AssignedInterviewsView.xib */; };
 		163AC9DF15D754DC00B019CA /* FinishInterviewDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 163AC9DD15D754DC00B019CA /* FinishInterviewDialog.m */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		1620AC1815DE7D8F00B14271 /* PhotoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoService.h; path = Source/Services/PhotoService.h; sourceTree = "<group>"; };
 		1620AC1915DE7D8F00B14271 /* PhotoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoService.m; path = Source/Services/PhotoService.m; sourceTree = "<group>"; };
+		1620AC2715DEE5E600B14271 /* progress_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = progress_bar.png; path = Resources/Images/progress_bar.png; sourceTree = "<group>"; };
 		163AC9D415D7545500B019CA /* AssignedInterviewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssignedInterviewsController.h; path = Source/Controllers/AssignedInterviewsController.h; sourceTree = "<group>"; };
 		163AC9D515D7545500B019CA /* AssignedInterviewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssignedInterviewsController.m; path = Source/Controllers/AssignedInterviewsController.m; sourceTree = "<group>"; };
 		163AC9DA15D7549100B019CA /* AssignedInterviewsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AssignedInterviewsView.xib; path = Resources/Views/AssignedInterviewsView.xib; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		16F2E8A915D6B141005031A2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1620AC2715DEE5E600B14271 /* progress_bar.png */,
 				16DBEB3115DD92010005559F /* WeekdayButtons */,
 				16DBEB6715DDD8610005559F /* default_photo.png */,
 				16DBEB6515DDC6B10005559F /* tick.png */,
@@ -447,6 +450,7 @@
 				16DBEB6415DDC1AF0005559F /* btn_image.png in Resources */,
 				16DBEB6615DDC6B10005559F /* tick.png in Resources */,
 				16DBEB6815DDD8610005559F /* default_photo.png in Resources */,
+				1620AC2815DEE5E700B14271 /* progress_bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

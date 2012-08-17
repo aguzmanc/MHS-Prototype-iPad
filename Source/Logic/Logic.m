@@ -100,6 +100,39 @@
 }
 
 
+-(Interview *)getDummyInterview
+{
+    // dummy data
+    Interview * interview = [[Interview alloc] init];
+    interview.interviewId = @"k2374";
+    interview.startTime = [NSDate date];
+    interview.endTime = [NSDate date];
+    interview.cost = 34.52;
+    interview.comment = @"Lorem Ipsum";
+    interview.visited = [NSDate date];
+    interview.client = [[Client alloc] init];
+    interview.client.middleName = @"AGC";
+    interview.client.info = @"Lorem Ipsum";
+    interview.client.lastVisitDate = [NSDate date];
+    
+    interview.visited = ((rand()%2) == 0);
+    
+    int clientIndex  = rand()%3;
+    
+    NSArray * names = [NSArray arrayWithObjects:@"Mauricio", @"Johan", @"Neil", nil];
+    NSArray * lastNames = [NSArray arrayWithObjects:@"Larrea S.", @"Munchen Fr.", @"Rodemberg", nil];
+    NSArray * profiles = [NSArray arrayWithObjects:@"UF-927-X", @"WS-221-C", @"IT-521-Q", nil];
+    NSArray * photos = [NSArray arrayWithObjects:@"photo1.jpg", @"photo2xdfasdfasd.jpg", @"photo3.jpg", nil];
+    
+    interview.client.firstName = [names objectAtIndex:clientIndex];
+    interview.client.lastName = [lastNames objectAtIndex:clientIndex];
+    interview.client.profileNumber = [profiles objectAtIndex:clientIndex];
+    interview.client.photoFileName = [photos objectAtIndex:clientIndex];
+    
+    return interview;
+}
+
+
 
 
 
@@ -152,6 +185,8 @@
 -(void)receiveImage:(UIImage *)image ForProfileNumber:(NSString *) profileNumber
 {
     [_assignedInterviewsDelegate updateImage:image forProfileNumber:profileNumber];
+    
+    [_userImageCache setObject:image forKey:profileNumber];
 }
 
 
@@ -159,6 +194,8 @@
 -(void)receiveImageErrorForProfileNumber:(NSString *)profileNumber
 {
     [_assignedInterviewsDelegate updateImage:_defaultImage forProfileNumber:profileNumber];
+    
+    [_userImageCache setObject:_defaultImage forKey:profileNumber];
 }
 
 @end

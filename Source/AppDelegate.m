@@ -28,7 +28,7 @@
     //[_logic switchToInitialization];
     [_logic switchToAssignedInterviews];
     // Setup View at the beginning
-    [_logic switchToInitialization];
+    //[_logic switchToInitialization];
     //[_logic switchToAssignedInterviews];
     
     return YES;

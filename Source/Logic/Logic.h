@@ -49,6 +49,8 @@
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass;
 -(void)userService:(NSString *)service UserId:(NSString *)userid;
 
+-(Interview *)getDummyInterview;
+
 @end
 
 
