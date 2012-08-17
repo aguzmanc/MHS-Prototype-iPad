@@ -3,7 +3,7 @@
 #import "Logic.h"
 #import "InterviewCell.h"
 
-@interface AssignedInterviewsController : UIViewController <UITableViewDataSource, UITableViewDataSource>
+@interface AssignedInterviewsController : UIViewController <UITableViewDataSource, UITableViewDataSource, AssignedInterviewsDelegate>
 {
     Logic * _logic;
     
@@ -18,16 +18,16 @@
     IBOutlet UIButton * _btnSat;
     IBOutlet UIButton * _btnSun;
     IBOutlet UIButton * _btnAll;
+    
+    NSMutableArray * _waitingCells;
 }
 
 
 @property (nonatomic, assign) NSArray *tableData;
 
-// Initialization
--(id)initWithLogic:(Logic *)logic;
-
 // Public Methods
 -(void)reloadTable;
+-(void)setLogic:(Logic *)logic;
 
 // Action Handlers
 -(IBAction)monClick;
@@ -42,3 +42,5 @@
 
 
 @end
+
+
