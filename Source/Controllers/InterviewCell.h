@@ -28,5 +28,8 @@
 -(void)waitForPhoto;
 -(void)applyData:(Interview *)interview;
 
+// Action Handlers
+-(IBAction)makeInterview:(id)sender;
+
 
 @end

@@ -45,6 +45,15 @@
 
 
 
+#pragma mark - Action Handlers
+
+-(IBAction)makeInterview:(id)sender
+{
+    [_logic makeInterview:_interview];
+}
+
+
+
 
 
 

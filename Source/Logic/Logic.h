@@ -25,6 +25,8 @@
     NSMutableDictionary * _userImageCache;
     NSMutableArray * _profileNumbersWaitingForPhoto;
     UIImage * _defaultImage;
+    
+    Interview * _selectedInterview;
 }
 
 // Properties
@@ -50,6 +52,8 @@
 -(void)userService:(NSString *)service UserId:(NSString *)userid;
 
 -(Interview *)getDummyInterview;
+
+-(void)makeInterview:(Interview *)interview;
 
 @end
 

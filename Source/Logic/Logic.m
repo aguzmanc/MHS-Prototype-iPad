@@ -134,6 +134,15 @@
 
 
 
+-(void)makeInterview:(Interview *)interview
+{
+    _selectedInterview = interview;
+    
+    [self switchToInterview];
+}
+
+
+
 
 
 
