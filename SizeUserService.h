@@ -1,12 +1,7 @@
-//
-//  SizeUserService.h
-//  MHS Prototype
-//
-//  Created by Giancarlo on 8/16/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
+
+#import "JSON.h"
+#import "Globals.h"
 
 @protocol SizeUserServiceDelegate;
 
@@ -16,9 +11,6 @@
 	NSMutableString * responseString;
     
 	id<SizeUserServiceDelegate> _delegate;
-    
-    //NSInteger * totalbyte;
-    //long long * recibidobyte; 
 	
 }
 

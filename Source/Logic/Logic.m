@@ -7,14 +7,20 @@
 #pragma mark - Initialization
 
 -(id)initWithViewChangerDelegate:(id<ViewChangerDelegate>)viewChanger
+            andLoginUserDelegate:(id<LoginUserDelegate>)loginUsers
    andAssignedInterviewsDelegate:(id<AssignedInterviewsDelegate>)assignedInterviews
 {
     self = [super init];
     
     _viewChangerDelegate = viewChanger;
     _assignedInterviewsDelegate = assignedInterviews;
+    _loginUserDelegate = loginUsers;
+    
     _loginUserService = [[LoginUserService alloc] initWithDelegate:self];
     _sizeUserService = [[SizeUserService alloc] initWithDelegate:self];
+    
+    
+    [_loginUserDelegate setLogic:self];
     
     // init cache of images
 	_userImageCache = [[NSMutableDictionary alloc] init];
@@ -28,7 +34,7 @@
 
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass
 {
-    NSLog(@"entro a loginc isloginuser");
+    NSLog(@"Entramos a la logica para pasarle al servicio");
     [_loginUserService loginUser:user Pass:pass];
 }
 
@@ -152,16 +158,16 @@
 {
 	if (status == YES) 
 	{
-		NSLog(@" estusu yes");
+		        
+        NSLog(@" Entro con YES: con id usuario");
         [_viewChangerDelegate switchToInitialization];
 	}
 	else
     {
-        NSLog(@" estusu no");        
+        NSLog(@" estusu no");
+        [_loginUserDelegate loginError:message];
     }    
 }
-
-
 
 #pragma mark - SizeUserServiceDelegate
 
@@ -179,15 +185,21 @@
 }
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> f724a8b773fa21bf1ef1eddf148c2396c4be6ae3
 -(void)updateProgressStatus:(int)valor
 {
     NSLog(@"status no en size %@:",valor);
     //mandando valor para su actualizacion al progressview
 }
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> f724a8b773fa21bf1ef1eddf148c2396c4be6ae3
 
 #pragma mark - AsyncProfileImageReceiverDelegate
 
@@ -203,8 +215,11 @@
 -(void)receiveImageErrorForProfileNumber:(NSString *)profileNumber
 {
     [_assignedInterviewsDelegate updateImage:_defaultImage forProfileNumber:profileNumber];
+<<<<<<< HEAD
+=======
     
     [_userImageCache setObject:_defaultImage forKey:profileNumber];
+>>>>>>> f724a8b773fa21bf1ef1eddf148c2396c4be6ae3
 }
 
 @end
