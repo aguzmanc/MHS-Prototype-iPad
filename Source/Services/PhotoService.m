@@ -11,6 +11,7 @@
 	
 	_delegate = delegate;
     _profileNumber = profileNumber;
+    _errorInTransfer = false;
 	
 	return self;
 }
@@ -37,7 +38,7 @@
 	if ( 404 == statusCode || 500 == statusCode ) {
 		NSLog(@"Server Error - %@", [ NSHTTPURLResponse localizedStringForStatusCode: statusCode ]);
         
-        [_delegate receiveImageErrorForProfileNumber:_profileNumber];
+        _errorInTransfer = true;
 	} else { 
 		[ _responseData setLength:0 ];
 	}
@@ -55,8 +56,9 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error 
 {	
 	NSLog(@"%@",[NSString stringWithFormat:@"Connection failed: %@", [error description]]);
+    _errorInTransfer = true;
     
-    [_delegate receiveImageErrorForProfileNumber:_profileNumber];
+    //[_delegate receiveImageErrorForProfileNumber:_profileNumber];
 }
 
 
@@ -67,7 +69,10 @@
 	
 	UIImage * image = [UIImage imageWithData:_responseData];
     
-    [_delegate receiveImage:image ForProfileNumber:_profileNumber];
+    if(_errorInTransfer)
+        [_delegate receiveImageErrorForProfileNumber:_profileNumber];
+    else
+        [_delegate receiveImage:image ForProfileNumber:_profileNumber];
 }
 
 

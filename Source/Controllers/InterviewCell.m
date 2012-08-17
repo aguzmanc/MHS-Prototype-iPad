@@ -36,6 +36,11 @@
 	_lblLastVisited.text = [format stringFromDate:interview.client.lastVisitDate];
     
     _imgTick.hidden = (interview.visited == false);
+    
+    if(interview.visited)
+        _btnAction.titleLabel.text = @"View";
+    else
+        _btnAction.titleLabel.text = @"Interview";
 }
 
 

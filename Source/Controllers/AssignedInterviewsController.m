@@ -209,21 +209,7 @@
 	// link cell with according identifier
 	//Interview * interview = [_logic getDesireForIndex:indexPath.row];
     
-    // dummy data
-    Interview * interview = [[Interview alloc] init];
-    interview.interviewId = @"k2374";
-    interview.startTime = [NSDate date];
-    interview.endTime = [NSDate date];
-    interview.cost = 34.52;
-    interview.comment = @"Lorem Ipsum";
-    interview.visited = [NSDate date];
-    interview.client = [[Client alloc] init];
-    interview.client.profileNumber = @"009-XXX";
-    interview.client.firstName = @"Mauricio";
-    interview.client.lastName = @"Larrea S.";
-    interview.client.middleName = @"AGC";
-    interview.client.info = @"Lorem Ipsum";
-    interview.client.lastVisitDate = [NSDate date];
+    Interview * interview = [_logic getDummyInterview];
 	
 	// Apply data to Interview Cell View
 	[cell applyData:interview];

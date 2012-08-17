@@ -9,6 +9,7 @@
     id<AsyncProfileImageReceiverDelegate> _delegate;
     
     NSString * _profileNumber;
+    bool _errorInTransfer;
     
     NSMutableData * _responseData;
 }

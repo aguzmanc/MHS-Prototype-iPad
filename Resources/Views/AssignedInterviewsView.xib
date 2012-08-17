@@ -283,7 +283,10 @@
 						<string key="NSFrame">{{113, 66}, {655, 918}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="IBUIBackgroundColor" ref="979610046"/>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC45Mjg1NzE0Mjg2IDAuMzkzNjM4NjU1NCAwLjUyNjExMTMxOTMgMAA</bytes>
+						</object>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<bool key="IBUIAlwaysBounceVertical">YES</bool>
