@@ -4,19 +4,22 @@
 
 @synthesize interviewList = _interviewList;
 
-
-#pragma mark Initialization
+#pragma mark - Initialization
 
 -(id)initWithViewChangerDelegate:(id<ViewChangerDelegate>)viewChanger
+   andAssignedInterviewsDelegate:(id<AssignedInterviewsDelegate>)assignedInterviews
 {
     self = [super init];
     
     _viewChangerDelegate = viewChanger;
+    _assignedInterviewsDelegate = assignedInterviews;
     _loginUserService = [[LoginUserService alloc] initWithDelegate:self];
     _sizeUserService = [[SizeUserService alloc] initWithDelegate:self];
     
     // init cache of images
 	_userImageCache = [[NSMutableDictionary alloc] init];
+    _profileNumbersWaitingForPhoto = [[NSMutableArray alloc] init];
+    _defaultImage = [UIImage imageNamed:@"default_photo.png"];
     
     return self;
 }
@@ -41,7 +44,7 @@
 
 
 
-#pragma mark Public Methods
+#pragma mark - Public Methods
 
 -(void)switchToInitialization
 {
@@ -71,12 +74,15 @@
 
 
 
--(void)obtainImageForProfileNumber:(NSString *)profileNumber
+-(void)obtainImageForProfileNumber:(NSString *)profileNumber withFileName:(NSString *)fileName;
 {
-	// Delegates Receiver for async event
-	//GetFacebookUserPhotoService * service = [[GetFacebookUserPhotoService alloc] initWithImageReceiverDelegate:self];
-	
-	//[service obtainImageForIdentifier:identifier];
+    if([_profileNumbersWaitingForPhoto containsObject:profileNumber])
+        return ;  // another process already require the same profile number, so it is innecesary require it again
+    
+    [_profileNumbersWaitingForPhoto addObject:profileNumber]; // put in the waiting list
+    PhotoService * service = [[PhotoService alloc] initWithProfileImageReceiverDelegate:self andProfileNumber:profileNumber];
+    
+    [service obtainImageForFile:fileName];
 }
 
 
@@ -98,7 +104,7 @@
 
 
 
-#pragma mark LoginUserServiceDelegate
+#pragma mark - LoginUserServiceDelegate
 
 -(void)loginStatus:(BOOL)status AndMessage:(NSString *)message
 {
@@ -115,7 +121,8 @@
 
 
 
-#pragma mark SizeUserServiceDelegate
+#pragma mark - SizeUserServiceDelegate
+
 -(void)sizeStatus:(BOOL)status AndMessage:(NSString *)message
 {
 	if (status == YES) 
@@ -129,10 +136,26 @@
     //mandando valores de estado y mensaje de error al initializationview
 }
 
+<<<<<<< HEAD
 -(void)updateProgressStatus:(int)valor
 {
     NSLog(@"status no en size %@:",valor);
     //mandando valor para su actualizacion al progressview
+=======
+
+#pragma mark - AsyncProfileImageReceiverDelegate
+
+-(void)receiveImage:(UIImage *)image ForProfileNumber:(NSString *) profileNumber
+{
+    [_assignedInterviewsDelegate updateImage:image forProfileNumber:profileNumber];
+}
+
+
+
+-(void)receiveImageErrorForProfileNumber:(NSString *)profileNumber
+{
+    [_assignedInterviewsDelegate updateImage:_defaultImage forProfileNumber:profileNumber];
+>>>>>>> 3c167daf3a061d68374b1ff77241a9a16e0f696a
 }
 
 @end

@@ -7,10 +7,9 @@
 
 #pragma mark - Initialization
 
-- (id)initWithLogic:(Logic *)logic
+- (id)init
 {
     self = [super initWithNibName:@"AssignedInterviewsView" bundle:nil];
-    _logic = logic;
     
     if (!self) return nil;
     
@@ -35,6 +34,8 @@
                          [UIImage imageNamed:@"sat_unselected.png"],
                          [UIImage imageNamed:@"sun_unselected.png"],
                          nil];
+    
+     _waitingCells = [[NSMutableArray alloc] init];
         
     return self;
 }
@@ -50,6 +51,12 @@
 -(void)reloadTable
 {
 }
+
+-(void)setLogic:(Logic *)logic
+{
+    _logic = logic;
+}
+
 
 
 
@@ -156,11 +163,26 @@
 
 
 
+#pragma mark - Assigned Interviews Delegate
+
+-(void)updateImage:(UIImage *)image forProfileNumber:(NSString *)profileNumber
+{
+    for (InterviewCell * cell in _waitingCells) {
+        if([cell.interview.client.profileNumber isEqualToString:profileNumber])
+           [cell setImage:image];
+    }
+}
+
+
+
+
+
+
 #pragma mark - TableView Data Source Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-    return 3;
+    return 20;
 }
 
 
@@ -175,11 +197,15 @@
 		for (id obj in objs) {
 			if ([obj isKindOfClass:[InterviewCell class]]) {
 				cell = (InterviewCell *)obj;
+                                
 				break;
 			}
 		}
 	}
-	
+
+    // recycled cells, should not be in the state of 'waiting'
+    [_waitingCells removeObjectIdenticalTo:cell];
+    
 	// link cell with according identifier
 	//Interview * interview = [_logic getDesireForIndex:indexPath.row];
     
@@ -211,11 +237,26 @@
 		[cell setImage:[_logic getImageForProfileNumber:profileNumber]];
 	}
 	else {
+        [_waitingCells addObject:cell];
 		[cell waitForPhoto];
-		[_logic obtainImageForProfileNumber:profileNumber];
+        [_logic obtainImageForProfileNumber:profileNumber withFileName:interview.client.photoFileName];
 	}
 	
 	return cell;	
+}
+
+
+#pragma mark - Table View delegate
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return 133; // --- set height for rows of custom table view
+}
+
+// Customize the number of sections in the table view.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
+{
+    return 1; //--- set default 1 number of section because only had one section's
 }
 
 

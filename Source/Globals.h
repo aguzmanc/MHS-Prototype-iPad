@@ -5,6 +5,8 @@
 #define LOGIN_USER_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/login.php"
 #define SIZE_USER_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/size.php"
 
+#define PHOTO_DIRECTORY_URL @"http://www.quarksocial.net/mobile_health/photos/"
+
 #endif
 
 

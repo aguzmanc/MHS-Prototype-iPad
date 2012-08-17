@@ -6,6 +6,7 @@
 @synthesize firstName = _firstName;
 @synthesize lastName = _lastName;
 @synthesize middleName = _middleName;
+@synthesize photoFileName = _photoFileName;
 @synthesize info = _info;
 @synthesize lastVisitDate = _lastVisitDate;
 

@@ -21,6 +21,7 @@
 
 // Properties
 @property (strong, nonatomic) Logic * logic;
+@property (strong, nonatomic) Interview * interview;
 
 // Public Methods
 -(void)setImage:(UIImage *)img;

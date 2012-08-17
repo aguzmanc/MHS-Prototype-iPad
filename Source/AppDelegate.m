@@ -12,14 +12,21 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     [self.window makeKeyAndVisible];
     
-    // Setup Logic
-    _logic = [[Logic alloc] initWithViewChangerDelegate:self];
-    // Setup all Views
+    // Setup Controllers first
     _loginController = [[LoginController alloc] initWithLogic:_logic];
     _initializationController = [[InitializationController alloc] initWithLogic:_logic];
-    _assignedInterviewsController = [[AssignedInterviewsController alloc] initWithLogic:_logic];
+    _assignedInterviewsController = [[AssignedInterviewsController alloc] init];
     _interviewController = [[InterviewController alloc] initWithLogic:_logic];
     
+    // Setup Logic
+    _logic = [[Logic alloc] initWithViewChangerDelegate:self 
+                          andAssignedInterviewsDelegate:_assignedInterviewsController];
+    
+    // Assign Logic to all Controllers
+    [_assignedInterviewsController setLogic:_logic];
+    
+    //[_logic switchToInitialization];
+    [_logic switchToAssignedInterviews];
     // Setup View at the beginning
     [_logic switchToInitialization];
     //[_logic switchToAssignedInterviews];

@@ -3,6 +3,7 @@
 @implementation InterviewCell
 
 @synthesize logic = _logic;
+@synthesize interview = _interview;
 
 
 #pragma Mark - Public Methods
