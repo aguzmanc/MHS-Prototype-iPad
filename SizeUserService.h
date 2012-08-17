@@ -16,6 +16,9 @@
 	NSMutableString * responseString;
     
 	id<SizeUserServiceDelegate> _delegate;
+    
+    NSInteger * totalbyte;
+    long long * recibidobyte; 
 	
 }
 
@@ -33,5 +36,6 @@
 @protocol SizeUserServiceDelegate
 
 -(void)sizeStatus:(BOOL)status AndMessage:(NSString *)message;
+-(void)updateStatus:(float)valor;
 
 @end
