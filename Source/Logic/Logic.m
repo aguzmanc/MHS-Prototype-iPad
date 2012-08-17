@@ -136,12 +136,16 @@
     //mandando valores de estado y mensaje de error al initializationview
 }
 
-<<<<<<< HEAD
+
+
 -(void)updateProgressStatus:(int)valor
 {
     NSLog(@"status no en size %@:",valor);
     //mandando valor para su actualizacion al progressview
-=======
+}
+
+
+
 
 #pragma mark - AsyncProfileImageReceiverDelegate
 
@@ -155,7 +159,6 @@
 -(void)receiveImageErrorForProfileNumber:(NSString *)profileNumber
 {
     [_assignedInterviewsDelegate updateImage:_defaultImage forProfileNumber:profileNumber];
->>>>>>> 3c167daf3a061d68374b1ff77241a9a16e0f696a
 }
 
 @end
