@@ -4,17 +4,20 @@
 
 #pragma mark Initialization
 
--(id)initWithLogic:(Logic *)logic
+-(id)init
 {
     self = [super initWithNibName:@"LoginView" bundle:nil];
-    _logic = logic;
-    
-    if (self) {
-        // Custom initialization
-    }
+        
+    if (!self) return nil;
+
     return self;
 }
 
+
+-(void)setLogic:(Logic *)logic
+{
+    _logic = logic;
+}
 
 #pragma mark Event Handlers
 
@@ -22,24 +25,24 @@
 {
     NSString * user = _user.text;
     NSString * pass = _pass.text;
-    NSLog(@"%@-%@",user, pass);
-    
+    NSLog(@"Hacemos click en login: %@-%@",user, pass);    
     [_logic loginUser:user Pass:pass];    
     
 }
 
-
-- (void)didReceiveMemoryWarning
+#pragma mark - Login Users Delegate
+-(void)loginError:(NSString *)message
 {
-    [super didReceiveMemoryWarning];
+    NSLog(@"entro con  el mensaje Error:%@", message);
+    _error.hidden = FALSE;    
 }
-
 
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
 }
 

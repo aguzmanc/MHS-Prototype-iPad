@@ -8,12 +8,14 @@
 
 @protocol ViewChangerDelegate;
 @protocol AssignedInterviewsDelegate;
+@protocol LoginUserDelegate;
 
 
 @interface Logic : NSObject <LoginUserServiceDelegate, SizeUserServiceDelegate, AsyncProfileImageReceiverDelegate>
 {
     // delegates
     id<ViewChangerDelegate> _viewChangerDelegate;
+    id<LoginUserDelegate> _loginUserDelegate;
     id<AssignedInterviewsDelegate> _assignedInterviewsDelegate;
     
     // Services
@@ -33,6 +35,7 @@
 
 // Initialization
 -(id)initWithViewChangerDelegate:(id<ViewChangerDelegate>)viewChanger
+            andLoginUserDelegate:(id<LoginUserDelegate>)loginUsers
    andAssignedInterviewsDelegate:(id<AssignedInterviewsDelegate>)assignedInterviews;
 
 // Public Methods
@@ -67,6 +70,16 @@
 
 @end
 
+
+/*
+ *  LOGIN DELEGATE
+ */
+@protocol LoginUserDelegate
+
+-(void)setLogic:(Logic *)logic;
+-(void)loginError:(NSString *)message;
+
+@end
 
 
 /*

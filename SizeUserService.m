@@ -7,8 +7,7 @@
 //
 
 #import "SizeUserService.h"
-#import "JSON.h"
-#import "Globals.h"
+
 
 @implementation SizeUserService
 

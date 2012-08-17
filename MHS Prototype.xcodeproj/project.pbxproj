@@ -52,6 +52,8 @@
 		16F2E8A715D6B079005031A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2E8A615D6B079005031A2 /* main.m */; };
 		16F2E8AE15D6B200005031A2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16F2E8AD15D6B200005031A2 /* ViewController.xib */; };
 		16F2E8B415D6B30C005031A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2E8B315D6B30C005031A2 /* ViewController.m */; };
+		B32DA38415DEB843000DD9E9 /* ClientService.m in Sources */ = {isa = PBXBuildFile; fileRef = B32DA38315DEB843000DD9E9 /* ClientService.m */; };
+		B32DA38815DEB865000DD9E9 /* InterviewService.m in Sources */ = {isa = PBXBuildFile; fileRef = B32DA38715DEB865000DD9E9 /* InterviewService.m */; };
 		B3512C7315DD4D08005DC0E2 /* SizeUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B3512C7215DD4D08005DC0E2 /* SizeUserService.m */; };
 		B3906B3215DC437D0089D494 /* LoginUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B3906B3115DC437D0089D494 /* LoginUserService.m */; };
 		B3906B3915DC65AC0089D494 /* loading-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3906B3815DC65AC0089D494 /* loading-bg.png */; };
@@ -130,6 +132,10 @@
 		16F2E8B215D6B30C005031A2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Source/Controllers/ViewController.h; sourceTree = "<group>"; };
 		16F2E8B315D6B30C005031A2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Source/Controllers/ViewController.m; sourceTree = "<group>"; };
 		16F2E8BE15D6B832005031A2 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Resources/PLists/InfoPlist.strings; sourceTree = "<group>"; };
+		B32DA38215DEB843000DD9E9 /* ClientService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClientService.h; path = Source/Services/ClientService.h; sourceTree = "<group>"; };
+		B32DA38315DEB843000DD9E9 /* ClientService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClientService.m; path = Source/Services/ClientService.m; sourceTree = "<group>"; };
+		B32DA38615DEB865000DD9E9 /* InterviewService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InterviewService.h; path = Source/Services/InterviewService.h; sourceTree = "<group>"; };
+		B32DA38715DEB865000DD9E9 /* InterviewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InterviewService.m; path = Source/Services/InterviewService.m; sourceTree = "<group>"; };
 		B3512C7115DD4D08005DC0E2 /* SizeUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizeUserService.h; sourceTree = "<group>"; };
 		B3512C7215DD4D08005DC0E2 /* SizeUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizeUserService.m; sourceTree = "<group>"; };
 		B3906B3015DC437D0089D494 /* LoginUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserService.h; path = Source/LoginUserService.h; sourceTree = "<group>"; };
@@ -323,10 +329,14 @@
 			children = (
 				B3906B3015DC437D0089D494 /* LoginUserService.h */,
 				B3906B3115DC437D0089D494 /* LoginUserService.m */,
-				B3512C7115DD4D08005DC0E2 /* SizeUserService.h */,
-				B3512C7215DD4D08005DC0E2 /* SizeUserService.m */,
 				1620AC1815DE7D8F00B14271 /* PhotoService.h */,
 				1620AC1915DE7D8F00B14271 /* PhotoService.m */,
+				B3512C7115DD4D08005DC0E2 /* SizeUserService.h */,
+				B3512C7215DD4D08005DC0E2 /* SizeUserService.m */,
+				B32DA38215DEB843000DD9E9 /* ClientService.h */,
+				B32DA38315DEB843000DD9E9 /* ClientService.m */,
+				B32DA38615DEB865000DD9E9 /* InterviewService.h */,
+				B32DA38715DEB865000DD9E9 /* InterviewService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -479,6 +489,8 @@
 				B3512C7315DD4D08005DC0E2 /* SizeUserService.m in Sources */,
 				16DBEB5D15DDBAA30005559F /* InterviewCell.m in Sources */,
 				1620AC1A15DE7D8F00B14271 /* PhotoService.m in Sources */,
+				B32DA38415DEB843000DD9E9 /* ClientService.m in Sources */,
+				B32DA38815DEB865000DD9E9 /* InterviewService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,11 +1,3 @@
-//
-//  LoginUserService.h
-//  MHS Prototype
-//
-//  Created by Giancarlo on 8/15/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
 @protocol LoginUserServiceDelegate;
@@ -32,5 +24,6 @@
 @protocol LoginUserServiceDelegate
 
 -(void)loginStatus:(BOOL)status AndMessage:(NSString *)message;
+
 
 @end
