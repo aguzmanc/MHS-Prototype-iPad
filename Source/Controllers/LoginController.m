@@ -31,10 +31,16 @@
 }
 
 #pragma mark - Login Users Delegate
+
 -(void)loginError:(NSString *)message
 {
     NSLog(@"entro con  el mensaje Error:%@", message);
     _error.hidden = FALSE;    
+}
+
+-(void)errorLogin:(NSString *)message
+{
+    NSLog(@"Error de conexion:%@", message);
 }
 
 
@@ -47,12 +53,10 @@
 }
 
 
-
 - (void)viewDidUnload
 {
     [super viewDidUnload];
 }
-
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

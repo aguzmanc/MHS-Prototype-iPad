@@ -5,16 +5,14 @@
 
 #pragma mark Initialization
 
-- (id)initWithLogic:(Logic *)logic
+-(id)init
 {
     self = [super initWithNibName:@"InitializationView" bundle:nil];
-    _logic = logic;
+    if (!self) return nil;
     
-    if (self) {
-        // Custom initialization
-    }
     return self;
 }
+
 /*
 -(void)moreprogress
 {
@@ -28,12 +26,32 @@
 */
 
 
+-(void)setLogic:(Logic *)logic
+{
+    _logic = logic;
+}
+
+#pragma mark - Progress Delegate
+
+-(void)setTotal:(NSNumber *)total
+{
+    _total = total;
+    
+    NSLog(@" entro al mensaje total:%i",[total intValue]);
+}
+
+-(void)setIndex:(NSNumber *)index
+{    
+    _myprogressview.progress = [index floatValue]/[_total floatValue];
+    NSLog(@" entro al mensaje index:%i",[index intValue]);
+}
+
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
-    //aqui es donde recibe de loginview el user logeado
-    [_logic userService:@"interview_list" UserId:@"2"];          
+    //aqui es donde recibe de loginview el user logeado            
     
     [super viewDidLoad];   
 }

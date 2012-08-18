@@ -4,7 +4,7 @@
 #import "LoginController.h"
 #import "AssignedInterviewsController.h"
 #import "InitializationController.h"
-#import "InterviewController.h"
+//#import "InterviewController.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, ViewChangerDelegate>
@@ -13,7 +13,7 @@
     LoginController * _loginController;
     InitializationController * _initializationController;
     AssignedInterviewsController * _assignedInterviewsController;
-    InterviewController * _interviewController;
+  //  InterviewController * _interviewController;
     
     // Logic
     Logic * _logic;

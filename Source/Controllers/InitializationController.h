@@ -2,18 +2,17 @@
 
 #import "Logic.h"
 
-@interface InitializationController : UIViewController
+@interface InitializationController : UIViewController <InitializationDelegate>
 {
     Logic * _logic;
     IBOutlet UIProgressView * _myprogressview;
     IBOutlet UILabel * _mylabel;
-    
-    NSInteger sizeloading;
+    NSNumber * _index;
+    NSNumber * _total;     
 }
 
-
-// Initialization
--(id)initWithLogic:(Logic *)logic;
+//public method
+-(void)setLogic:(Logic *)logic;
 
 
 @end

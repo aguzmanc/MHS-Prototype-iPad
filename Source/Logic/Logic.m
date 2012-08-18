@@ -8,22 +8,23 @@
 
 -(id)initWithViewChangerDelegate:(id<ViewChangerDelegate>)viewChanger
             andLoginUserDelegate:(id<LoginUserDelegate>)loginUsers
+       andInitializationDelegate:(id<InitializationDelegate>)initialization
    andAssignedInterviewsDelegate:(id<AssignedInterviewsDelegate>)assignedInterviews
 {
     self = [super init];
     
     _viewChangerDelegate = viewChanger;
     _assignedInterviewsDelegate = assignedInterviews;
-    _loginUserDelegate = loginUsers;
+    _loginUserDelegate = loginUsers;    
+    _initializationDelegate = initialization;
     
-    _loginUserService = [[LoginUserService alloc] initWithDelegate:self];
-    _sizeUserService = [[SizeUserService alloc] initWithDelegate:self];
-    
-    
-    [_loginUserDelegate setLogic:self];
-    
+    _loginUserService = [[LoginUserService alloc] initWithDelegate:self];    
+    _progressService = [[ProgressService alloc] initWithDelegate:self];
+           
     // init cache of images
 	_userImageCache = [[NSMutableDictionary alloc] init];
+    _totalCache = [[NSNumber alloc] init];
+    _indexCache = [[NSNumber alloc] init];
     _profileNumbersWaitingForPhoto = [[NSMutableArray alloc] init];
     _defaultImage = [UIImage imageNamed:@"default_photo.png"];
     
@@ -37,16 +38,6 @@
     NSLog(@"Entramos a la logica para pasarle al servicio");
     [_loginUserService loginUser:user Pass:pass];
 }
-
-
-
--(void)userService:(NSString *)service UserId:(NSString *)userid
-{
-    NSLog(@"entro a size ");
-    [_sizeUserService userService:service UserId:userid];
-}
-
-
 
 
 
@@ -148,7 +139,19 @@
 }
 
 
+#pragma mark - ProgressServiceDelegate
 
+-(void)totalService:(NSNumber *)totalvalor
+{
+    NSLog(@"entro al servici delagate");
+    [_initializationDelegate setTotal:totalvalor];    
+}
+
+-(void)indexService:(NSNumber *)indexvalor
+{
+   NSLog(@"entro al servici delagate");
+   [_initializationDelegate setIndex:indexvalor];
+}
 
 
 
@@ -157,10 +160,11 @@
 -(void)loginStatus:(BOOL)status AndMessage:(NSString *)message
 {
 	if (status == YES) 
-	{
-		        
+	{		        
         NSLog(@" Entro con YES: con id usuario");
-        [_viewChangerDelegate switchToInitialization];
+        
+        [self switchToInitialization];
+        [_progressService initProgress:@"1"];
 	}
 	else
     {
@@ -169,37 +173,13 @@
     }    
 }
 
-#pragma mark - SizeUserServiceDelegate
-
--(void)sizeStatus:(BOOL)status AndMessage:(NSString *)message
+-(void)errorLoginService:(NSString *)message
 {
-	if (status == YES) 
-	{
-		NSLog(@"status yes en size%@",message);
-	}
-	else
-    {
-        NSLog(@"status no en size%@",message);        
-    }
-    //mandando valores de estado y mensaje de error al initializationview
+    [_loginUserDelegate errorLogin:message];
+
 }
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f724a8b773fa21bf1ef1eddf148c2396c4be6ae3
--(void)updateProgressStatus:(int)valor
-{
-    NSLog(@"status no en size %@:",valor);
-    //mandando valor para su actualizacion al progressview
-}
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f724a8b773fa21bf1ef1eddf148c2396c4be6ae3
 
 #pragma mark - AsyncProfileImageReceiverDelegate
 
@@ -215,11 +195,5 @@
 -(void)receiveImageErrorForProfileNumber:(NSString *)profileNumber
 {
     [_assignedInterviewsDelegate updateImage:_defaultImage forProfileNumber:profileNumber];
-<<<<<<< HEAD
-=======
-    
-    [_userImageCache setObject:_defaultImage forKey:profileNumber];
->>>>>>> f724a8b773fa21bf1ef1eddf148c2396c4be6ae3
 }
-
 @end

@@ -1,13 +1,31 @@
-//
-//  ProgressService.h
-//  MHS Prototype
-//
-//  Created by Giancarlo on 8/17/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
+@protocol ProgressServiceDelegate;
+
+
 @interface ProgressService : NSObject
+{
+	NSMutableData * responseData;	
+	
+	id<ProgressServiceDelegate> _delegate;
+	
+    NSNumber * indexProgress;
+    NSNumber * totalSize;   
+}
+
+// Initialization
+-(id)initWithDelegate:(id<ProgressServiceDelegate>)delegate;
+
+// Public Methods
+-(void)initProgress:(NSString *) idUser;
+
+
+@end
+
+
+@protocol ProgressServiceDelegate
+
+-(void)totalService:(NSNumber *)totalvalor;
+-(void)indexService:(NSNumber *)indexvalor;
 
 @end

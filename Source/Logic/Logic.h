@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 
 #import "LoginUserService.h"
-#import "SizeUserService.h"
+#import "ProgressService.h"
 #import "PhotoService.h"
 #import "Client.h"
 #import "Interview.h"
@@ -9,19 +9,21 @@
 @protocol ViewChangerDelegate;
 @protocol AssignedInterviewsDelegate;
 @protocol LoginUserDelegate;
+@protocol InitializationDelegate;
 
-
-@interface Logic : NSObject <LoginUserServiceDelegate, SizeUserServiceDelegate, AsyncProfileImageReceiverDelegate>
+@interface Logic : NSObject <LoginUserServiceDelegate, AsyncProfileImageReceiverDelegate, ProgressServiceDelegate>
 {
     // delegates
     id<ViewChangerDelegate> _viewChangerDelegate;
     id<LoginUserDelegate> _loginUserDelegate;
+    id<InitializationDelegate> _initializationDelegate;
     id<AssignedInterviewsDelegate> _assignedInterviewsDelegate;
     
     // Services
     LoginUserService * _loginUserService;
-    SizeUserService  * _sizeUserService;
-    
+    ProgressService * _progressService;
+    NSNumber * _totalCache;
+    NSNumber * _indexCache;
     // Logic data 
     NSArray * _interviewList;
     NSMutableDictionary * _userImageCache;
@@ -38,6 +40,7 @@
 // Initialization
 -(id)initWithViewChangerDelegate:(id<ViewChangerDelegate>)viewChanger
             andLoginUserDelegate:(id<LoginUserDelegate>)loginUsers
+       andInitializationDelegate:(id<InitializationDelegate>)initialization
    andAssignedInterviewsDelegate:(id<AssignedInterviewsDelegate>)assignedInterviews;
 
 // Public Methods
@@ -52,7 +55,6 @@
 -(void)obtainImageForProfileNumber:(NSString *)profileNumber withFileName:(NSString *)fileName;
 
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass;
--(void)userService:(NSString *)service UserId:(NSString *)userid;
 
 -(Interview *)getDummyInterview;
 
@@ -78,12 +80,26 @@
 
 
 /*
+ *  Initializations DELEGATE
+ */
+@protocol InitializationDelegate
+
+-(void)setLogic:(Logic *)logic;
+-(void)setTotal:(NSNumber *)total;
+-(void)setIndex:(NSNumber *)index;
+//-(void)updateProgressDelegate:(NSNumber *)indexProg TotalSize:(NSNumber *)totalSize;
+@end
+
+
+
+/*
  *  LOGIN DELEGATE
  */
 @protocol LoginUserDelegate
 
 -(void)setLogic:(Logic *)logic;
 -(void)loginError:(NSString *)message;
+-(void)errorLogin:(NSString *)message;
 
 @end
 
