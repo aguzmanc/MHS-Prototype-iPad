@@ -45,6 +45,7 @@
 		16DBEB6415DDC1AF0005559F /* btn_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DBEB6315DDC1AF0005559F /* btn_image.png */; };
 		16DBEB6615DDC6B10005559F /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DBEB6515DDC6B10005559F /* tick.png */; };
 		16DBEB6815DDD8610005559F /* default_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DBEB6715DDD8610005559F /* default_photo.png */; };
+		16DDFBC915E166F500455A9F /* TotalSizeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DDFBC815E166F500455A9F /* TotalSizeService.m */; };
 		16F2E87B15D6AD1D005031A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F2E87A15D6AD1D005031A2 /* UIKit.framework */; };
 		16F2E87D15D6AD1D005031A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F2E87C15D6AD1D005031A2 /* Foundation.framework */; };
 		16F2E87F15D6AD1D005031A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F2E87E15D6AD1D005031A2 /* CoreGraphics.framework */; };
@@ -123,6 +124,8 @@
 		16DBEB6315DDC1AF0005559F /* btn_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_image.png; path = Resources/Images/btn_image.png; sourceTree = "<group>"; };
 		16DBEB6515DDC6B10005559F /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tick.png; path = Resources/Images/tick.png; sourceTree = "<group>"; };
 		16DBEB6715DDD8610005559F /* default_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_photo.png; path = Resources/Images/default_photo.png; sourceTree = "<group>"; };
+		16DDFBC715E166F400455A9F /* TotalSizeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TotalSizeService.h; path = Source/Services/TotalSizeService.h; sourceTree = "<group>"; };
+		16DDFBC815E166F500455A9F /* TotalSizeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TotalSizeService.m; path = Source/Services/TotalSizeService.m; sourceTree = "<group>"; };
 		16F2E87615D6AD1D005031A2 /* MHS Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MHS Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F2E87A15D6AD1D005031A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		16F2E87C15D6AD1D005031A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -349,6 +352,8 @@
 				B32DA38315DEB843000DD9E9 /* ClientService.m */,
 				B32DA38615DEB865000DD9E9 /* InterviewService.h */,
 				B32DA38715DEB865000DD9E9 /* InterviewService.m */,
+				16DDFBC715E166F400455A9F /* TotalSizeService.h */,
+				16DDFBC815E166F500455A9F /* TotalSizeService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 				B305815D15DF1F7200E2B022 /* ProgressService.m in Sources */,
 				B3DDE9DE15DFF96700927812 /* InterviewController.m in Sources */,
 				B3DDE9EF15E07DF900927812 /* FinishInterviewCell.m in Sources */,
+				16DDFBC915E166F500455A9F /* TotalSizeService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

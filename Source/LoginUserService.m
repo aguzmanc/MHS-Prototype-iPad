@@ -1,11 +1,3 @@
-//
-//  LoginUserService.m
-//  MHS Prototype
-//
-//  Created by Giancarlo on 8/15/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import "LoginUserService.h"
 #import "JSON.h"
 #import "Globals.h"
@@ -24,11 +16,14 @@
 }
 
 
+
+
+
+
 #pragma mark Public Methods
 
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass
 {
-    
     // Build request URL with al parameters
 	NSString * requestURL = [NSString stringWithFormat:@"%@?user=%@&pass=%@", LOGIN_USER_SERVICE_REQUEST_PAGE, user, pass];
 	
@@ -38,7 +33,6 @@
 	
 	NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response 
@@ -77,14 +71,28 @@
 	NSLog(@"%@",responseString);
 	NSDictionary * results = [responseString JSONValue];
 	NSString * res = [results objectForKey:@"Success"];
+    
+    NSDictionary * userData = [results objectForKey:@"User"];
+    NSString * userId = [userData objectForKey:@"user_id"];
+    NSString * firstName = [userData objectForKey:@"first_name"];
+    NSString * lastName = [userData objectForKey:@"last_name"];
+    NSString * email = [userData objectForKey:@"email"];
+    
+    NSLog(@"%@", userId);
 	
 	BOOL success  = [res isEqualToString:@"True"];
+    
 	NSString * reason = nil;
 	
 	if (success == NO)
+    {
 		reason = (NSString *)[results objectForKey:@"Reason"];
-	
-	[_delegate loginStatus:success AndMessage:reason];
+        [_delegate errorLoginService:reason];
+    }
+    else
+    {
+        [_delegate successLogin:userId FirstName:firstName LastName:lastName Email:email];
+    }
 }
 
 

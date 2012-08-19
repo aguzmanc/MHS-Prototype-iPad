@@ -9,6 +9,8 @@
 @synthesize comment = _comment;
 @synthesize visited = _visited;
 @synthesize client = _client;
+@synthesize profileNumber = _profileNumber;
+@synthesize scheduleDate = _scheduleDate;
 
 
 @end

@@ -14,5 +14,11 @@
 //public method
 -(void)setLogic:(Logic *)logic;
 
+// Initialization Delegate
+-(void)updatePercentageProgress:(int)percentage;
+
 
 @end
+
+
+
