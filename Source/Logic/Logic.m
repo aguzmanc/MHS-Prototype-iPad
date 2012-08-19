@@ -185,21 +185,12 @@
 }
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f724a8b773fa21bf1ef1eddf148c2396c4be6ae3
 -(void)updateProgressStatus:(int)valor
 {
     NSLog(@"status no en size %@:",valor);
     //mandando valor para su actualizacion al progressview
 }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f724a8b773fa21bf1ef1eddf148c2396c4be6ae3
 
 #pragma mark - AsyncProfileImageReceiverDelegate
 
@@ -215,11 +206,8 @@
 -(void)receiveImageErrorForProfileNumber:(NSString *)profileNumber
 {
     [_assignedInterviewsDelegate updateImage:_defaultImage forProfileNumber:profileNumber];
-<<<<<<< HEAD
-=======
     
     [_userImageCache setObject:_defaultImage forKey:profileNumber];
->>>>>>> f724a8b773fa21bf1ef1eddf148c2396c4be6ae3
 }
 
 @end
