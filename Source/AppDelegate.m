@@ -16,7 +16,7 @@
     _loginController = [[LoginController alloc] init];
     _initializationController = [[InitializationController alloc] init];
     _assignedInterviewsController = [[AssignedInterviewsController alloc] init];
-   // _interviewController = [[InterviewController alloc] initWithLogic:_logic];
+    _interviewController = [[InterviewController alloc] init];
     
     // Setup Logic
     _logic = [[Logic alloc] initWithViewChangerDelegate:self 
@@ -112,7 +112,7 @@
 
 -(void)switchToInterview
 {
-    //self.window.rootViewController =  _interviewController;
+    self.window.rootViewController =  _interviewController;
 }
 
 

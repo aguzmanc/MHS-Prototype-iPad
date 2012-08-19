@@ -6,9 +6,9 @@
 {
     Logic * _logic;
     IBOutlet UIProgressView * _myprogressview;
-    IBOutlet UILabel * _mylabel;
     NSNumber * _index;
-    NSNumber * _total;     
+    NSNumber * _total;
+    NSTimer *timer;
 }
 
 //public method

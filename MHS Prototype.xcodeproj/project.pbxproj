@@ -65,6 +65,12 @@
 		B396B90515DB3479007BED61 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = B396B8FF15DB3479007BED61 /* SBJsonWriter.m */; };
 		B3A70D0415DB122B0050B674 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A70D0315DB122B0050B674 /* login.png */; };
 		B3A70D0715DB12450050B674 /* text-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A70D0615DB12450050B674 /* text-bg.png */; };
+		B3DDE9DE15DFF96700927812 /* InterviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DDE9DD15DFF96700927812 /* InterviewController.m */; };
+		B3DDE9E615E023AF00927812 /* interview-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3DDE9E515E023AE00927812 /* interview-bg.png */; };
+		B3DDE9EC15E079FA00927812 /* total-interview-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3DDE9EB15E079F900927812 /* total-interview-bg.png */; };
+		B3DDE9EF15E07DF900927812 /* FinishInterviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DDE9EE15E07DF500927812 /* FinishInterviewCell.m */; };
+		B3DDE9F115E0866F00927812 /* FinishInterviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3DDE9F015E0866E00927812 /* FinishInterviewCell.xib */; };
+		B3DDE9F315E089FF00927812 /* finishcell-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3DDE9F215E089FE00927812 /* finishcell-bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +159,14 @@
 		B396B8FF15DB3479007BED61 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		B3A70D0315DB122B0050B674 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		B3A70D0615DB12450050B674 /* text-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-bg.png"; sourceTree = "<group>"; };
+		B3DDE9DB15DFF95900927812 /* InterviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InterviewController.h; path = Source/Controllers/InterviewController.h; sourceTree = "<group>"; };
+		B3DDE9DD15DFF96700927812 /* InterviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InterviewController.m; path = Source/Controllers/InterviewController.m; sourceTree = "<group>"; };
+		B3DDE9E515E023AE00927812 /* interview-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interview-bg.png"; sourceTree = "<group>"; };
+		B3DDE9EB15E079F900927812 /* total-interview-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "total-interview-bg.png"; sourceTree = "<group>"; };
+		B3DDE9ED15E07DE800927812 /* FinishInterviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FinishInterviewCell.h; path = Source/Controllers/FinishInterviewCell.h; sourceTree = "<group>"; };
+		B3DDE9EE15E07DF500927812 /* FinishInterviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FinishInterviewCell.m; path = Source/Controllers/FinishInterviewCell.m; sourceTree = "<group>"; };
+		B3DDE9F015E0866E00927812 /* FinishInterviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishInterviewCell.xib; sourceTree = "<group>"; };
+		B3DDE9F215E089FE00927812 /* finishcell-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finishcell-bg.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,8 +264,11 @@
 		16F2E8A915D6B141005031A2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				1620AC2715DEE5E600B14271 /* progress_bar.png */,
+				B3DDE9F215E089FE00927812 /* finishcell-bg.png */,
+				B3DDE9EB15E079F900927812 /* total-interview-bg.png */,
 				16DBEB3115DD92010005559F /* WeekdayButtons */,
+				1620AC2715DEE5E600B14271 /* progress_bar.png */,
+				B3DDE9E515E023AE00927812 /* interview-bg.png */,
 				16DBEB6715DDD8610005559F /* default_photo.png */,
 				16DBEB6515DDC6B10005559F /* tick.png */,
 				16DBEB6315DDC1AF0005559F /* btn_image.png */,
@@ -291,6 +308,7 @@
 				163AC9DA15D7549100B019CA /* AssignedInterviewsView.xib */,
 				16F2E8AD15D6B200005031A2 /* ViewController.xib */,
 				16DBEB5F15DDBCC90005559F /* InterviewCell.xib */,
+				B3DDE9F015E0866E00927812 /* FinishInterviewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -298,6 +316,8 @@
 		16F2E8AF15D6B2A8005031A2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B3DDE9DB15DFF95900927812 /* InterviewController.h */,
+				B3DDE9DD15DFF96700927812 /* InterviewController.m */,
 				16F2E8B215D6B30C005031A2 /* ViewController.h */,
 				16F2E8B315D6B30C005031A2 /* ViewController.m */,
 				163AC9D415D7545500B019CA /* AssignedInterviewsController.h */,
@@ -310,6 +330,8 @@
 				163AC9F115D757BF00B019CA /* LoginController.m */,
 				16DBEB5B15DDBAA00005559F /* InterviewCell.h */,
 				16DBEB5C15DDBAA20005559F /* InterviewCell.m */,
+				B3DDE9ED15E07DE800927812 /* FinishInterviewCell.h */,
+				B3DDE9EE15E07DF500927812 /* FinishInterviewCell.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -447,6 +469,10 @@
 				16DBEB6615DDC6B10005559F /* tick.png in Resources */,
 				16DBEB6815DDD8610005559F /* default_photo.png in Resources */,
 				1620AC2815DEE5E700B14271 /* progress_bar.png in Resources */,
+				B3DDE9E615E023AF00927812 /* interview-bg.png in Resources */,
+				B3DDE9EC15E079FA00927812 /* total-interview-bg.png in Resources */,
+				B3DDE9F115E0866F00927812 /* FinishInterviewCell.xib in Resources */,
+				B3DDE9F315E089FF00927812 /* finishcell-bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +505,8 @@
 				B32DA38415DEB843000DD9E9 /* ClientService.m in Sources */,
 				B32DA38815DEB865000DD9E9 /* InterviewService.m in Sources */,
 				B305815D15DF1F7200E2B022 /* ProgressService.m in Sources */,
+				B3DDE9DE15DFF96700927812 /* InterviewController.m in Sources */,
+				B3DDE9EF15E07DF900927812 /* FinishInterviewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

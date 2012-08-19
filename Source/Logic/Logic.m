@@ -23,8 +23,7 @@
            
     // init cache of images
 	_userImageCache = [[NSMutableDictionary alloc] init];
-    _totalCache = [[NSNumber alloc] init];
-    _indexCache = [[NSNumber alloc] init];
+    
     _profileNumbersWaitingForPhoto = [[NSMutableArray alloc] init];
     _defaultImage = [UIImage imageNamed:@"default_photo.png"];
     
@@ -140,12 +139,6 @@
 
 
 #pragma mark - ProgressServiceDelegate
-
--(void)totalService:(NSNumber *)totalvalor
-{
-    NSLog(@"entro al servici delagate");
-    [_initializationDelegate setTotal:totalvalor];    
-}
 
 -(void)indexService:(NSNumber *)indexvalor
 {

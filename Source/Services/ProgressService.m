@@ -29,8 +29,8 @@
 {
 
     // Build request URL with al parameters
-	//NSString * requestURL = [NSString stringWithFormat:@"%@?user_id=%@", CLIENT_USER_SERVICE_REQUEST_PAGE, idUser];
-	NSString * requestURL = @"https://www.quarksocial.net/Mirinda/Apps/App_Cuarto/App/BASES.pdf";
+	NSString * requestURL = [NSString stringWithFormat:@"%@?user_id=%@", CLIENT_USER_SERVICE_REQUEST_PAGE, idUser];
+	
 	responseData = [[NSMutableData data] retain];
     
 	NSLog(@"%@", requestURL);
@@ -43,8 +43,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response 
 {
 	totalSize = [NSNumber numberWithLongLong:[response expectedContentLength]];
-    NSLog(@"size %i",[totalSize intValue]);
-    [_delegate totalService:totalSize];
+    NSLog(@"size %i",[totalSize intValue]);    
     NSHTTPURLResponse *HTTPresponse = (NSHTTPURLResponse *)response; 
 	NSInteger statusCode = [HTTPresponse statusCode];
 	if ( 404 == statusCode || 500 == statusCode ) {
@@ -59,7 +58,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
 {	
     indexProgress = [NSNumber numberWithUnsignedInteger:[data length]];    
-    //NSNumber *progress = [NSNumber numberWithFloat:([resourceLength floatValue] / [totalSize floatValue])];
+        
     NSLog(@"receiveData:%i",[indexProgress intValue]);
     
     [_delegate indexService:indexProgress];

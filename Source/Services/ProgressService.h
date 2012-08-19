@@ -25,7 +25,6 @@
 
 @protocol ProgressServiceDelegate
 
--(void)totalService:(NSNumber *)totalvalor;
 -(void)indexService:(NSNumber *)indexvalor;
 
 @end

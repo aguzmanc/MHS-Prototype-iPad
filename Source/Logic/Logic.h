@@ -22,8 +22,7 @@
     // Services
     LoginUserService * _loginUserService;
     ProgressService * _progressService;
-    NSNumber * _totalCache;
-    NSNumber * _indexCache;
+    
     // Logic data 
     NSArray * _interviewList;
     NSMutableDictionary * _userImageCache;
@@ -85,7 +84,6 @@
 @protocol InitializationDelegate
 
 -(void)setLogic:(Logic *)logic;
--(void)setTotal:(NSNumber *)total;
 -(void)setIndex:(NSNumber *)index;
 //-(void)updateProgressDelegate:(NSNumber *)indexProg TotalSize:(NSNumber *)totalSize;
 @end
