@@ -20,12 +20,14 @@
     _interviewDelegate = interviews;
     _initializationDelegate = initialization;
     
-    _loginUserService = [[LoginUserService alloc] initWithDelegate:self];    
-    _progressService = [[ProgressService alloc] initWithDelegate:self];
-           
+    _loginUserService = [[LoginUserService alloc] initWithDelegate:self];
+    _sizeUserService = [[SizeUserService alloc] initWithDelegate:self];
+    
+    
+    [_loginUserDelegate setLogic:self];
+    
     // init cache of images
 	_userImageCache = [[NSMutableDictionary alloc] init];
-    
     _profileNumbersWaitingForPhoto = [[NSMutableArray alloc] init];
     _defaultImage = [UIImage imageNamed:@"default_photo.png"];
     
@@ -143,13 +145,7 @@
 }
 
 
-#pragma mark - ProgressServiceDelegate
 
--(void)indexService:(NSNumber *)indexvalor
-{
-   NSLog(@"entro al servici delagate");
-   [_initializationDelegate setIndex:indexvalor];
-}
 
 
 
@@ -158,11 +154,10 @@
 -(void)loginStatus:(BOOL)status AndMessage:(NSString *)message
 {
 	if (status == YES) 
-	{		        
+	{
+		        
         NSLog(@" Entro con YES: con id usuario");
-        
-        [self switchToInitialization];
-        [_progressService initProgress:@"1"];
+        [_viewChangerDelegate switchToInitialization];
 	}
 	else
     {
@@ -172,13 +167,35 @@
 }
 
 -(void)errorLoginService:(NSString *)message
+#pragma mark - SizeUserServiceDelegate
+
+-(void)sizeStatus:(BOOL)status AndMessage:(NSString *)message
 {
+	if (status == YES) 
+	{
+		NSLog(@"status yes en size%@",message);
+	}
+	else
+    {
+        NSLog(@"status no en size%@",message);        
+    }
+    //mandando valores de estado y mensaje de error al initializationview
+}
     [_loginUserDelegate errorLogin:message];
+
+
+-(void)updateProgressStatus:(int)valor
+{
+    NSLog(@"status no en size %@:",valor);
+    //mandando valor para su actualizacion al progressview
+}
+
 
 }
 
 
 
+>>>>>>> f819016258cc1ec7d9b2de32f73cf15021624358
 #pragma mark - AsyncProfileImageReceiverDelegate
 
 -(void)receiveImage:(UIImage *)image ForProfileNumber:(NSString *) profileNumber
@@ -193,5 +210,10 @@
 -(void)receiveImageErrorForProfileNumber:(NSString *)profileNumber
 {
     [_assignedInterviewsDelegate updateImage:_defaultImage forProfileNumber:profileNumber];
+<<<<<<< HEAD
+    
+    [_userImageCache setObject:_defaultImage forKey:profileNumber];
+=======
+>>>>>>> f819016258cc1ec7d9b2de32f73cf15021624358
 }
 @end
