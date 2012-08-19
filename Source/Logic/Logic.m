@@ -176,7 +176,6 @@
 }
     [_loginUserDelegate errorLogin:message];
 
-<<<<<<< HEAD
 
 -(void)updateProgressStatus:(int)valor
 {
@@ -185,7 +184,6 @@
 }
 
 
-=======
 }
 
 
