@@ -17,17 +17,22 @@
     _initializationController = [[InitializationController alloc] init];
     _assignedInterviewsController = [[AssignedInterviewsController alloc] init];
     _interviewController = [[InterviewController alloc] init];
+    _finishInterviewDialog = [[FinishInterviewDialog alloc] init];
+    
     
     // Setup Logic
     _logic = [[Logic alloc] initWithViewChangerDelegate:self 
                                    andLoginUserDelegate:_loginController                              
-                              andInitializationDelegate:_initializationController 
+                              andInitializationDelegate:_initializationController
+                                   andInterviewDelegate:_interviewController
                           andAssignedInterviewsDelegate:_assignedInterviewsController];
     
     // Assign Logic to all Controllers
     [_assignedInterviewsController setLogic:_logic];
     [_initializationController setLogic:_logic];
     [_loginController setLogic:_logic];
+    [_finishInterviewDialog setLogic:_logic];
+    [_interviewController setLogic:_logic];
     
     // Setup View at the beginning
     [_logic switchToLogin];
@@ -115,6 +120,10 @@
     self.window.rootViewController =  _interviewController;
 }
 
+-(void)switchToFinishInterview
+{
+    self.window.rootViewController =  _finishInterviewDialog;
+}
 
 
 
@@ -127,6 +136,7 @@
     [_loginController release];
     [_initializationController release];
     [_assignedInterviewsController release];
+    [_finishInterviewDialog release];
     [super dealloc];
 }
 

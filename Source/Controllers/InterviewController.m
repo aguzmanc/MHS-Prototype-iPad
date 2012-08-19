@@ -2,6 +2,9 @@
 
 @implementation InterviewController
 
+
+@synthesize _backTolist;
+
 #pragma mark Initialization
 
 -(id)init
@@ -12,8 +15,26 @@
     return self;
 }
 
+-(void)setLogic:(Logic *)logic
+{
+    _logic = logic;
+}
 
 
+-(void)finishClick:(id)sender
+{
+
+    [_logic switchToFinishInterview];
+
+}
+
+
+-(IBAction)backToListClick:(id)sender
+{
+
+    [_logic switchToAssignedInterviews];
+
+}
 
 
 - (void)didReceiveMemoryWarning
@@ -28,6 +49,7 @@
 
 - (void)viewDidLoad
 {
+    _backTolist.transform = CGAffineTransformMakeRotation(M_PI/ -4);    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

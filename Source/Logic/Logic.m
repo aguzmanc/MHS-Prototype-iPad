@@ -9,13 +9,15 @@
 -(id)initWithViewChangerDelegate:(id<ViewChangerDelegate>)viewChanger
             andLoginUserDelegate:(id<LoginUserDelegate>)loginUsers
        andInitializationDelegate:(id<InitializationDelegate>)initialization
+            andInterviewDelegate:(id<InterviewDelegate>)interviews
    andAssignedInterviewsDelegate:(id<AssignedInterviewsDelegate>)assignedInterviews
 {
     self = [super init];
     
     _viewChangerDelegate = viewChanger;
     _assignedInterviewsDelegate = assignedInterviews;
-    _loginUserDelegate = loginUsers;    
+    _loginUserDelegate = loginUsers;
+    _interviewDelegate = interviews;
     _initializationDelegate = initialization;
     
     _loginUserService = [[LoginUserService alloc] initWithDelegate:self];    
@@ -68,7 +70,10 @@
     [_viewChangerDelegate switchToInterview];
 }
 
-
+-(void)switchToFinishInterview
+{
+    [_viewChangerDelegate switchToFinishInterview];
+}
 
 -(void)obtainImageForProfileNumber:(NSString *)profileNumber withFileName:(NSString *)fileName;
 {

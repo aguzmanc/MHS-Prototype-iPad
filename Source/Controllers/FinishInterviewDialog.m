@@ -10,14 +10,79 @@
 
 @implementation FinishInterviewDialog
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
+    self = [super initWithNibName:@"FinishInterviewDialog" bundle:nil];
+    
+    if (!self) return nil;
     return self;
 }
+
+-(IBAction)backAssignedInterviewClick:(id)sender
+{
+
+    [_logic switchToAssignedInterviews];
+   
+}
+
+
+#pragma mark - TableView Data Source Methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
+    return 6;
+}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{ 	
+	static NSString *CellIdentifier = @"FinishInterviewCell";
+	
+    FinishInterviewCell *cell = (FinishInterviewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+		NSArray * objs = [[NSBundle mainBundle] loadNibNamed:@"FinishInterviewCell" owner:nil options:nil];
+        for (id currentObj in objs){
+            if([currentObj isKindOfClass:[UITableViewCell class]])
+            {
+                cell = (FinishInterviewCell *)currentObj;
+                break;            
+            }
+        }
+    }
+    	
+	return cell;	
+}
+
+
+#pragma mark - Table View delegate
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return 84; // --- set height for rows of custom table view
+}
+
+// Customize the number of sections in the table view.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
+{
+    return 1; //--- set default 1 number of section because only had one section's
+}
+
+
+
+#pragma mark - Public Methods
+
+-(void)reloadTable
+{
+}
+
+-(void)setLogic:(Logic *)logic
+{
+    _logic = logic;
+}
+
+#pragma mark - View lifecycle
 
 - (void)didReceiveMemoryWarning
 {
@@ -27,7 +92,6 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
