@@ -31,10 +31,25 @@
 }
 
 #pragma mark - Login Users Delegate
+
 -(void)loginError:(NSString *)message
 {
     NSLog(@"entro con  el mensaje Error:%@", message);
-    _error.hidden = FALSE;    
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"ENTRY ERROR" message:message delegate:nil cancelButtonTitle:@"Accept" otherButtonTitles:nil];
+	
+	[alert show];
+	[alert release];
+    
+}
+
+-(void)errorLogin:(NSString *)message
+{
+    NSLog(@"Error de conexion:%@", message);
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"CONNECTION ERROR" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	
+	[alert show];
+	[alert release];
+    
 }
 
 
@@ -47,12 +62,10 @@
 }
 
 
-
 - (void)viewDidUnload
 {
     [super viewDidUnload];
 }
-
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

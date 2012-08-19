@@ -7,8 +7,7 @@
     Logic * _logic;
     
     IBOutlet UITextField * _user;
-    IBOutlet UITextField * _pass;
-    IBOutlet UILabel * _error;
+    IBOutlet UITextField * _pass;  
 }
 
 //public method

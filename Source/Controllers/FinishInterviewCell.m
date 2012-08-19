@@ -1,14 +1,14 @@
 //
-//  InterviewTableController.m
+//  FinishInterviewCell.m
 //  MHS Prototype
 //
-//  Created by Giancarlo on 8/15/12.
+//  Created by Giancarlo on 8/18/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "InterviewTableController.h"
+#import "FinishInterviewCell.h"
 
-@implementation InterviewTableController
+@implementation FinishInterviewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

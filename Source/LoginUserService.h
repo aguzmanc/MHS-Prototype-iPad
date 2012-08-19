@@ -24,6 +24,6 @@
 @protocol LoginUserServiceDelegate
 
 -(void)loginStatus:(BOOL)status AndMessage:(NSString *)message;
-
+-(void)errorLoginService:(NSString *)message;
 
 @end

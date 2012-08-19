@@ -5,36 +5,45 @@
 
 #pragma mark Initialization
 
-- (id)initWithLogic:(Logic *)logic
+-(id)init
 {
     self = [super initWithNibName:@"InitializationView" bundle:nil];
-    _logic = logic;
+    if (!self) return nil;
     
-    if (self) {
-        // Custom initialization
-    }
     return self;
 }
-/*
--(void)moreprogress
-{
-    _myprogressview.progress += 0.1 ;
-   
-    
-    NSString *theValue = [[NSString alloc]initWithFormat:@"%.0f %%",_myprogressview.progress * 100]; 
-    _mylabel.text = theValue;
 
+
+-(void)setLogic:(Logic *)logic
+{
+    _logic = logic;
 }
-*/
+
+#pragma mark - Progress Delegate
+
+-(void)progressbar
+{
+    _myprogressview.progress += 0.3; 
+    if(_myprogressview.progress==1)
+    {
+        [timer invalidate];
+        [_logic switchToAssignedInterviews]; 
+    }
+}
+
+-(void)setIndex:(NSNumber *)index
+{           
+    
+    NSLog(@" proceso de index:%i",[index intValue]);
+}
 
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
-    //aqui es donde recibe de loginview el user logeado
-    [_logic userService:@"interview_list" UserId:@"2"];          
-    
+    //aqui es donde recibe de loginview el user logeado            
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(progressbar) userInfo:nil repeats:YES];//dummy
     [super viewDidLoad];   
 }
 

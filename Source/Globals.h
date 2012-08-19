@@ -4,6 +4,8 @@
 // Quark Social Services
 #define LOGIN_USER_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/login.php"
 #define SIZE_USER_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/size.php"
+#define CLIENT_USER_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/interview_list.php"
+
 
 #define PHOTO_DIRECTORY_URL @"http://www.quarksocial.net/mobile_health/photos/"
 

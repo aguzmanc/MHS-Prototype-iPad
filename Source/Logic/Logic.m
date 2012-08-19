@@ -40,16 +40,6 @@
 
 
 
--(void)userService:(NSString *)service UserId:(NSString *)userid
-{
-    NSLog(@"entro a size ");
-    [_sizeUserService userService:service UserId:userid];
-}
-
-
-
-
-
 #pragma mark - Public Methods
 
 -(void)switchToInitialization
@@ -169,6 +159,7 @@
     }    
 }
 
+-(void)errorLoginService:(NSString *)message
 #pragma mark - SizeUserServiceDelegate
 
 -(void)sizeStatus:(BOOL)status AndMessage:(NSString *)message
@@ -183,7 +174,9 @@
     }
     //mandando valores de estado y mensaje de error al initializationview
 }
+    [_loginUserDelegate errorLogin:message];
 
+<<<<<<< HEAD
 
 -(void)updateProgressStatus:(int)valor
 {
@@ -192,6 +185,12 @@
 }
 
 
+=======
+}
+
+
+
+>>>>>>> f819016258cc1ec7d9b2de32f73cf15021624358
 #pragma mark - AsyncProfileImageReceiverDelegate
 
 -(void)receiveImage:(UIImage *)image ForProfileNumber:(NSString *) profileNumber
@@ -206,8 +205,10 @@
 -(void)receiveImageErrorForProfileNumber:(NSString *)profileNumber
 {
     [_assignedInterviewsDelegate updateImage:_defaultImage forProfileNumber:profileNumber];
+<<<<<<< HEAD
     
     [_userImageCache setObject:_defaultImage forKey:profileNumber];
+=======
+>>>>>>> f819016258cc1ec7d9b2de32f73cf15021624358
 }
-
 @end

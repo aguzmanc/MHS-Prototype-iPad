@@ -4,14 +4,11 @@
 
 #pragma mark Initialization
 
--(id)initWithLogic:(Logic *)logic
+-(id)init
 {
-    self = [super initWithNibName:@"LoginView" bundle:nil];
-    _logic = logic;
+    self = [super initWithNibName:@"InterviewController" bundle:nil];
     
-    if (self) {
-        // Custom initialization
-    }
+    if (!self) return nil;
     return self;
 }
 

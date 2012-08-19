@@ -14,17 +14,20 @@
     
     // Setup Controllers first
     _loginController = [[LoginController alloc] init];
-    _initializationController = [[InitializationController alloc] initWithLogic:_logic];
+    _initializationController = [[InitializationController alloc] init];
     _assignedInterviewsController = [[AssignedInterviewsController alloc] init];
-    _interviewController = [[InterviewController alloc] initWithLogic:_logic];
+    _interviewController = [[InterviewController alloc] init];
     
     // Setup Logic
-    _logic = [[Logic alloc] initWithViewChangerDelegate:self
-                                   andLoginUserDelegate:_loginController
+    _logic = [[Logic alloc] initWithViewChangerDelegate:self 
+                                   andLoginUserDelegate:_loginController                              
+                              andInitializationDelegate:_initializationController 
                           andAssignedInterviewsDelegate:_assignedInterviewsController];
     
     // Assign Logic to all Controllers
     [_assignedInterviewsController setLogic:_logic];
+    [_initializationController setLogic:_logic];
+    [_loginController setLogic:_logic];
     
     // Setup View at the beginning
     //[_logic switchToLogin];
@@ -122,6 +125,7 @@
 {
     [_window release];
     [_loginController release];
+    [_initializationController release];
     [_assignedInterviewsController release];
     [super dealloc];
 }
