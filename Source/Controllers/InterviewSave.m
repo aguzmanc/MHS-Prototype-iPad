@@ -1,12 +1,19 @@
-#import "LoginUserService.h"
-#import "JSON.h"
+//
+//  InterviewSave.m
+//  MHS Prototype
+//
+//  Created by Giancarlo on 8/20/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "InterviewSave.h"
 #import "Globals.h"
+#import "JSON.h"
 
-@implementation LoginUserService
+@implementation InterviewSave
 
-#pragma mark Initialization
 
--(id)initWithDelegate:(id<LoginUserServiceDelegate>)delegate
+-(id)initWithDelegate:(id<InterviewSaveServiceDelegate>)delegate
 {
 	self = [super init];
 	
@@ -16,13 +23,18 @@
 }
 
 
-
 #pragma mark Public Methods
 
--(void)loginUser:(NSString *)user Pass:(NSString *)pass
+-(void)interviewSaves:(NSString *)interviewId andStarTime:(NSString *)startime andEndTime:(NSString *)endtime andTimespent:(NSString *)timespent andCommint:(NSString *)commint andCost:(NSString *)cost
 {
     // Build request URL with al parameters
-	NSString * requestURL = [NSString stringWithFormat:@"%@?user=%@&pass=%@", LOGIN_USER_SERVICE_REQUEST_PAGE, user, pass];
+	NSString * requestURL = [NSString stringWithFormat:@"%@?interview_id=%@&star_time=%@&end_time=%@&other_time=%@&cost=%@&comments=%@", INTERVIEW_SERVICE_REQUEST_PAGE
+                                          , interviewId
+                                          , startime
+                                          , endtime
+                                          , timespent
+                                          , cost
+                                          , commint];
 	
 	responseData = [[NSMutableData data] retain];
     
@@ -30,6 +42,7 @@
 	
 	NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
+
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response 
@@ -55,7 +68,7 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error 
 {	
     NSLog(@"%@",[NSString stringWithFormat:@"Connection failed: %@", [error description]]);
-    [_delegate errorLoginService:[error description]];
+    [_delegate errorInterviewSaveService:[error description]];
 }
 
 
@@ -68,29 +81,18 @@
 	NSLog(@"%@",responseString);
 	NSDictionary * results = [responseString JSONValue];
 	NSString * res = [results objectForKey:@"Success"];
-    
-    NSDictionary * userData = [results objectForKey:@"User"];
-    NSString * userId = [userData objectForKey:@"user_id"];
-    NSString * firstName = [userData objectForKey:@"first_name"];
-    NSString * lastName = [userData objectForKey:@"last_name"];
-    NSString * email = [userData objectForKey:@"email"];
-    
-    NSLog(@"%@", userId);
 	
 	BOOL success  = [res isEqualToString:@"True"];
-    
 	NSString * reason = nil;
 	
 	if (success == NO)
-    {
 		reason = (NSString *)[results objectForKey:@"Reason"];
-        [_delegate errorLoginService:reason];
-    }
-    else
-    {
-        [_delegate successLogin:userId FirstName:firstName LastName:lastName Email:email];
-    }
+	
+	[_delegate successInterviewSave:success andMessage:reason];
 }
+
+
+
 
 
 @end

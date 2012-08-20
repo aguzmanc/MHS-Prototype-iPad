@@ -16,11 +16,36 @@
 }
 
 
+-(void)interviewSaveStatus
+{
+    [_logic switchToAssignedInterviews];
+}
+
+
 -(void)finishClick:(id)sender
 {
-   
-    [_logic switchToFinishInterview];
+    UIAlertView *messages = [[UIAlertView alloc] initWithTitle:@"SAVE INTERVIEW"
+                                                       message:@"Are you sure to finish the interview"
+                                                      delegate:self
+                                             cancelButtonTitle:@"No"
+                                             otherButtonTitles:@"Yes", nil];
+    [messages show];
+}
 
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:
+(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    if([title isEqualToString:@"Yes"])
+    {
+        [_logic interviewSaveService:_interview_id
+                         andStarTime:_lblStartTime.text 
+                          andEndTime:_lblEndTime.text
+                        andTimespent:_lblTimeSpent.text 
+                          andCommint:_textComment.text 
+                             andCost:_lblCost.text];
+    }
 }
 
 
@@ -32,6 +57,31 @@
 }
 
 
+-(IBAction) slideFrameUp
+{
+    [self slideFrame:YES];
+}
+
+-(IBAction) slideFrameDown
+{
+    [self slideFrame:NO];
+}
+
+-(void) slideFrame:(BOOL)up
+{
+    const int movementDistance = 50; // lo que sea necesario, en mi caso yo use 80
+    const float movementDuration = 0.3f; // lo que sea necesario
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
+
 #pragma mark Interview Delegate
 
 -(void)setLogic:(Logic *)logic
@@ -39,10 +89,17 @@
     _logic = logic;
 }
 
+-(void)applyDataInterviewSave:(Interview *)interview
+{
+    _interview_id = interview.interviewId;      
+    
+}
 
 -(void)applyDataInterview:(Interview *)interview
 {
     NSLog(@"applyDataInterview");
+    _lblDate.enabled = NO;
+    
     _lblFirts_Name.text = interview.client.firstName;
     _lblLast_Name.text = interview.client.lastName;
     // format date
@@ -61,7 +118,7 @@
     NSDateFormatter * formatNow = [[NSDateFormatter alloc] init];
 	[formatNow setDateFormat:@"dd/MM/yyyy"];
     
-    _lblDate.text = [formatNow stringFromDate:[NSData data]];
+    _lblDate.text = @"dias";//[formatNow stringFromDate:[NSData data]];
     _lblStartTime.text = [formatTime stringFromDate:interview.startTime];
     _lblEndTime.text = [formatTime stringFromDate:interview.endTime];
     
@@ -71,11 +128,30 @@
     
     NSLog(@"%dHrs. %dmin.", ABS(hour), ABS(minute));
     
+    if(hour)  _lblTimeSpent.text = [NSString stringWithFormat:@"%@",ABS(hour)];
     _textComment.text = interview.comment;
     _lblCost.text = [NSString  stringWithFormat:@"%g" ,interview.cost];
     
-   NSLog(@"%@",[NSString  stringWithFormat:@"%g" ,interview.cost]);
+    NSLog(@"%@",[NSString  stringWithFormat:@"%g" ,interview.cost]);
     
+}
+
+#pragma mark - Interview Save Delegate
+
+-(void)successInterviewSave:(BOOL)status andMessage:(NSString *)message;
+{
+    [_logic switchToAssignedInterviews];
+}
+
+
+-(void)errorInterviewSaveService:(NSString *)message;
+{
+    UIAlertView *messages = [[UIAlertView alloc] initWithTitle:@"ERROR CONNECTION"
+                                                       message:message
+                                                      delegate:self
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil];
+    [messages show];
 }
 
 #pragma mark - View lifecycle
@@ -108,18 +184,16 @@
     _lblProfile_Num = nil;
     [_img_Photo release];
     _img_Photo = nil;
-    [_lblDate release];
+     [_lblDate release];
     _lblDate = nil;
     [_lblStartTime release];
     _lblStartTime = nil;
     [_lblEndTime release];
-    _lblEndTime = nil;
-    [_lblTimeSpent release];
-    _lblTimeSpent = nil;
-    [_textComment release];
-    _textComment = nil;
+    _lblEndTime = nil;   
     [_lblCost release];
     _lblCost = nil;
+    [_lblTimeSpent release];
+    _lblTimeSpent = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -137,12 +211,12 @@
     [_lblLast_Visited release];
     [_lblProfile_Num release];
     [_img_Photo release];
-    [_lblDate release];
+     [_lblDate release];
     [_lblStartTime release];
     [_lblEndTime release];
-    [_lblTimeSpent release];
-    [_textComment release];
+    
     [_lblCost release];
+    [_lblTimeSpent release];
     [super dealloc];
 }
 @end

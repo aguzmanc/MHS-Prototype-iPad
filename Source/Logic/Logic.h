@@ -7,16 +7,18 @@
 #import "TotalSizeService.h"
 #import "ClientService.h"
 #import "InterviewService.h"
+#import "InterviewSave.h"
 
 @protocol ViewChangerDelegate;
 @protocol AssignedInterviewsDelegate;
 @protocol LoginUserDelegate;
 @protocol InitializationDelegate;
 @protocol InterviewDelegate;
+@protocol InterviewSaveDelegate;
 
 @interface Logic : NSObject <LoginUserServiceDelegate, AsyncProfileImageReceiverDelegate, 
                         TotalSizeServiceDelegate, AsyncListClientReceiverDelegate,
-                        AsyncListInterviewReceiverDelegate>
+                        AsyncListInterviewReceiverDelegate, InterviewSaveServiceDelegate>
 {
     // delegates
     id<ViewChangerDelegate> _viewChangerDelegate;
@@ -29,6 +31,8 @@
     LoginUserService * _loginUserService;
     ClientService * _clientService;
     InterviewService * _interviewService;
+    InterviewSave * _interviewSave;
+    
     
     // Logic data 
     NSArray * _interviewList;
@@ -80,6 +84,8 @@
 -(void)makeInterview:(Interview *)interview;
 -(void)makeClientInterviewRelations;
 
+-(void)interviewSaveService:(NSString *)interviewId andStarTime:(NSString *)startime andEndTime:(NSString *)endtime andTimespent:(NSString *)timespent andCommint:(NSString *)commint andCost:(NSString *)cost;
+
 @end
 
 
@@ -112,7 +118,18 @@
 @protocol InterviewDelegate
 
 -(void)setLogic:(Logic *)logic;
+-(void)applyDataInterviewSave:(Interview *)interview;
 -(void)applyDataInterview:(Interview *)interview;
+
+@end
+
+
+/*
+ *  Interview DELEGATE
+ */
+@protocol InterviewSaveDelegate
+
+
 
 @end
 

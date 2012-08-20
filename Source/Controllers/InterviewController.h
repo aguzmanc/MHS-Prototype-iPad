@@ -15,16 +15,24 @@
     IBOutlet UIImageView *_img_Photo;
     
     NSString *_client_profile_id;
+    IBOutlet UITextField *_lblDate;    
+    IBOutlet UITextField *_lblStartTime;
+    IBOutlet UITextView *_textComment;    
+    IBOutlet UITextField *_lblEndTime;          
+    IBOutlet UITextField *_lblTimeSpent;
+    IBOutlet UITextField *_lblCost;
     
-    IBOutlet UILabel *_lblDate;
-    IBOutlet UILabel *_lblStartTime;
-    IBOutlet UILabel *_lblEndTime;
-    IBOutlet UILabel *_lblTimeSpent;
-    IBOutlet UITextView *_textComment;
-    IBOutlet UILabel *_lblCost;
+    NSString *_interview_id;
+    
+   
 }
 
 @property(nonatomic,retain) IBOutlet UIButton * _backTolist;
+
+
+-(IBAction) slideFrameUp;
+-(void) slideFrame:(BOOL)up;
+-(IBAction) slideFrameDown;
 
 -(void)setLogic:(Logic *)logic;
 

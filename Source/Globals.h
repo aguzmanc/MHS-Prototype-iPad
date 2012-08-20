@@ -7,7 +7,7 @@
 #define CLIENTS_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/clients.php"
 #define INTERVIEWS_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/interview_list.php"
 #define TOTAL_SIZE_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/size.php"
-
+#define INTERVIEW_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/interview.php"
 
 #define PHOTO_DIRECTORY_URL @"http://www.quarksocial.net/mobile_health/photos/"
 
