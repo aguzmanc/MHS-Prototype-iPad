@@ -57,7 +57,6 @@
 		B312833215E2709B00644404 /* InterviewSave.m in Sources */ = {isa = PBXBuildFile; fileRef = B312833115E2709B00644404 /* InterviewSave.m */; };
 		B32DA38415DEB843000DD9E9 /* ClientService.m in Sources */ = {isa = PBXBuildFile; fileRef = B32DA38315DEB843000DD9E9 /* ClientService.m */; };
 		B32DA38815DEB865000DD9E9 /* InterviewService.m in Sources */ = {isa = PBXBuildFile; fileRef = B32DA38715DEB865000DD9E9 /* InterviewService.m */; };
-		B34228DB15E1A1A8002B929F /* InterviewEditController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34228D915E1A1A8002B929F /* InterviewEditController.xib */; };
 		B3906B3215DC437D0089D494 /* LoginUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B3906B3115DC437D0089D494 /* LoginUserService.m */; };
 		B3906B3915DC65AC0089D494 /* loading-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3906B3815DC65AC0089D494 /* loading-bg.png */; };
 		B396B90015DB3479007BED61 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B396B8F515DB3479007BED61 /* NSObject+SBJSON.m */; };
@@ -150,7 +149,6 @@
 		B32DA38715DEB865000DD9E9 /* InterviewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InterviewService.m; path = Source/Services/InterviewService.m; sourceTree = "<group>"; };
 		B34228D715E1A1A8002B929F /* InterviewEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InterviewEditController.h; path = Source/Controllers/InterviewEditController.h; sourceTree = "<group>"; };
 		B34228D815E1A1A8002B929F /* InterviewEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InterviewEditController.m; path = Source/Controllers/InterviewEditController.m; sourceTree = "<group>"; };
-		B34228D915E1A1A8002B929F /* InterviewEditController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InterviewEditController.xib; path = Source/Controllers/InterviewEditController.xib; sourceTree = "<group>"; };
 		B3906B3015DC437D0089D494 /* LoginUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserService.h; path = Source/LoginUserService.h; sourceTree = "<group>"; };
 		B3906B3115DC437D0089D494 /* LoginUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUserService.m; path = Source/LoginUserService.m; sourceTree = "<group>"; };
 		B3906B3815DC65AC0089D494 /* loading-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading-bg.png"; sourceTree = "<group>"; };
@@ -311,7 +309,6 @@
 		16F2E8AC15D6B172005031A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B34228D915E1A1A8002B929F /* InterviewEditController.xib */,
 				16BE1C5E15D8053A0038A68B /* InterviewController.xib */,
 				163AC9F515D757DD00B019CA /* LoginView.xib */,
 				163AC9E915D755BC00B019CA /* InitializationView.xib */,
@@ -490,7 +487,6 @@
 				B3DDE9EC15E079FA00927812 /* total-interview-bg.png in Resources */,
 				B3DDE9F115E0866F00927812 /* FinishInterviewCell.xib in Resources */,
 				B3DDE9F315E089FF00927812 /* finishcell-bg.png in Resources */,
-				B34228DB15E1A1A8002B929F /* InterviewEditController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
