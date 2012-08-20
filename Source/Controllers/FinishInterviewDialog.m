@@ -95,12 +95,15 @@
 
 - (void)viewDidLoad
 {
+    _img_photo_f.image = [UIImage imageNamed:@"default_photo.png"];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
+    [_img_photo_f release];
+    _img_photo_f = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -112,4 +115,8 @@
 	return YES;
 }
 
+- (void)dealloc {
+    [_img_photo_f release];
+    [super dealloc];
+}
 @end

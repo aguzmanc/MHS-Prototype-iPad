@@ -8,6 +8,7 @@
 {
      Logic * _logic;
 
+    IBOutlet UIImageView *_img_photo_f;
 
 }
 
