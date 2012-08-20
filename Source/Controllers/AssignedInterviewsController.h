@@ -20,16 +20,19 @@
     IBOutlet UIButton * _btnSun;
     IBOutlet UIButton * _btnAll;
     
+    IBOutlet UITableView * _tblInterviews;
+    
     NSMutableArray * _waitingCells;
 
     int _selectedWeekday;
+    
+    NSArray * _currentInterviews;
 }
 
 
 @property (nonatomic, assign) NSArray *tableData;
 
 // Public Methods
--(void)reloadTable;
 -(void)setLogic:(Logic *)logic;
 
 // Action Handlers

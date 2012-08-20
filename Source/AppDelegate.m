@@ -35,8 +35,7 @@
     [_interviewController setLogic:_logic];
     
     // Setup View at the beginning
-    //[_logic switchToLogin];
-    [_logic switchToAssignedInterviews];
+    [_logic switchToLogin];
     
     return YES;
 }
@@ -103,7 +102,7 @@
 -(void)switchToAssignedInterviews
 {
     self.window.rootViewController = _assignedInterviewsController;
-    [_assignedInterviewsController reloadTable];
+ //   [_assignedInterviewsController reloadTable];
 }
 
 

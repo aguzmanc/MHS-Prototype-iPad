@@ -6,6 +6,7 @@
 {
     NSString * _interviewId;
     NSDate * _scheduleDate;
+    int _scheduleWeekday;
     NSDate * _startTime;
     NSDate * _endTime;
     double _cost;
@@ -27,5 +28,6 @@
 @property (strong, nonatomic) Client * client;
 @property (strong, nonatomic) NSString * profileNumber;
 @property (strong, nonatomic) NSDate * scheduleDate;
+@property (nonatomic) int scheduleWeekday;
 
 @end

@@ -105,12 +105,13 @@
             
             NSDateFormatter * format = [[[NSDateFormatter alloc] init] autorelease];
             
-            [format setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+            [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSString * dateStr = (NSString *)[jsonClient objectForKey:@"last_visited"];
             
-            if([jsonClient objectForKey:@"last_visited"] == nil)
-                client.lastVisitDate = [format dateFromString:[jsonClient objectForKey:@"last_visited"]];
-            else
+            if(dateStr == nil || [dateStr isKindOfClass:[NSNull class]])
                 client.lastVisitDate = nil; // we don't have a date really
+            else
+                client.lastVisitDate = [format dateFromString:dateStr];
             
             [clients addObject:client];
         }

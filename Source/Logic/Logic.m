@@ -156,6 +156,19 @@
     return [_interviewList objectAtIndex:row];
 }
 
+-(NSArray *)getInterviewsForWeekday:(int)weekday
+{
+    if(weekday == __ALL) return _interviewList;
+    NSMutableArray * selected = [[NSMutableArray alloc] init];
+    for(Interview * interview in _interviewList)
+    {
+        if(interview.scheduleWeekday == weekday)
+            [selected addObject:interview];
+    }
+    
+    return selected;
+}
+
 
 
 -(void)makeInterview:(Interview *)interview
