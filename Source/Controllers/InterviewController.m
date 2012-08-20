@@ -97,15 +97,14 @@
 
 -(void)applyDataInterview:(Interview *)interview
 {
-    NSLog(@"applyDataInterview");
-    _lblDate.enabled = NO;
+    NSLog(@"applyDataInterview");    
     
     _lblFirts_Name.text = interview.client.firstName;
     _lblLast_Name.text = interview.client.lastName;
     // format date
-    NSDateFormatter * format = [[NSDateFormatter alloc] init];
+   /* NSDateFormatter * format = [[NSDateFormatter alloc] init];
 	[format setDateFormat:@"dd/MM/yyyy"];
-	_lblLast_Visited.text = [format stringFromDate:interview.client.lastVisitDate];
+	_lblLast_Visited.text = [format stringFromDate:interview.client.lastVisitDate];*/
     _lblProfile_Num.text = interview.client.profileNumber;
     _img_Photo.image =[_logic getImageForProfileNumber:interview.client.profileNumber];
     if(_img_Photo.image==NULL)
@@ -116,11 +115,13 @@
     [formatTime setDateFormat:@"HH:mm:ss"];
 
     NSDateFormatter * formatNow = [[NSDateFormatter alloc] init];
-	[formatNow setDateFormat:@"dd/MM/yyyy"];
+	[formatNow setDateFormat:@"dd MMM yy"];
     
-    _lblDate.text = @"dias";//[formatNow stringFromDate:[NSData data]];
-    _lblStartTime.text = [formatTime stringFromDate:interview.startTime];
-    _lblEndTime.text = [formatTime stringFromDate:interview.endTime];
+    
+    
+    _lblDate.text = [formatNow stringFromDate:[NSData data]];
+    _lblStartTime.text = [formatTime stringFromDate:[NSData data]];
+    _lblEndTime.text = [formatTime stringFromDate:[NSData data]];
     
     NSTimeInterval interval = [interview.startTime timeIntervalSinceDate: interview.endTime];
     int hour = interval / 3600;
@@ -131,8 +132,7 @@
     if(hour)  _lblTimeSpent.text = [NSString stringWithFormat:@"%@",ABS(hour)];
     _textComment.text = interview.comment;
     _lblCost.text = [NSString  stringWithFormat:@"%g" ,interview.cost];
-    
-    NSLog(@"%@",[NSString  stringWithFormat:@"%g" ,interview.cost]);
+   
     
 }
 
@@ -194,6 +194,14 @@
     _lblCost = nil;
     [_lblTimeSpent release];
     _lblTimeSpent = nil;
+    [_lblDate release];
+    _lblDate = nil;
+    [_lblStartTime release];
+    _lblStartTime = nil;
+    [_lblInterviewTime release];
+    _lblInterviewTime = nil;
+    [_lblEndTime release];
+    _lblEndTime = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -217,6 +225,10 @@
     
     [_lblCost release];
     [_lblTimeSpent release];
+    [_lblDate release];
+    [_lblStartTime release];
+    [_lblInterviewTime release];
+    [_lblEndTime release];
     [super dealloc];
 }
 @end

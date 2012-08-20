@@ -126,17 +126,6 @@
 
 
 /*
- *  Interview DELEGATE
- */
-@protocol InterviewSaveDelegate
-
-
-
-@end
-
-
-
-/*
  *  Initializations DELEGATE
  */
 @protocol InitializationDelegate

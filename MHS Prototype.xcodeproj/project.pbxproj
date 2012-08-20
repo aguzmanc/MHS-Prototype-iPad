@@ -59,6 +59,7 @@
 		B32DA38815DEB865000DD9E9 /* InterviewService.m in Sources */ = {isa = PBXBuildFile; fileRef = B32DA38715DEB865000DD9E9 /* InterviewService.m */; };
 		B3906B3215DC437D0089D494 /* LoginUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B3906B3115DC437D0089D494 /* LoginUserService.m */; };
 		B3906B3915DC65AC0089D494 /* loading-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3906B3815DC65AC0089D494 /* loading-bg.png */; };
+		B39122A715E2BA7E001E5F2F /* interview-bckg.png in Resources */ = {isa = PBXBuildFile; fileRef = B39122A615E2BA7E001E5F2F /* interview-bckg.png */; };
 		B396B90015DB3479007BED61 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B396B8F515DB3479007BED61 /* NSObject+SBJSON.m */; };
 		B396B90115DB3479007BED61 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B396B8F715DB3479007BED61 /* NSString+SBJSON.m */; };
 		B396B90215DB3479007BED61 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B396B8F915DB3479007BED61 /* SBJSON.m */; };
@@ -68,7 +69,6 @@
 		B3A70D0415DB122B0050B674 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A70D0315DB122B0050B674 /* login.png */; };
 		B3A70D0715DB12450050B674 /* text-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A70D0615DB12450050B674 /* text-bg.png */; };
 		B3DDE9DE15DFF96700927812 /* InterviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DDE9DD15DFF96700927812 /* InterviewController.m */; };
-		B3DDE9E615E023AF00927812 /* interview-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3DDE9E515E023AE00927812 /* interview-bg.png */; };
 		B3DDE9EC15E079FA00927812 /* total-interview-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3DDE9EB15E079F900927812 /* total-interview-bg.png */; };
 		B3DDE9EF15E07DF900927812 /* FinishInterviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DDE9EE15E07DF500927812 /* FinishInterviewCell.m */; };
 		B3DDE9F115E0866F00927812 /* FinishInterviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3DDE9F015E0866E00927812 /* FinishInterviewCell.xib */; };
@@ -150,6 +150,7 @@
 		B3906B3015DC437D0089D494 /* LoginUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserService.h; path = Source/LoginUserService.h; sourceTree = "<group>"; };
 		B3906B3115DC437D0089D494 /* LoginUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUserService.m; path = Source/LoginUserService.m; sourceTree = "<group>"; };
 		B3906B3815DC65AC0089D494 /* loading-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading-bg.png"; sourceTree = "<group>"; };
+		B39122A615E2BA7E001E5F2F /* interview-bckg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "interview-bckg.png"; path = "../../VMware Shared Folders/MACOSX/interview-bckg.png"; sourceTree = "<group>"; };
 		B396B8F315DB3479007BED61 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		B396B8F415DB3479007BED61 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		B396B8F515DB3479007BED61 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -167,7 +168,6 @@
 		B3A70D0615DB12450050B674 /* text-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-bg.png"; sourceTree = "<group>"; };
 		B3DDE9DB15DFF95900927812 /* InterviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InterviewController.h; path = Source/Controllers/InterviewController.h; sourceTree = "<group>"; };
 		B3DDE9DD15DFF96700927812 /* InterviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InterviewController.m; path = Source/Controllers/InterviewController.m; sourceTree = "<group>"; };
-		B3DDE9E515E023AE00927812 /* interview-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interview-bg.png"; sourceTree = "<group>"; };
 		B3DDE9EB15E079F900927812 /* total-interview-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "total-interview-bg.png"; sourceTree = "<group>"; };
 		B3DDE9ED15E07DE800927812 /* FinishInterviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FinishInterviewCell.h; path = Source/Controllers/FinishInterviewCell.h; sourceTree = "<group>"; };
 		B3DDE9EE15E07DF500927812 /* FinishInterviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FinishInterviewCell.m; path = Source/Controllers/FinishInterviewCell.m; sourceTree = "<group>"; };
@@ -270,11 +270,11 @@
 		16F2E8A915D6B141005031A2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B39122A615E2BA7E001E5F2F /* interview-bckg.png */,
 				B3DDE9F215E089FE00927812 /* finishcell-bg.png */,
 				B3DDE9EB15E079F900927812 /* total-interview-bg.png */,
 				16DBEB3115DD92010005559F /* WeekdayButtons */,
 				1620AC2715DEE5E600B14271 /* progress_bar.png */,
-				B3DDE9E515E023AE00927812 /* interview-bg.png */,
 				16DBEB6715DDD8610005559F /* default_photo.png */,
 				16DBEB6515DDC6B10005559F /* tick.png */,
 				16DBEB6315DDC1AF0005559F /* btn_image.png */,
@@ -479,10 +479,10 @@
 				16DBEB6615DDC6B10005559F /* tick.png in Resources */,
 				16DBEB6815DDD8610005559F /* default_photo.png in Resources */,
 				1620AC2815DEE5E700B14271 /* progress_bar.png in Resources */,
-				B3DDE9E615E023AF00927812 /* interview-bg.png in Resources */,
 				B3DDE9EC15E079FA00927812 /* total-interview-bg.png in Resources */,
 				B3DDE9F115E0866F00927812 /* FinishInterviewCell.xib in Resources */,
 				B3DDE9F315E089FF00927812 /* finishcell-bg.png in Resources */,
+				B39122A715E2BA7E001E5F2F /* interview-bckg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
