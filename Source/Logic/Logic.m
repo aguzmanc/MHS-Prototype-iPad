@@ -22,10 +22,9 @@
     
     _loginUserService = [[LoginUserService alloc] initWithDelegate:self];    
     _clientService = [[ClientService alloc] initWithDelegate:self];
-    _interviewService = [[InterviewService alloc] initWithDelegate:self];
-           
-    _loginUserService = [[LoginUserService alloc] initWithDelegate:self];
-    //_sizeUserService = [[SizeUserService alloc] initWithDelegate:self];
+    _interviewService = [[InterviewService alloc] initWithDelegate:self];    
+    _interviewSave = [[InterviewSave alloc] initWithDelegate:self];
+    
     
     [_loginUserDelegate setLogic:self];
     
@@ -46,6 +45,12 @@
 }
 
 
+-(void)interviewSaveService:(NSString *)interviewId andStarTime:(NSString *)startime andEndTime:(NSString *)endtime andTimespent:(NSString *)timespent andCommint:(NSString *)commint andCost:(NSString *)cost
+{
+    NSLog(@"Entramos a la logica para pasarle al servicio");
+   [_interviewSave interviewSaves:interviewId andStarTime:startime andEndTime:endtime andTimespent:timespent andCommint:commint andCost:cost];
+    
+}
 
 #pragma mark - Public Methods
 
@@ -175,8 +180,9 @@
 {
     _selectedInterview = interview;
     [self switchToInterview];
+    [_interviewDelegate applyDataInterviewSave:_selectedInterview];
     [_interviewDelegate applyDataInterview:_selectedInterview];
-    }
+}
 
 
 
