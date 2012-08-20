@@ -36,6 +36,8 @@
                          nil];
     
      _waitingCells = [[NSMutableArray alloc] init];
+    
+    _currentInterviews = [[NSArray alloc] init];
         
     return self;
 }
@@ -47,10 +49,6 @@
 
 
 #pragma mark - Public Methods
-
--(void)reloadTable
-{
-}
 
 -(void)setLogic:(Logic *)logic
 {
@@ -80,38 +78,46 @@
         case 0: 
             [_btnAll setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
             _selectedWeekday = __ALL;
+            _currentInterviews = [_logic getInterviewsForWeekday:__ALL];
             break; 
         case 1: 
             [_btnMon setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
             _selectedWeekday = __MON;
+            _currentInterviews = [_logic getInterviewsForWeekday:__MON];
             break;
         case 2: 
             [_btnTue setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
             _selectedWeekday = __TUE;
+            _currentInterviews = [_logic getInterviewsForWeekday:__TUE];
             break;
         case 3: 
             [_btnWed setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
             _selectedWeekday = __WED;
+            _currentInterviews = [_logic getInterviewsForWeekday:__WED];
             break;
         case 4: 
             [_btnThu setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
             _selectedWeekday = __THU;
+            _currentInterviews = [_logic getInterviewsForWeekday:__THU];
             break;
         case 5: 
             [_btnFri setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
             _selectedWeekday = __FRI;
+            _currentInterviews = [_logic getInterviewsForWeekday:__FRI];
             break;
         case 6: 
             [_btnSat setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
             _selectedWeekday = __SAT;
+            _currentInterviews = [_logic getInterviewsForWeekday:__SAT];
             break;
         case 7: 
             [_btnSun setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
             _selectedWeekday = __SUN;
+            _currentInterviews = [_logic getInterviewsForWeekday:__SUN];
             break;
     }
     
-    
+    [_tblInterviews reloadData];
 }
 
 
@@ -222,7 +228,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-    return 20;
+    return [_currentInterviews count];
 }
 
 
@@ -249,7 +255,8 @@
 	// link cell with according identifier
 	//Interview * interview = [_logic getDesireForIndex:indexPath.row];
     
-    Interview * interview = [_logic getInterviewAt:indexPath.row ForWeekday:_selectedWeekday];//[_logic getDummyInterview];
+    //Interview * interview = [_logic getInterviewAt:indexPath.row ForWeekday:_selectedWeekday];//[_logic getDummyInterview];
+    Interview * interview = [_currentInterviews objectAtIndex:indexPath.row];
 	
 	// Apply data to Interview Cell View
 	[cell applyData:interview];

@@ -11,6 +11,7 @@
 @synthesize client = _client;
 @synthesize profileNumber = _profileNumber;
 @synthesize scheduleDate = _scheduleDate;
+@synthesize scheduleWeekday = _scheduleWeekday;
 
 
 @end

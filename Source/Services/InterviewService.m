@@ -102,8 +102,13 @@
             [dateStr appendString:[jsonInterview objectForKey:@"schedule"]];
             
             NSDateFormatter * format = [[[NSDateFormatter alloc] init] autorelease];
-            [format setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+            [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
             interview.scheduleDate = [format dateFromString:dateStr];
+            
+            NSCalendar * cal = [NSCalendar currentCalendar];
+            NSDateComponents * comp = [cal components:NSWeekdayCalendarUnit fromDate:interview.scheduleDate];
+            
+            interview.scheduleWeekday = [comp weekday];
             
             [interviews addObject:interview];
         }

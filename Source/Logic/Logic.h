@@ -80,6 +80,7 @@
 
 -(Interview *)getDummyInterview;
 -(Interview *)getInterviewAt:(int)row ForWeekday:(int)weekday;
+-(NSArray *)getInterviewsForWeekday:(int)weekday;
 
 -(void)makeInterview:(Interview *)interview;
 -(void)makeClientInterviewRelations;

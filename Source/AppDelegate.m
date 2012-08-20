@@ -36,7 +36,10 @@
     
     // Setup View at the beginning
     [_logic switchToLogin];
+<<<<<<< HEAD
     //[_logic switchToAssignedInterviews];
+=======
+>>>>>>> 3111faccdeddf24e60f4370abb6cbace76c6c0b3
     
     return YES;
 }
@@ -103,7 +106,7 @@
 -(void)switchToAssignedInterviews
 {
     self.window.rootViewController = _assignedInterviewsController;
-    [_assignedInterviewsController reloadTable];
+ //   [_assignedInterviewsController reloadTable];
 }
 
 
