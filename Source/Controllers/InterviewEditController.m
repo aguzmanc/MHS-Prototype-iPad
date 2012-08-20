@@ -1,41 +1,23 @@
-#import "InterviewController.h"
+//
+//  InterviewEditController.m
+//  MHS Prototype
+//
+//  Created by Giancarlo on 8/19/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
 
-@implementation InterviewController
+#import "InterviewEditController.h"
 
+@implementation InterviewEditController
 
-@synthesize _backTolist;
-
-#pragma mark Initialization
-
--(id)init
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:@"InterviewController" bundle:nil];
-    
-    if (!self) return nil;
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
     return self;
 }
-
--(void)setLogic:(Logic *)logic
-{
-    _logic = logic;
-}
-
-
--(void)finishClick:(id)sender
-{
-
-    [_logic switchToFinishInterview];
-
-}
-
-
--(IBAction)backToListClick:(id)sender
-{
-
-    [_logic switchToAssignedInterviews];
-
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -49,7 +31,6 @@
 
 - (void)viewDidLoad
 {
-    _backTolist.transform = CGAffineTransformMakeRotation(M_PI/ -4);    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

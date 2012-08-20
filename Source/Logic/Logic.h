@@ -12,6 +12,7 @@
 @protocol AssignedInterviewsDelegate;
 @protocol LoginUserDelegate;
 @protocol InitializationDelegate;
+@protocol InterviewDelegate;
 
 @interface Logic : NSObject <LoginUserServiceDelegate, AsyncProfileImageReceiverDelegate, 
                         TotalSizeServiceDelegate, AsyncListClientReceiverDelegate,
@@ -21,6 +22,7 @@
     id<ViewChangerDelegate> _viewChangerDelegate;
     id<LoginUserDelegate> _loginUserDelegate;
     id<InitializationDelegate> _initializationDelegate;
+    id<InterviewDelegate> _interviewDelegate;
     id<AssignedInterviewsDelegate> _assignedInterviewsDelegate;
     
     // Services
@@ -55,6 +57,7 @@
 -(id)initWithViewChangerDelegate:(id<ViewChangerDelegate>)viewChanger
             andLoginUserDelegate:(id<LoginUserDelegate>)loginUsers
        andInitializationDelegate:(id<InitializationDelegate>)initialization
+            andInterviewDelegate:(id<InterviewDelegate>)interviews
    andAssignedInterviewsDelegate:(id<AssignedInterviewsDelegate>)assignedInterviews;
 
 // Public Methods
@@ -62,6 +65,7 @@
 -(void)switchToLogin;
 -(void)switchToAssignedInterviews;
 -(void)switchToInterview;
+-(void)switchToFinishInterview;
 
 
 -(bool)existsImageForProfileNumber:(NSString *)profileNumber;
@@ -81,6 +85,10 @@
 
 
 
+
+
+
+
 /*
  *  VIEW CHANGER DELEGATE
  */
@@ -91,8 +99,22 @@
 -(void)switchToAssignedInterviews;
 -(void)switchToLogin;
 -(void)switchToInterview;
+-(void)switchToFinishInterview;
+
 
 @end
+
+
+
+/*
+ *  Interview DELEGATE
+ */
+@protocol InterviewDelegate
+
+-(void)setLogic:(Logic *)logic;
+
+@end
+
 
 
 /*

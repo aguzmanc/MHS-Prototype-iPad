@@ -9,22 +9,28 @@
 -(id)initWithViewChangerDelegate:(id<ViewChangerDelegate>)viewChanger
             andLoginUserDelegate:(id<LoginUserDelegate>)loginUsers
        andInitializationDelegate:(id<InitializationDelegate>)initialization
+            andInterviewDelegate:(id<InterviewDelegate>)interviews
    andAssignedInterviewsDelegate:(id<AssignedInterviewsDelegate>)assignedInterviews
 {
     self = [super init];
     
     _viewChangerDelegate = viewChanger;
     _assignedInterviewsDelegate = assignedInterviews;
-    _loginUserDelegate = loginUsers;    
+    _loginUserDelegate = loginUsers;
+    _interviewDelegate = interviews;
     _initializationDelegate = initialization;
     
     _loginUserService = [[LoginUserService alloc] initWithDelegate:self];    
     _clientService = [[ClientService alloc] initWithDelegate:self];
     _interviewService = [[InterviewService alloc] initWithDelegate:self];
            
+    _loginUserService = [[LoginUserService alloc] initWithDelegate:self];
+    //_sizeUserService = [[SizeUserService alloc] initWithDelegate:self];
+    
+    [_loginUserDelegate setLogic:self];
+    
     // init cache of images
 	_userImageCache = [[NSMutableDictionary alloc] init];
-    
     _profileNumbersWaitingForPhoto = [[NSMutableArray alloc] init];
     _defaultImage = [UIImage imageNamed:@"default_photo.png"];
     
@@ -69,7 +75,10 @@
     [_viewChangerDelegate switchToInterview];
 }
 
-
+-(void)switchToFinishInterview
+{
+    [_viewChangerDelegate switchToFinishInterview];
+}
 
 -(void)obtainImageForProfileNumber:(NSString *)profileNumber withFileName:(NSString *)fileName;
 {
@@ -324,5 +333,7 @@
 -(void)receiveImageErrorForProfileNumber:(NSString *)profileNumber
 {
     [_assignedInterviewsDelegate updateImage:_defaultImage forProfileNumber:profileNumber];
+    
+    [_userImageCache setObject:_defaultImage forKey:profileNumber];
 }
 @end

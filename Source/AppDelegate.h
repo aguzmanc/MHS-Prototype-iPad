@@ -5,7 +5,7 @@
 #import "AssignedInterviewsController.h"
 #import "InitializationController.h"
 #import "InterviewController.h"
-
+#import "FinishInterviewDialog.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, ViewChangerDelegate>
 {
@@ -14,6 +14,7 @@
     InitializationController * _initializationController;
     AssignedInterviewsController * _assignedInterviewsController;
     InterviewController * _interviewController;
+    FinishInterviewDialog * _finishInterviewDialog;
     
     // Logic
     Logic * _logic;

@@ -1,13 +1,16 @@
-//
-//  FinishInterviewCell.h
-//  MHS Prototype
-//
-//  Created by Giancarlo on 8/18/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
+#import "Logic.h"
+
+
 @interface FinishInterviewCell : UITableViewCell
+{
+   Logic * _logic;
+
+
+}
+
+-(IBAction)stickInterviewClick:(id)sender;
+
 
 @end
