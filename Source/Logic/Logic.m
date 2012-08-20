@@ -174,9 +174,9 @@
 -(void)makeInterview:(Interview *)interview
 {
     _selectedInterview = interview;
-    
     [self switchToInterview];
-}
+    [_interviewDelegate applyDataInterview:_selectedInterview];
+    }
 
 
 

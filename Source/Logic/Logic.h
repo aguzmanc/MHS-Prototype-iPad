@@ -113,6 +113,7 @@
 @protocol InterviewDelegate
 
 -(void)setLogic:(Logic *)logic;
+-(void)applyDataInterview:(Interview *)interview;
 
 @end
 
