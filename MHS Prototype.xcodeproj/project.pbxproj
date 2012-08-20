@@ -56,7 +56,6 @@
 		B305815D15DF1F7200E2B022 /* ProgressService.m in Sources */ = {isa = PBXBuildFile; fileRef = B305815C15DF1F7200E2B022 /* ProgressService.m */; };
 		B32DA38415DEB843000DD9E9 /* ClientService.m in Sources */ = {isa = PBXBuildFile; fileRef = B32DA38315DEB843000DD9E9 /* ClientService.m */; };
 		B32DA38815DEB865000DD9E9 /* InterviewService.m in Sources */ = {isa = PBXBuildFile; fileRef = B32DA38715DEB865000DD9E9 /* InterviewService.m */; };
-		B34228DA15E1A1A8002B929F /* InterviewEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34228D815E1A1A8002B929F /* InterviewEditController.m */; };
 		B34228DB15E1A1A8002B929F /* InterviewEditController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34228D915E1A1A8002B929F /* InterviewEditController.xib */; };
 		B3906B3215DC437D0089D494 /* LoginUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = B3906B3115DC437D0089D494 /* LoginUserService.m */; };
 		B3906B3915DC65AC0089D494 /* loading-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3906B3815DC65AC0089D494 /* loading-bg.png */; };
@@ -533,7 +532,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mauricio Larrea S.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mauricio Larrea S.";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -550,7 +550,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Resources/PLists/MHS Prototype-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "968126E3-A6D8-41B8-A7A1-8CE0F85595FF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "968126E3-A6D8-41B8-A7A1-8CE0F85595FF";
+				SDKROOT = iphoneos4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -560,7 +562,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mauricio Larrea S.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mauricio Larrea S.";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = "/Volumes/work/MHS-Prototype-iPad/Source/MHS Prototype-Prefix.pch";
@@ -571,7 +574,9 @@
 				INFOPLIST_FILE = "Resources/PLists/MHS Prototype-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "968126E3-A6D8-41B8-A7A1-8CE0F85595FF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "968126E3-A6D8-41B8-A7A1-8CE0F85595FF";
+				SDKROOT = iphoneos4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -582,7 +587,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "Resources/PLists/MHS Prototype-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -592,7 +599,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "Resources/PLists/MHS Prototype-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
