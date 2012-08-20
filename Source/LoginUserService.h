@@ -8,7 +8,6 @@
 	NSMutableString * responseString;
 	
 	id<LoginUserServiceDelegate> _delegate;
-	
 }
 
 // Initialization
@@ -17,13 +16,12 @@
 // Public Methods
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass;
 
-
 @end
 
 
 @protocol LoginUserServiceDelegate
 
--(void)loginStatus:(BOOL)status AndMessage:(NSString *)message;
+-(void)successLogin:(NSString *) userId FirstName:(NSString *)firstName LastName:(NSString *)lastName Email:(NSString *)email;
 -(void)errorLoginService:(NSString *)message;
 
 @end

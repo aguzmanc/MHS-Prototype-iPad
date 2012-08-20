@@ -1,10 +1,12 @@
 #import <Foundation/Foundation.h>
 
 #import "LoginUserService.h"
-#import "ProgressService.h"
 #import "PhotoService.h"
 #import "Client.h"
 #import "Interview.h"
+#import "TotalSizeService.h"
+#import "ClientService.h"
+#import "InterviewService.h"
 
 @protocol ViewChangerDelegate;
 @protocol AssignedInterviewsDelegate;
@@ -12,7 +14,9 @@
 @protocol InitializationDelegate;
 @protocol InterviewDelegate;
 
-@interface Logic : NSObject <LoginUserServiceDelegate, AsyncProfileImageReceiverDelegate, ProgressServiceDelegate>
+@interface Logic : NSObject <LoginUserServiceDelegate, AsyncProfileImageReceiverDelegate, 
+                        TotalSizeServiceDelegate, AsyncListClientReceiverDelegate,
+                        AsyncListInterviewReceiverDelegate>
 {
     // delegates
     id<ViewChangerDelegate> _viewChangerDelegate;
@@ -23,13 +27,24 @@
     
     // Services
     LoginUserService * _loginUserService;
-    ProgressService * _progressService;
+    ClientService * _clientService;
+    InterviewService * _interviewService;
     
     // Logic data 
     NSArray * _interviewList;
+    NSArray * _clientList;
     NSMutableDictionary * _userImageCache;
     NSMutableArray * _profileNumbersWaitingForPhoto;
     UIImage * _defaultImage;
+    
+    int _totalLoadSizeOfServices;
+    int _totalBytesReceived;
+    bool _isClientsResponseSizeKnown;
+    bool _isInterviewsResponseSizeKnown;
+    bool _clientsReceived;
+    bool _interviewsReceived;
+    
+    NSString * _userIdLogged;
     
     Interview * _selectedInterview;
 }
@@ -60,8 +75,10 @@
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass;
 
 -(Interview *)getDummyInterview;
+-(Interview *)getInterviewAt:(int)row ForWeekday:(int)weekday;
 
 -(void)makeInterview:(Interview *)interview;
+-(void)makeClientInterviewRelations;
 
 @end
 
@@ -107,8 +124,9 @@
 @protocol InitializationDelegate
 
 -(void)setLogic:(Logic *)logic;
--(void)setIndex:(NSNumber *)index;
+//-(void)setIndex:(NSNumber *)index;
 //-(void)updateProgressDelegate:(NSNumber *)indexProg TotalSize:(NSNumber *)totalSize;
+-(void)updatePercentageProgress:(int)percentage;
 @end
 
 

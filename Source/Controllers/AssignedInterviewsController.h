@@ -3,6 +3,7 @@
 #import "Logic.h"
 #import "InterviewCell.h"
 
+
 @interface AssignedInterviewsController : UIViewController <UITableViewDataSource, UITableViewDataSource, AssignedInterviewsDelegate>
 {
     Logic * _logic;
@@ -20,6 +21,8 @@
     IBOutlet UIButton * _btnAll;
     
     NSMutableArray * _waitingCells;
+
+    int _selectedWeekday;
 }
 
 

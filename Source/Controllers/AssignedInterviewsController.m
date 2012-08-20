@@ -77,15 +77,41 @@
     
     // now override image with selected index
     switch (index) {
-        case 0: [_btnAll setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; break; 
-        case 1: [_btnMon setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; break;
-        case 2: [_btnTue setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; break;
-        case 3: [_btnWed setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; break;
-        case 4: [_btnThu setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; break;
-        case 5: [_btnFri setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; break;
-        case 6: [_btnSat setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; break;
-        case 7: [_btnSun setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; break;
+        case 0: 
+            [_btnAll setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
+            _selectedWeekday = __ALL;
+            break; 
+        case 1: 
+            [_btnMon setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
+            _selectedWeekday = __MON;
+            break;
+        case 2: 
+            [_btnTue setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
+            _selectedWeekday = __TUE;
+            break;
+        case 3: 
+            [_btnWed setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
+            _selectedWeekday = __WED;
+            break;
+        case 4: 
+            [_btnThu setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
+            _selectedWeekday = __THU;
+            break;
+        case 5: 
+            [_btnFri setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
+            _selectedWeekday = __FRI;
+            break;
+        case 6: 
+            [_btnSat setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
+            _selectedWeekday = __SAT;
+            break;
+        case 7: 
+            [_btnSun setImage:[_imagesButtonsOn objectAtIndex:index] forState:UIControlStateNormal]; 
+            _selectedWeekday = __SUN;
+            break;
     }
+    
+    
 }
 
 
@@ -154,8 +180,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+        
+    // Check current day and set button to these day
+    NSCalendar * cal = [NSCalendar currentCalendar];
+    NSDateComponents * comp = [cal components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
     
-    [self setDayButton:0]; // default
+    int currentWeekday = [comp weekday];
+    
+    switch (currentWeekday) {
+        case __MON: [self setDayButton:1]; break;
+        case __TUE: [self setDayButton:2]; break;
+        case __WED: [self setDayButton:3]; break;
+        case __THU: [self setDayButton:4]; break;
+        case __FRI: [self setDayButton:5]; break;
+        case __SAT: [self setDayButton:6]; break;
+        case __SUN: [self setDayButton:7]; break;
+    }
 }
 
 
@@ -209,7 +249,7 @@
 	// link cell with according identifier
 	//Interview * interview = [_logic getDesireForIndex:indexPath.row];
     
-    Interview * interview = [_logic getDummyInterview];
+    Interview * interview = [_logic getInterviewAt:indexPath.row ForWeekday:_selectedWeekday];//[_logic getDummyInterview];
 	
 	// Apply data to Interview Cell View
 	[cell applyData:interview];
@@ -268,6 +308,8 @@
     
     [super viewDidUnload];
 }
+
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {    

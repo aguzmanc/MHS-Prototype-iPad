@@ -21,11 +21,16 @@
     _initializationDelegate = initialization;
     
     _loginUserService = [[LoginUserService alloc] initWithDelegate:self];    
-    _progressService = [[ProgressService alloc] initWithDelegate:self];
+    _clientService = [[ClientService alloc] initWithDelegate:self];
+    _interviewService = [[InterviewService alloc] initWithDelegate:self];
            
+    _loginUserService = [[LoginUserService alloc] initWithDelegate:self];
+    //_sizeUserService = [[SizeUserService alloc] initWithDelegate:self];
+    
+    [_loginUserDelegate setLogic:self];
+    
     // init cache of images
 	_userImageCache = [[NSMutableDictionary alloc] init];
-    
     _profileNumbersWaitingForPhoto = [[NSMutableArray alloc] init];
     _defaultImage = [UIImage imageNamed:@"default_photo.png"];
     
@@ -135,6 +140,24 @@
 
 
 
+-(Interview *)getInterviewAt:(int)row ForWeekday:(int)weekday
+{
+    //NSMutableArray * selectedInterviews = [[NSMutableArray alloc] init];
+    //NSCalendar * cal = [NSCalendar currentCalendar];
+    //NSDateComponents * comp = [cal components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    
+    //int currentWeekday = [comp weekday];
+
+    
+    
+    
+    row = MAX(0, MIN([_interviewList count]-1, row));
+    
+    return [_interviewList objectAtIndex:row];
+}
+
+
+
 -(void)makeInterview:(Interview *)interview
 {
     _selectedInterview = interview;
@@ -143,39 +166,156 @@
     }
 
 
-#pragma mark - ProgressServiceDelegate
 
--(void)indexService:(NSNumber *)indexvalor
+-(void)makeClientInterviewRelations
 {
-   NSLog(@"entro al servici delagate");
-   [_initializationDelegate setIndex:indexvalor];
+    if(_clientsReceived && _interviewsReceived)
+    {
+        for(Interview * interview in _interviewList)
+        {
+            for(Client * client in _clientList)
+            {
+                if([interview.profileNumber isEqualToString:client.profileNumber])
+                    interview.client = client;
+            }
+        }
+        
+        [self switchToAssignedInterviews];
+    }
 }
+
+
+
+
+
+
+
+
+#pragma mark - TotalSizeServiceDelegate
+
+-(void)receiveTotalSizeInBytes:(int)size ForService:(NSString *)serviceIdentifier
+{
+    if ([serviceIdentifier isEqualToString:TOTAL_SIZE_CLIENTS_SERVICE_IDENTIFIER]) {
+        _isClientsResponseSizeKnown = true;
+        _totalLoadSizeOfServices += size;
+        
+        NSLog(@"Size of Clients: %d bytes", size);
+    }
+    
+    if ([serviceIdentifier isEqualToString:TOTAL_SIZE_INTERVIEWS_SERVICE_IDENTIFIER]) {
+        _isInterviewsResponseSizeKnown = true;
+        _totalLoadSizeOfServices += size;
+        
+        NSLog(@"Size of Interviews: %d bytes", size);
+    }
+    
+    if(_isClientsResponseSizeKnown && _isInterviewsResponseSizeKnown)
+    {
+        [_clientService requestDataWithUserId:_userIdLogged];   
+        [_interviewService requestDataWithUserId:_userIdLogged];
+    }
+}
+
+
+
 
 
 
 #pragma mark - LoginUserServiceDelegate
 
--(void)loginStatus:(BOOL)status AndMessage:(NSString *)message
+-(void)successLogin:(NSString *) userId 
+          FirstName:(NSString *)firstName 
+           LastName:(NSString *)lastName 
+              Email:(NSString *)email
 {
-	if (status == YES) 
-	{		        
-        NSLog(@" Entro con YES: con id usuario");
-        
-        [self switchToInitialization];
-        [_progressService initProgress:@"1"];
-	}
-	else
-    {
-        NSLog(@" estusu no");
-        [_loginUserDelegate loginError:message];
-    }    
+    [self switchToInitialization];
+    
+    // initial values for loading process
+    _isClientsResponseSizeKnown = false;
+    _isInterviewsResponseSizeKnown = false;
+    _totalBytesReceived = 0;
+    _totalLoadSizeOfServices = 0;
+    _clientsReceived = false;
+    _interviewsReceived = false;
+    
+    //[_progressService initProgress:userId];
+    TotalSizeService * sizeForClientsService = [[TotalSizeService alloc] initWithDelegate:self];
+    [sizeForClientsService requestSizeForService:TOTAL_SIZE_CLIENTS_SERVICE_IDENTIFIER WithUserId:userId];
+    
+    TotalSizeService * sizeForInterviewsService = [[TotalSizeService alloc] initWithDelegate:self];
+    [sizeForInterviewsService requestSizeForService:TOTAL_SIZE_INTERVIEWS_SERVICE_IDENTIFIER WithUserId:userId];
+    
+    _userIdLogged = [userId retain];
 }
+
+
 
 -(void)errorLoginService:(NSString *)message
 {
     [_loginUserDelegate errorLogin:message];
-
 }
+
+
+
+
+
+
+#pragma mark - AsyncClientServiceDelegate
+
+-(void)updateClientBytesReceived:(int)bytesCount
+{
+    _totalBytesReceived += bytesCount;
+    int percentageProgress = 0;
+    
+    if(_totalLoadSizeOfServices != 0)        
+        percentageProgress = (int)(((double)_totalBytesReceived / _totalLoadSizeOfServices) * 100);
+    
+    
+    [_initializationDelegate updatePercentageProgress:percentageProgress];
+}
+
+
+
+-(void)receiveClients:(NSArray *)clients
+{
+    _clientList = [clients retain];
+    _clientsReceived = true;
+    
+    [self makeClientInterviewRelations];
+}
+
+
+
+
+
+
+#pragma mark - AsyncListInterviewReceiverDelegate
+
+-(void)updateInterviewBytesReceived:(int)bytesCount
+{
+    _totalBytesReceived += bytesCount;
+    int percentageProgress = 0;
+    
+    if(_totalLoadSizeOfServices != 0)        
+        percentageProgress = (int)(((double)_totalBytesReceived / _totalLoadSizeOfServices) * 100);
+    
+    
+    [_initializationDelegate updatePercentageProgress:percentageProgress];
+}
+
+
+
+-(void)receiveInterviews:(NSArray *)interviews
+{
+    _interviewList = [interviews retain];
+    _interviewsReceived = true;    
+    
+    [self makeClientInterviewRelations];
+}
+
+
+
+
 
 
 
@@ -193,5 +333,7 @@
 -(void)receiveImageErrorForProfileNumber:(NSString *)profileNumber
 {
     [_assignedInterviewsDelegate updateImage:_defaultImage forProfileNumber:profileNumber];
+    
+    [_userImageCache setObject:_defaultImage forKey:profileNumber];
 }
 @end

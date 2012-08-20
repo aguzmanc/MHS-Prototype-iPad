@@ -30,10 +30,16 @@
     
     _lblFirstName.text = interview.client.firstName;
     _lblLastName.text = interview.client.lastName;
-    // format date
-    NSDateFormatter * format = [[NSDateFormatter alloc] init];
-	[format setDateFormat:@"dd/MM/yyyy"];
-	_lblLastVisited.text = [format stringFromDate:interview.client.lastVisitDate];
+    
+    if(interview.client.lastVisitDate != nil)
+    {
+        // format date
+        NSDateFormatter * format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"dd/MM/yyyy"];
+        _lblLastVisited.text = [format stringFromDate:interview.client.lastVisitDate];
+    }
+    else
+        _lblLastVisited.text = @"Not Visited";
     
     _imgTick.hidden = (interview.visited == false);
     

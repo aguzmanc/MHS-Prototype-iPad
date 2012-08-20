@@ -35,7 +35,7 @@
 -(void)loginError:(NSString *)message
 {
     NSLog(@"entro con  el mensaje Error:%@", message);
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"ENTRY ERROR" message:message delegate:nil cancelButtonTitle:@"Accept" otherButtonTitles:nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"LOGIN FAILED" message:message delegate:nil cancelButtonTitle:@"Accept" otherButtonTitles:nil];
 	
 	[alert show];
 	[alert release];

@@ -35,8 +35,8 @@
     [_interviewController setLogic:_logic];
     
     // Setup View at the beginning
-    [_logic switchToLogin];
-    //[_logic switchToAssignedInterviews];
+    //[_logic switchToLogin];
+    [_logic switchToAssignedInterviews];
     
     return YES;
 }

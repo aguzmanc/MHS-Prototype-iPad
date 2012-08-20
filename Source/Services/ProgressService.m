@@ -1,11 +1,3 @@
-//
-//  ProgressService.m
-//  MHS Prototype
-//
-//  Created by Giancarlo on 8/17/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import "ProgressService.h"
 #import "JSON.h"
 #import "Globals.h"
@@ -25,11 +17,11 @@
 }
 
 
+
 -(void)initProgress:(NSString *) idUser
 {
-
     // Build request URL with al parameters
-	NSString * requestURL = [NSString stringWithFormat:@"%@?user_id=%@", CLIENT_USER_SERVICE_REQUEST_PAGE, idUser];
+	NSString * requestURL = [NSString stringWithFormat:@"%@?user_id=%@", CLIENTS_SERVICE_REQUEST_PAGE, idUser];
 	
 	responseData = [[NSMutableData data] retain];
     
@@ -37,8 +29,9 @@
 	
 	NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];  
-
 }
+
+
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response 
 {
