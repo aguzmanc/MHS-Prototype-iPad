@@ -97,8 +97,7 @@
 -(void)applyDataInterview:(Interview *)interview
 {
     NSLog(@"applyDataInterview");
-    _lblDate.enabled = NO;
-    
+        
     _lblFirts_Name.text = interview.client.firstName;
     _lblLast_Name.text = interview.client.lastName;
     _lblProfile_Num.text = interview.client.profileNumber;
