@@ -14,7 +14,6 @@
 -(IBAction)stickInterviewClick:(id)sender
 {
     //selecciona un visto bueno en la tabla   
-
 }
 
 #pragma mark - View lifecycle

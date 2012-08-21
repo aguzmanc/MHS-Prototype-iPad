@@ -182,6 +182,12 @@
 }
 
 
+-(IBAction)backToLogic
+{
+    [_logic switchToLogin];
+}
+
+
 
 - (void)viewDidLoad
 {
@@ -202,6 +208,27 @@
         case __SAT: [self setDayButton:6]; break;
         case __SUN: [self setDayButton:7]; break;
     }
+
+    _btnBackToLogin.transform = CGAffineTransformMakeRotation(M_PI/ -4);  
+}
+
+-(void)reload
+{
+    NSCalendar * cal = [NSCalendar currentCalendar];
+    NSDateComponents * comp = [cal components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    
+    int currentWeekday = [comp weekday];
+    
+    switch (currentWeekday) {
+        case __MON: [self setDayButton:1]; break;
+        case __TUE: [self setDayButton:2]; break;
+        case __WED: [self setDayButton:3]; break;
+        case __THU: [self setDayButton:4]; break;
+        case __FRI: [self setDayButton:5]; break;
+        case __SAT: [self setDayButton:6]; break;
+        case __SUN: [self setDayButton:7]; break;
+    }
+
 }
 
 
@@ -318,9 +345,9 @@
 
 
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation
 {    
-	return YES;
+	return UIInterfaceOrientationIsPortrait(orientation);
 }
 
 

@@ -17,6 +17,7 @@
 		163AC9EA15D755BC00B019CA /* InitializationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163AC9E915D755BC00B019CA /* InitializationView.xib */; };
 		163AC9F315D757BF00B019CA /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 163AC9F115D757BF00B019CA /* LoginController.m */; };
 		163AC9F615D757DD00B019CA /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163AC9F515D757DD00B019CA /* LoginView.xib */; };
+		1676DB9B15E2BCDB007BD152 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1676DB9A15E2BCDB007BD152 /* Icon.png */; };
 		16BE1C5715D7FC8C0038A68B /* Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BE1C5615D7FC8C0038A68B /* Logic.m */; };
 		16BE1C5F15D8053A0038A68B /* InterviewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16BE1C5E15D8053A0038A68B /* InterviewController.xib */; };
 		16BE1C6215D841A60038A68B /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BE1C6115D841A60038A68B /* Client.m */; };
@@ -91,6 +92,7 @@
 		163AC9F015D757BF00B019CA /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = Source/Controllers/LoginController.h; sourceTree = "<group>"; };
 		163AC9F115D757BF00B019CA /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = Source/Controllers/LoginController.m; sourceTree = "<group>"; };
 		163AC9F515D757DD00B019CA /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginView.xib; path = Resources/Views/LoginView.xib; sourceTree = "<group>"; };
+		1676DB9A15E2BCDB007BD152 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		169E6BAC15D6BC5800BA7DEE /* MHS Prototype-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MHS Prototype-Info.plist"; path = "Resources/PLists/MHS Prototype-Info.plist"; sourceTree = "<group>"; };
 		16BDEA5E15D6C2A800DE2A5E /* MHS Prototype-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MHS Prototype-Prefix.pch"; path = "Source/MHS Prototype-Prefix.pch"; sourceTree = "<group>"; };
 		16BE1C5515D7FC8C0038A68B /* Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logic.h; path = Source/Logic/Logic.h; sourceTree = "<group>"; };
@@ -147,8 +149,6 @@
 		B32DA38315DEB843000DD9E9 /* ClientService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClientService.m; path = Source/Services/ClientService.m; sourceTree = "<group>"; };
 		B32DA38615DEB865000DD9E9 /* InterviewService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InterviewService.h; path = Source/Services/InterviewService.h; sourceTree = "<group>"; };
 		B32DA38715DEB865000DD9E9 /* InterviewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InterviewService.m; path = Source/Services/InterviewService.m; sourceTree = "<group>"; };
-		B34228D715E1A1A8002B929F /* InterviewEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InterviewEditController.h; path = Source/Controllers/InterviewEditController.h; sourceTree = "<group>"; };
-		B34228D815E1A1A8002B929F /* InterviewEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InterviewEditController.m; path = Source/Controllers/InterviewEditController.m; sourceTree = "<group>"; };
 		B3906B3015DC437D0089D494 /* LoginUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUserService.h; path = Source/LoginUserService.h; sourceTree = "<group>"; };
 		B3906B3115DC437D0089D494 /* LoginUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUserService.m; path = Source/LoginUserService.m; sourceTree = "<group>"; };
 		B3906B3815DC65AC0089D494 /* loading-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading-bg.png"; sourceTree = "<group>"; };
@@ -272,6 +272,7 @@
 		16F2E8A915D6B141005031A2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1676DB9A15E2BCDB007BD152 /* Icon.png */,
 				B3DDE9F215E089FE00927812 /* finishcell-bg.png */,
 				B3DDE9EB15E079F900927812 /* total-interview-bg.png */,
 				16DBEB3115DD92010005559F /* WeekdayButtons */,
@@ -340,8 +341,6 @@
 				16DBEB5C15DDBAA20005559F /* InterviewCell.m */,
 				B3DDE9ED15E07DE800927812 /* FinishInterviewCell.h */,
 				B3DDE9EE15E07DF500927812 /* FinishInterviewCell.m */,
-				B34228D715E1A1A8002B929F /* InterviewEditController.h */,
-				B34228D815E1A1A8002B929F /* InterviewEditController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -487,6 +486,7 @@
 				B3DDE9EC15E079FA00927812 /* total-interview-bg.png in Resources */,
 				B3DDE9F115E0866F00927812 /* FinishInterviewCell.xib in Resources */,
 				B3DDE9F315E089FF00927812 /* finishcell-bg.png in Resources */,
+				1676DB9B15E2BCDB007BD152 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

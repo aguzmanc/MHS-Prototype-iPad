@@ -14,13 +14,16 @@
     
     IBOutlet UIImageView *_img_Photo;
     
+    IBOutlet UIButton * _btnFinish;
+    
     NSString *_client_profile_id;
-    IBOutlet UITextField *_lblDate;    
-    IBOutlet UITextField *_lblStartTime;
+    IBOutlet UILabel *_lblDate;    
+    IBOutlet UILabel *_lblStartTime;
     IBOutlet UITextView *_textComment;    
-    IBOutlet UITextField *_lblEndTime;          
-    IBOutlet UITextField *_lblTimeSpent;
+    IBOutlet UILabel *_lblEndTime;          
+    IBOutlet UILabel *_lblTimeSpent;
     IBOutlet UITextField *_lblCost;
+    
     
     NSString *_interview_id;
     

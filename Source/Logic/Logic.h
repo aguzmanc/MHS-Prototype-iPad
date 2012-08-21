@@ -157,6 +157,7 @@
 -(void)setLogic:(Logic *)logic;
 -(void)loginError:(NSString *)message;
 -(void)errorLogin:(NSString *)message;
+-(void)clearFields;
 
 @end
 
@@ -167,5 +168,6 @@
 @protocol AssignedInterviewsDelegate
 
 -(void)updateImage:(UIImage *)image forProfileNumber:(NSString *)profileNumber;
+-(void)reload;
 
 @end

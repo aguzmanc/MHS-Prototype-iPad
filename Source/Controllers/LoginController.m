@@ -53,6 +53,13 @@
 }
 
 
+-(void)clearFields
+{
+    [_user setText:@""];
+    [_pass setText:@""];
+}
+
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -68,9 +75,9 @@
 }
 
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
-	return YES;
+	return UIInterfaceOrientationIsPortrait(orientation);
 }
 
 @end

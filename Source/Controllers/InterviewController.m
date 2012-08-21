@@ -33,8 +33,7 @@
 }
 
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:
-(NSInteger)buttonIndex
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if([title isEqualToString:@"Yes"])
@@ -69,7 +68,7 @@
 
 -(void) slideFrame:(BOOL)up
 {
-    const int movementDistance = 50; // lo que sea necesario, en mi caso yo use 80
+    const int movementDistance = 300; // lo que sea necesario, en mi caso yo use 80
     const float movementDuration = 0.3f; // lo que sea necesario
     
     int movement = (up ? -movementDistance : movementDistance);
@@ -102,39 +101,54 @@
     
     _lblFirts_Name.text = interview.client.firstName;
     _lblLast_Name.text = interview.client.lastName;
-    // format date
-    NSDateFormatter * format = [[NSDateFormatter alloc] init];
-	[format setDateFormat:@"dd/MM/yyyy"];
-	_lblLast_Visited.text = [format stringFromDate:interview.client.lastVisitDate];
     _lblProfile_Num.text = interview.client.profileNumber;
     _img_Photo.image =[_logic getImageForProfileNumber:interview.client.profileNumber];
-    if(_img_Photo.image==NULL)
+    
+    if(_img_Photo.image == nil)
     {
         _img_Photo.image = [UIImage imageNamed:@"default_photo.png"];
     }
-    NSDateFormatter * formatTime = [[NSDateFormatter alloc] init];
-    [formatTime setDateFormat:@"HH:mm:ss"];
+    
+    // format date
+    NSDateFormatter * format = [[NSDateFormatter alloc] init];
+	[format setDateFormat:@"dd/MM/yyyy"];
 
-    NSDateFormatter * formatNow = [[NSDateFormatter alloc] init];
-	[formatNow setDateFormat:@"dd/MM/yyyy"];
+    [_lblDate setText:[format stringFromDate:interview.scheduleDate]];
+
+    if(interview.startTime == nil)
+    {
+        interview.startTime = [NSDate date]; // now!
+    }
     
-    _lblDate.text = @"dias";//[formatNow stringFromDate:[NSData data]];
-    _lblStartTime.text = [formatTime stringFromDate:interview.startTime];
-    _lblEndTime.text = [formatTime stringFromDate:interview.endTime];
+    [format setDateFormat:@"hh:mm a"];
+    [_lblStartTime setText:[format stringFromDate:interview.startTime]];
     
-    NSTimeInterval interval = [interview.startTime timeIntervalSinceDate: interview.endTime];
-    int hour = interval / 3600;
-    int minute = (int)interval % 3600 / 60;
+    if(interview.endTime != nil)
+    {
+        [_lblEndTime setText:[format stringFromDate:interview.endTime]];
+        
+        NSTimeInterval interval = [interview.startTime timeIntervalSinceDate: interview.endTime];
+        int hour = interval / 3600;
+        
+        hour = ABS(hour);
+        
+        [_lblTimeSpent setText:[NSString stringWithFormat:@"%d", hour]];
+    }    
     
-    NSLog(@"%dHrs. %dmin.", ABS(hour), ABS(minute));
-    
-    if(hour)  _lblTimeSpent.text = [NSString stringWithFormat:@"%@",ABS(hour)];
     _textComment.text = interview.comment;
-    _lblCost.text = [NSString  stringWithFormat:@"%g" ,interview.cost];
+    _lblCost.text = [NSString  stringWithFormat:@"%d" ,interview.cost];
     
-    NSLog(@"%@",[NSString  stringWithFormat:@"%g" ,interview.cost]);
+    _btnFinish.hidden = interview.visited;
+    _textComment.userInteractionEnabled = (interview.visited == NO);
+    _lblCost.userInteractionEnabled = (interview.visited == NO);
     
+    //NSLog(@"%@",[NSString  stringWithFormat:@"%g" ,interview.cost]);
 }
+
+
+
+
+
 
 #pragma mark - Interview Save Delegate
 
@@ -142,6 +156,7 @@
 {
     [_logic switchToAssignedInterviews];
 }
+
 
 
 -(void)errorInterviewSaveService:(NSString *)message;
@@ -199,11 +214,12 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
-    // Return YES for supported orientations
-	return YES;
+    return UIInterfaceOrientationIsPortrait(orientation);
 }
+
+
 
 - (void)dealloc {
     [_lblFirts_Name release];

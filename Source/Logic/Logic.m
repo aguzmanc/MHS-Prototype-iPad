@@ -45,10 +45,28 @@
 }
 
 
--(void)interviewSaveService:(NSString *)interviewId andStarTime:(NSString *)startime andEndTime:(NSString *)endtime andTimespent:(NSString *)timespent andCommint:(NSString *)commint andCost:(NSString *)cost
+-(void)interviewSaveService:(NSString *)interviewId 
+                andStarTime:(NSString *)startime 
+                 andEndTime:(NSString *)endtime 
+               andTimespent:(NSString *)timespent 
+                 andCommint:(NSString *)comment andCost:(NSString *)cost
 {
     NSLog(@"Entramos a la logica para pasarle al servicio");
-   [_interviewSave interviewSaves:interviewId andStarTime:startime andEndTime:endtime andTimespent:timespent andCommint:commint andCost:cost];
+    
+    for(Interview * interview in _interviewList)
+    {
+        if([interview.interviewId isEqualToString:interviewId])
+        {
+            interview.visited = true;
+            interview.endTime = [NSDate date];
+            interview.comment = comment;
+            interview.cost = [cost doubleValue];
+        }
+        
+        [self switchToAssignedInterviews];
+        [_assignedInterviewsDelegate reload];
+    }
+   //[_interviewSave interviewSaves:interviewId andStarTime:startime andEndTime:endtime andTimespent:timespent andCommint:commint andCost:cost];
     
 }
 
@@ -57,6 +75,8 @@
 -(void)switchToInitialization
 {
     [_viewChangerDelegate switchToInitialization];
+    
+    [_initializationDelegate updatePercentageProgress:0];
 }
 
 
@@ -64,6 +84,7 @@
 -(void)switchToLogin
 {
     [_viewChangerDelegate switchToLogin];
+    [_loginUserDelegate clearFields];
 }
 
 

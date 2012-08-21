@@ -22,6 +22,8 @@
     
     IBOutlet UITableView * _tblInterviews;
     
+    IBOutlet UIButton * _btnBackToLogin;
+    
     NSMutableArray * _waitingCells;
 
     int _selectedWeekday;
@@ -34,6 +36,7 @@
 
 // Public Methods
 -(void)setLogic:(Logic *)logic;
+-(void)reload;
 
 // Action Handlers
 -(IBAction)monClick;
@@ -44,6 +47,8 @@
 -(IBAction)satClick;
 -(IBAction)sunClick;
 -(IBAction)allClick;
+
+-(IBAction)backToLogic;
 
 
 
