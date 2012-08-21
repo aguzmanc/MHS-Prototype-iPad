@@ -25,7 +25,15 @@
     IBOutlet UITextField *_lblCost;
     
     
+        
+    
     NSString *_interview_id;
+    NSString *_date;
+    NSString *_start;
+    NSString *_end;
+    NSString *_spent;
+    NSString *_comment;
+    NSString *_cost;
     
    
 }
