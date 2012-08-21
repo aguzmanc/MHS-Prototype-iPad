@@ -121,17 +121,8 @@
 -(void)setLogic:(Logic *)logic;
 -(void)applyDataInterviewSave:(Interview *)interview;
 -(void)applyDataInterview:(Interview *)interview;
-
-@end
-
-
-/*
- *  Interview DELEGATE
- */
-@protocol InterviewSaveDelegate
-
-
-
+-(void)successSaveInterview:(BOOL)status andMessage:(NSString *)message;
+-(void)errorSaveInterview:(NSString *)message;
 @end
 
 
@@ -142,8 +133,6 @@
 @protocol InitializationDelegate
 
 -(void)setLogic:(Logic *)logic;
-//-(void)setIndex:(NSNumber *)index;
-//-(void)updateProgressDelegate:(NSNumber *)indexProg TotalSize:(NSNumber *)totalSize;
 -(void)updatePercentageProgress:(int)percentage;
 @end
 

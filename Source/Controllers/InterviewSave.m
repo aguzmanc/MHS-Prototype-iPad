@@ -68,7 +68,7 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error 
 {	
     NSLog(@"%@",[NSString stringWithFormat:@"Connection failed: %@", [error description]]);
-    [_delegate errorInterviewSaveService:[error description]];
+    [_delegate errorInterviewSave:[error description]];
 }
 
 

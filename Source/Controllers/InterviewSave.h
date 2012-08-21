@@ -23,6 +23,6 @@
 @protocol InterviewSaveServiceDelegate
 
 -(void)successInterviewSave:(BOOL)status andMessage:(NSString *)message;
--(void)errorInterviewSaveService:(NSString *)message;
+-(void)errorInterviewSave:(NSString *)message;
 
 @end

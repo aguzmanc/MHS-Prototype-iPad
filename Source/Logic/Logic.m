@@ -61,12 +61,13 @@
             interview.endTime = [NSDate date];
             interview.comment = comment;
             interview.cost = [cost doubleValue];
-        }
+         //   [_interviewSave interviewSaves:interviewId andStarTime:startime andEndTime:endtime andTimespent:timespent andCommint:comment andCost:cost];
+        }        
         
         [self switchToAssignedInterviews];
         [_assignedInterviewsDelegate reload];
     }
-   //[_interviewSave interviewSaves:interviewId andStarTime:startime andEndTime:endtime andTimespent:timespent andCommint:commint andCost:cost];
+   
     
 }
 
@@ -295,9 +296,17 @@
     [_loginUserDelegate errorLogin:message];
 }
 
+#pragma mark - Interview Save Service Delegate
 
+-(void)successInterviewSave:(BOOL)status andMessage:(NSString *)message;
+{
+    [_interviewDelegate successSaveInterview:status andMessage:message];
+}
 
-
+-(void)errorInterviewSave:(NSString *)message
+{
+    [_interviewDelegate errorSaveInterview:message];
+}
 
 
 #pragma mark - AsyncClientServiceDelegate

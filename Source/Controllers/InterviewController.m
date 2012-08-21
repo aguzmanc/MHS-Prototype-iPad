@@ -68,7 +68,7 @@
 
 -(void) slideFrame:(BOOL)up
 {
-    const int movementDistance = 300; // lo que sea necesario, en mi caso yo use 80
+    const int movementDistance = 280; // lo que sea necesario, en mi caso yo use 80
     const float movementDuration = 0.3f; // lo que sea necesario
     
     int movement = (up ? -movementDistance : movementDistance);
@@ -146,20 +146,12 @@
 }
 
 
-
-
-
-
-#pragma mark - Interview Save Delegate
-
--(void)successInterviewSave:(BOOL)status andMessage:(NSString *)message;
+-(void)successSaveInterview:(BOOL)status andMessage:(NSString *)message
 {
-    [_logic switchToAssignedInterviews];
+   
+
 }
-
-
-
--(void)errorInterviewSaveService:(NSString *)message;
+-(void)errorSaveInterview:(NSString *)message;
 {
     UIAlertView *messages = [[UIAlertView alloc] initWithTitle:@"ERROR CONNECTION"
                                                        message:message
@@ -167,7 +159,10 @@
                                              cancelButtonTitle:@"OK"
                                              otherButtonTitles:nil];
     [messages show];
+
 }
+
+
 
 #pragma mark - View lifecycle
 

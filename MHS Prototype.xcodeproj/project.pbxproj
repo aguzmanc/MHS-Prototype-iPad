@@ -66,6 +66,7 @@
 		B396B90315DB3479007BED61 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = B396B8FB15DB3479007BED61 /* SBJsonBase.m */; };
 		B396B90415DB3479007BED61 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B396B8FD15DB3479007BED61 /* SBJsonParser.m */; };
 		B396B90515DB3479007BED61 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = B396B8FF15DB3479007BED61 /* SBJsonWriter.m */; };
+		B3993F2715E3CEBF0028ED32 /* btn-end.png in Resources */ = {isa = PBXBuildFile; fileRef = B3993F2615E3CEBF0028ED32 /* btn-end.png */; };
 		B3A70D0415DB122B0050B674 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A70D0315DB122B0050B674 /* login.png */; };
 		B3A70D0715DB12450050B674 /* text-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A70D0615DB12450050B674 /* text-bg.png */; };
 		B3DDE9DE15DFF96700927812 /* InterviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DDE9DD15DFF96700927812 /* InterviewController.m */; };
@@ -165,6 +166,7 @@
 		B396B8FD15DB3479007BED61 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		B396B8FE15DB3479007BED61 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		B396B8FF15DB3479007BED61 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		B3993F2615E3CEBF0028ED32 /* btn-end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-end.png"; sourceTree = "<group>"; };
 		B3A70D0315DB122B0050B674 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		B3A70D0615DB12450050B674 /* text-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-bg.png"; sourceTree = "<group>"; };
 		B3DDE9DB15DFF95900927812 /* InterviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InterviewController.h; path = Source/Controllers/InterviewController.h; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 		16F2E8A915D6B141005031A2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B3993F2615E3CEBF0028ED32 /* btn-end.png */,
 				1676DB9A15E2BCDB007BD152 /* Icon.png */,
 				B3DDE9F215E089FE00927812 /* finishcell-bg.png */,
 				B3DDE9EB15E079F900927812 /* total-interview-bg.png */,
@@ -487,6 +490,7 @@
 				B3DDE9F115E0866F00927812 /* FinishInterviewCell.xib in Resources */,
 				B3DDE9F315E089FF00927812 /* finishcell-bg.png in Resources */,
 				1676DB9B15E2BCDB007BD152 /* Icon.png in Resources */,
+				B3993F2715E3CEBF0028ED32 /* btn-end.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
