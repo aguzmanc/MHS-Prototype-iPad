@@ -42,12 +42,18 @@
         _lblLastVisited.text = @"Not Visited";
     
     _imgTick.hidden = (interview.visited == false);
-          
-        
-    if(interview.visited)
-        _btnAction.titleLabel.text = @"View";   
+    
+           
+    if(interview.visited) 
+    {
+        _btnAction.titleLabel.text = @"View";
+        NSLog(@"true visited");
+    }
     else
+    {
         _btnAction.titleLabel.text = @"Interview";
+        NSLog(@"false visited");
+    }
 }
 
 

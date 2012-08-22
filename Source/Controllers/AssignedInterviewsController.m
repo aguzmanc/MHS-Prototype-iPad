@@ -285,6 +285,17 @@
     //Interview * interview = [_logic getInterviewAt:indexPath.row ForWeekday:_selectedWeekday];//[_logic getDummyInterview];
     Interview * interview = [_currentInterviews objectAtIndex:indexPath.row];
 	
+    if(interview.visited) 
+    {
+        
+        NSLog(@"true visited assig");
+    }
+    else
+    {
+        
+        NSLog(@"false visited assig");
+    }
+    
 	// Apply data to Interview Cell View
 	[cell applyData:interview];
 	// Assign logic to cell

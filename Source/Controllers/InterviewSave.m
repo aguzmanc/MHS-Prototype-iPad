@@ -37,9 +37,7 @@
                                           , commint];
 	
 	responseData = [[NSMutableData data] retain];
-    
-	NSLog(@"%@", requestURL);
-	
+    	
 	NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
 

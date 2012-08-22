@@ -53,9 +53,11 @@
 {
     [_interviewSave interviewSaves:interviewId andStarTime:startime andEndTime:endtime andTimespent:timespent andCommint:comment andCost:cost];
       //algo falta
-        
-        [self switchToAssignedInterviews];
-        [_assignedInterviewsDelegate reload];
+    _selectedInterview.visited = true;
+    _selectedInterview.interviewId = interviewId;
+    
+    [self switchToAssignedInterviews];
+    [_assignedInterviewsDelegate reload];
 }
 
 #pragma mark - Public Methods

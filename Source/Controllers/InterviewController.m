@@ -54,8 +54,8 @@
         [_lblTimeSpent setText:[NSString stringWithFormat:@"%d", hour]];         
         NSDateFormatter * format_start = [[NSDateFormatter alloc] init];
         NSDateFormatter * format_end = [[NSDateFormatter alloc] init];
-        [format_start setDateFormat:@"HH:mm:ss"];
-        [format_end setDateFormat:@"HH:mm:ss"];
+        [format_start setDateFormat:@"hhmm"];
+        [format_end setDateFormat:@"hhmm"];
         
         [_logic interviewSaveService:_interview_id
                          andStarTime:[format_start stringFromDate:_start_Time]
