@@ -52,16 +52,7 @@
                  andCommint:(NSString *)comment andCost:(NSString *)cost
 {
     [_interviewSave interviewSaves:interviewId andStarTime:startime andEndTime:endtime andTimespent:timespent andCommint:comment andCost:cost];
-   /* for(Interview * interview in _interviewList)
-    {
-        if([interview.interviewId isEqualToString:interviewId])
-        {
-            interview.visited = true;
-            interview.endTime = [NSDate date];
-            interview.comment = comment;
-            interview.cost = [cost doubleValue];
-        }
-    }*/        
+      //algo falta
         
         [self switchToAssignedInterviews];
         [_assignedInterviewsDelegate reload];

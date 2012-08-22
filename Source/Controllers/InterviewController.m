@@ -47,11 +47,19 @@
          NSTimeInterval interval = [_start_Time timeIntervalSinceDate: _end_Time];
          int hour = interval / 3600;
          hour = ABS(hour);
+        
+        NSLog(@"startime:%@",[_start_Time description]);
+        NSLog(@"endtime:%@",[_end_Time description]);
+        
         [_lblTimeSpent setText:[NSString stringWithFormat:@"%d", hour]];         
+        NSDateFormatter * format_start = [[NSDateFormatter alloc] init];
+        NSDateFormatter * format_end = [[NSDateFormatter alloc] init];
+        [format_start setDateFormat:@"HH:mm:ss"];
+        [format_end setDateFormat:@"HH:mm:ss"];
         
         [_logic interviewSaveService:_interview_id
-                         andStarTime:_lblStartTime.text 
-                          andEndTime:_lblEndTime.text
+                         andStarTime:[format_start stringFromDate:_start_Time]
+                          andEndTime:[format_end stringFromDate:_end_Time]
                         andTimespent:_lblTimeSpent.text 
                           andCommint:_textComment.text 
                              andCost:_lblCost.text];
@@ -128,6 +136,10 @@
     _lblEndTime.text = @"";
     _lblTimeSpent.text = @"";
     _lblCost.text = @"";
+    _textComment.text = @"";
+    _textComment.userInteractionEnabled = TRUE;
+    _lblCost.userInteractionEnabled = TRUE;
+    _btnFinish.hidden = FALSE;
     
 }
 
@@ -153,14 +165,14 @@
     [_lblDate setText:[formatDate stringFromDate:interview.date]];
     
     [formatDate setDateFormat:@"hh:mm a"];
-    [_lblStartTime setText:[formatDate stringFromDate:interview.startTime]];
-    [_lblEndTime setText:[formatDate stringFromDate:interview.endTime]];
-    
+    _lblStartTime.text = [formatDate stringFromDate:interview.startTime];
+    _lblEndTime.text = [formatDate stringFromDate:interview.endTime];
+    _textComment.text = interview.comment;
     _lblTimeSpent.text = interview.interviewTime;
-    _textComment.userInteractionEnabled = (interview.visited == NO);
-    _lblCost.userInteractionEnabled = (interview.visited == NO);
+    _textComment.userInteractionEnabled = TRUE;
+    _lblCost.userInteractionEnabled = TRUE;
     _lblCost.text = [NSString  stringWithFormat:@"%g" ,interview.cost];
-    _btnFinish.hidden = (interview.visited == NO);
+    _btnFinish.hidden = TRUE;
 }
 
 

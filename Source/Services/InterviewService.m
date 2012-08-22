@@ -106,14 +106,17 @@
             NSDateFormatter * formatSchedule = [[[NSDateFormatter alloc] init] autorelease];
             [formatSchedule setDateFormat:@"HH:mm:ss"];
             interview.scheduleDate = [formatSchedule dateFromString:scheduleStr];
-            
-            
+            interview.comment = [jsonInterview objectForKey:@"comments"];
+            interview.cost = [[jsonInterview objectForKey:@"cost"] doubleValue];
             // rutina que no tiene que estar
             NSString * startStr = [jsonInterview objectForKey:@"start_time"];
             NSDateFormatter * formatStart = [[[NSDateFormatter alloc] init] autorelease];
             [formatStart setDateFormat:@"HH:mm:ss"];
+            NSString * endStr = [jsonInterview objectForKey:@"end_time"];
+            NSDateFormatter * formatEnd = [[[NSDateFormatter alloc] init] autorelease];
+            [formatEnd setDateFormat:@"HH:mm:ss"];            
             interview.startTime = [formatStart dateFromString:startStr];
-            
+            interview.endTime = [formatEnd dateFromString:endStr];
             // end de rutina que no tiene que estar
             interview.visited = ![startStr isEqualToString:@"00:00:00"]; 
             
