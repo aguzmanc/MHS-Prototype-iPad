@@ -3,7 +3,6 @@
 
 // Quark Social Services
 #define LOGIN_USER_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/login.php"
-#define SIZE_USER_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/size.php"
 #define CLIENTS_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/clients.php"
 #define INTERVIEWS_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/interview_list.php"
 #define TOTAL_SIZE_SERVICE_REQUEST_PAGE @"http://www.quarksocial.net/mobile_health/size.php"

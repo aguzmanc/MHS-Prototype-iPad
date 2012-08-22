@@ -51,9 +51,8 @@
                andTimespent:(NSString *)timespent 
                  andCommint:(NSString *)comment andCost:(NSString *)cost
 {
-    NSLog(@"Entramos a la logica para pasarle al servicio");
-    
-    for(Interview * interview in _interviewList)
+    [_interviewSave interviewSaves:interviewId andStarTime:startime andEndTime:endtime andTimespent:timespent andCommint:comment andCost:cost];
+   /* for(Interview * interview in _interviewList)
     {
         if([interview.interviewId isEqualToString:interviewId])
         {
@@ -61,14 +60,11 @@
             interview.endTime = [NSDate date];
             interview.comment = comment;
             interview.cost = [cost doubleValue];
-         //   [_interviewSave interviewSaves:interviewId andStarTime:startime andEndTime:endtime andTimespent:timespent andCommint:comment andCost:cost];
-        }        
+        }
+    }*/        
         
         [self switchToAssignedInterviews];
         [_assignedInterviewsDelegate reload];
-    }
-   
-    
 }
 
 #pragma mark - Public Methods
@@ -202,8 +198,11 @@
 {
     _selectedInterview = interview;
     [self switchToInterview];
-    [_interviewDelegate applyDataInterviewSave:_selectedInterview];
-    [_interviewDelegate applyDataInterview:_selectedInterview];
+    if (interview.visited)
+      [_interviewDelegate applyDataInterviewView:_selectedInterview];    
+    else
+      [_interviewDelegate applyDataInterviewSave:_selectedInterview];
+    
 }
 
 

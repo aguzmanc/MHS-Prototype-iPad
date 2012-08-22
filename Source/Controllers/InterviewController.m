@@ -30,6 +30,7 @@
                                              cancelButtonTitle:@"No"
                                              otherButtonTitles:@"Yes", nil];
     [messages show];
+    
 }
 
 
@@ -38,6 +39,16 @@
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if([title isEqualToString:@"Yes"])
     {
+         
+        _end_Time = [NSDate date];
+        NSDateFormatter * formatDate = [[NSDateFormatter alloc] init];
+        [formatDate setDateFormat:@"HH:mm:ss"];
+        [_lblEndTime setText:[formatDate stringFromDate:_end_Time]];
+         NSTimeInterval interval = [_start_Time timeIntervalSinceDate: _end_Time];
+         int hour = interval / 3600;
+         hour = ABS(hour);
+        [_lblTimeSpent setText:[NSString stringWithFormat:@"%d", hour]];         
+        
         [_logic interviewSaveService:_interview_id
                          andStarTime:_lblStartTime.text 
                           andEndTime:_lblEndTime.text
@@ -90,58 +101,66 @@
 
 -(void)applyDataInterviewSave:(Interview *)interview
 {
-    _interview_id = interview.interviewId;      
+     
+    _interview_id = interview.interviewId;
+     interview.startTime = [NSDate date];
+    _start_Time = interview.startTime;
     
-}
-
--(void)applyDataInterview:(Interview *)interview
-{
-    NSLog(@"applyDataInterview");
-        
+    // Banner principal    
     _lblFirts_Name.text = interview.client.firstName;
     _lblLast_Name.text = interview.client.lastName;
     _lblProfile_Num.text = interview.client.profileNumber;
     _img_Photo.image =[_logic getImageForProfileNumber:interview.client.profileNumber];
-    
+    _lblSuburb.text = interview.client.subUrb;
+    //_lblAge.text = interview.client.age;
     if(_img_Photo.image == nil)
     {
         _img_Photo.image = [UIImage imageNamed:@"default_photo.png"];
     }
     
-    // format date
-    NSDateFormatter * format = [[NSDateFormatter alloc] init];
-	[format setDateFormat:@"dd/MM/yyyy"];
+    _lblCost.background = [UIImage imageNamed:@"text-bg.png" ];
+    NSDateFormatter * formatDate = [[[NSDateFormatter alloc] init] autorelease];
+    [formatDate setDateFormat:@"yyyy-MM-dd"];    
+    _lblDate.text = [formatDate stringFromDate:interview.date];
+    NSDateFormatter * formatStart = [[[NSDateFormatter alloc] init] autorelease];
+    [formatStart setDateFormat:@"HH:mm:ss"];
+    _lblStartTime.text = [formatStart stringFromDate:interview.startTime];
+    _lblEndTime.text = @"";
+    _lblTimeSpent.text = @"";
+    _lblCost.text = @"";
+    
+}
 
-    [_lblDate setText:[format stringFromDate:interview.scheduleDate]];
-
-    if(interview.startTime == nil)
+-(void)applyDataInterviewView:(Interview *)interview
+{
+    NSLog(@"applyDataInterviewView");
+    
+    // Banner principal    
+    _lblFirts_Name.text = interview.client.firstName;
+    _lblLast_Name.text = interview.client.lastName;
+    _lblProfile_Num.text = interview.client.profileNumber;
+    _img_Photo.image =[_logic getImageForProfileNumber:interview.client.profileNumber];
+    _lblSuburb.text = interview.client.subUrb;
+    //_lblAge.text = interview.client.age;
+    if(_img_Photo.image == nil)
     {
-        interview.startTime = [NSDate date]; // now!
+        _img_Photo.image = [UIImage imageNamed:@"default_photo.png"];
     }
     
-    [format setDateFormat:@"hh:mm a"];
-    [_lblStartTime setText:[format stringFromDate:interview.startTime]];
+    //Interview Details
+    NSDateFormatter * formatDate = [[NSDateFormatter alloc] init];
+	[formatDate setDateFormat:@"E MMM yy"];
+    [_lblDate setText:[formatDate stringFromDate:interview.date]];
     
-    if(interview.endTime != nil)
-    {
-        [_lblEndTime setText:[format stringFromDate:interview.endTime]];
-        
-        NSTimeInterval interval = [interview.startTime timeIntervalSinceDate: interview.endTime];
-        int hour = interval / 3600;
-        
-        hour = ABS(hour);
-        
-        [_lblTimeSpent setText:[NSString stringWithFormat:@"%d", hour]];
-    }    
+    [formatDate setDateFormat:@"hh:mm a"];
+    [_lblStartTime setText:[formatDate stringFromDate:interview.startTime]];
+    [_lblEndTime setText:[formatDate stringFromDate:interview.endTime]];
     
-    _textComment.text = interview.comment;
-    _lblCost.text = [NSString  stringWithFormat:@"%d" ,interview.cost];
-    
-    _btnFinish.hidden = interview.visited;
+    _lblTimeSpent.text = interview.interviewTime;
     _textComment.userInteractionEnabled = (interview.visited == NO);
     _lblCost.userInteractionEnabled = (interview.visited == NO);
-    
-    //NSLog(@"%@",[NSString  stringWithFormat:@"%g" ,interview.cost]);
+    _lblCost.text = [NSString  stringWithFormat:@"%g" ,interview.cost];
+    _btnFinish.hidden = (interview.visited == NO);
 }
 
 
@@ -186,9 +205,9 @@
     [_lblFirts_Name release];
     _lblFirts_Name = nil;
     [_lblLast_Name release];
-    _lblLast_Name = nil;
-    [_lblLast_Visited release];
-    _lblLast_Visited = nil;
+    _lblLast_Name = nil;   
+    [_lblSuburb release];
+    _lblSuburb = nil;
     [_lblProfile_Num release];
     _lblProfile_Num = nil;
     [_img_Photo release];
@@ -203,6 +222,8 @@
     _lblCost = nil;
     [_lblTimeSpent release];
     _lblTimeSpent = nil;
+    [_lblAge release];
+    _lblAge = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -216,9 +237,10 @@
 
 
 - (void)dealloc {
+    
     [_lblFirts_Name release];
     [_lblLast_Name release];
-    [_lblLast_Visited release];
+    [_lblSuburb release];
     [_lblProfile_Num release];
     [_img_Photo release];
      [_lblDate release];
@@ -227,6 +249,7 @@
     
     [_lblCost release];
     [_lblTimeSpent release];
+    [_lblAge release];
     [super dealloc];
 }
 @end

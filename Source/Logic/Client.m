@@ -9,5 +9,7 @@
 @synthesize photoFileName = _photoFileName;
 @synthesize info = _info;
 @synthesize lastVisitDate = _lastVisitDate;
+@synthesize subUrb = _subUrb;
+@synthesize age = _age;
 
 @end

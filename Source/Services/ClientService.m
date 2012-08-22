@@ -108,6 +108,10 @@
             [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
             NSString * dateStr = (NSString *)[jsonClient objectForKey:@"last_visited"];
             
+            client.subUrb = [jsonClient objectForKey:@"suburb"];
+            client.age = [jsonClient objectForKey:@"age"];
+            
+             
             if(dateStr == nil || [dateStr isKindOfClass:[NSNull class]])
                 client.lastVisitDate = nil; // we don't have a date really
             else

@@ -89,21 +89,35 @@
     if(success)
     {
         NSArray * jsonInterviews = (NSArray *)[jsonDict objectForKey:@"Interviews"];
-        
+        NSLog(@"%@",[jsonInterviews description]);
         for(NSDictionary * jsonInterview in jsonInterviews)
         {
             Interview * interview = [[Interview alloc] init];
             
             interview.interviewId = [jsonInterview objectForKey:@"interview_id"];
             interview.profileNumber = [jsonInterview objectForKey:@"profile_number"]; 
+                       
+            NSString * dateStr = [jsonInterview objectForKey:@"date"];
+            NSDateFormatter * formatDate = [[[NSDateFormatter alloc] init] autorelease];
+            [formatDate setDateFormat:@"yyyy-MM-dd"];
+            interview.date = [formatDate dateFromString:dateStr];
             
-            NSMutableString * dateStr = [jsonInterview objectForKey:@"date"];
-            [dateStr appendString:@" "];
-            [dateStr appendString:[jsonInterview objectForKey:@"schedule"]];
+            NSString * scheduleStr = [jsonInterview objectForKey:@"schedule"];
+            NSDateFormatter * formatSchedule = [[[NSDateFormatter alloc] init] autorelease];
+            [formatSchedule setDateFormat:@"HH:mm:ss"];
+            interview.scheduleDate = [formatSchedule dateFromString:scheduleStr];
             
-            NSDateFormatter * format = [[[NSDateFormatter alloc] init] autorelease];
-            [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-            interview.scheduleDate = [format dateFromString:dateStr];
+            
+            // rutina que no tiene que estar
+            NSString * startStr = [jsonInterview objectForKey:@"start_time"];
+            NSDateFormatter * formatStart = [[[NSDateFormatter alloc] init] autorelease];
+            [formatStart setDateFormat:@"HH:mm:ss"];
+            interview.startTime = [formatStart dateFromString:startStr];
+            
+            // end de rutina que no tiene que estar
+            interview.visited = ![startStr isEqualToString:@"00:00:00"]; 
+            
+            interview.interviewTime = [jsonInterview objectForKey:@"interview_time"];
             
             NSCalendar * cal = [NSCalendar currentCalendar];
             NSDateComponents * comp = [cal components:NSWeekdayCalendarUnit fromDate:interview.scheduleDate];

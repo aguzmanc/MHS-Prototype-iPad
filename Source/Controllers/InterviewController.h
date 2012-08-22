@@ -8,8 +8,7 @@
     IBOutlet UIButton * _backTolist;
     
     IBOutlet UILabel *_lblFirts_Name;
-    IBOutlet UILabel *_lblLast_Name;
-    IBOutlet UILabel *_lblLast_Visited; 
+    IBOutlet UILabel *_lblLast_Name; 
     IBOutlet UILabel *_lblProfile_Num;
     
     IBOutlet UIImageView *_img_Photo;
@@ -23,23 +22,17 @@
     IBOutlet UILabel *_lblEndTime;          
     IBOutlet UILabel *_lblTimeSpent;
     IBOutlet UITextField *_lblCost;
-    
-    
-        
+    IBOutlet UILabel *_lblAge;
+    IBOutlet UILabel *_lblSuburb;
+           
     
     NSString *_interview_id;
-    NSString *_date;
-    NSString *_start;
-    NSString *_end;
-    NSString *_spent;
-    NSString *_comment;
-    NSString *_cost;
-    
-   
+    NSDate *_start_Time;
+    NSDate *_end_Time;
+       
 }
 
 @property(nonatomic,retain) IBOutlet UIButton * _backTolist;
-
 
 -(IBAction) slideFrameUp;
 -(void) slideFrame:(BOOL)up;

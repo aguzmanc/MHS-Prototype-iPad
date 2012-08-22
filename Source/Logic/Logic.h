@@ -120,7 +120,7 @@
 
 -(void)setLogic:(Logic *)logic;
 -(void)applyDataInterviewSave:(Interview *)interview;
--(void)applyDataInterview:(Interview *)interview;
+-(void)applyDataInterviewView:(Interview *)interview;
 -(void)successSaveInterview:(BOOL)status andMessage:(NSString *)message;
 -(void)errorSaveInterview:(NSString *)message;
 @end

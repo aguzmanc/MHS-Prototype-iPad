@@ -42,9 +42,10 @@
         _lblLastVisited.text = @"Not Visited";
     
     _imgTick.hidden = (interview.visited == false);
-    
+          
+        
     if(interview.visited)
-        _btnAction.titleLabel.text = @"View";
+        _btnAction.titleLabel.text = @"View";   
     else
         _btnAction.titleLabel.text = @"Interview";
 }

@@ -28,7 +28,7 @@
 -(void)interviewSaves:(NSString *)interviewId andStarTime:(NSString *)startime andEndTime:(NSString *)endtime andTimespent:(NSString *)timespent andCommint:(NSString *)commint andCost:(NSString *)cost
 {
     // Build request URL with al parameters
-	NSString * requestURL = [NSString stringWithFormat:@"%@?interview_id=%@&star_time=%@&end_time=%@&other_time=%@&cost=%@&comments=%@", INTERVIEW_SERVICE_REQUEST_PAGE
+	NSString * requestURL = [NSString stringWithFormat:@"%@?interview_id=%@&start_time=%@&end_time=%@&interview_time=%@&cost=%@&comments=%@", INTERVIEW_SERVICE_REQUEST_PAGE
                                           , interviewId
                                           , startime
                                           , endtime
