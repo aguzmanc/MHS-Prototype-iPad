@@ -15,7 +15,7 @@
 -(id)initWithDelegate:(id<InterviewSaveServiceDelegate>)delegate;
 
 
--(void)interviewSaves:(NSString *)interviewId andStarTime:(NSString *)startime andEndTime:(NSString *)endtime andTimespent:(NSString *)timespent andCommint:(NSString *)commint andCost:(NSString *)cost;
+-(void)interviewSaves:(NSString *)interviewId andStarTime:(NSString *)startime andEndTime:(NSString *)endtime andTimespent:(NSString *)timespent andComment:(NSString *)comment andCost:(NSString *)cost;
 
 @end
 

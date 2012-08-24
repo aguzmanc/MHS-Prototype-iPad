@@ -191,6 +191,7 @@
 
 - (void)viewDidLoad
 {
+    [_tblInterviews reloadData];
     [super viewDidLoad];
         
     // Check current day and set button to these day
@@ -247,18 +248,12 @@
 }
 
 
-
-
-
-
 #pragma mark - TableView Data Source Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
     return [_currentInterviews count];
 }
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 { 	
@@ -285,18 +280,7 @@
     //Interview * interview = [_logic getInterviewAt:indexPath.row ForWeekday:_selectedWeekday];//[_logic getDummyInterview];
     Interview * interview = [_currentInterviews objectAtIndex:indexPath.row];
 	
-    if(interview.visited) 
-    {
-        
-        NSLog(@"true visited assig");
-    }
-    else
-    {
-        
-        NSLog(@"false visited assig");
-    }
-    
-	// Apply data to Interview Cell View
+    // Apply data to Interview Cell View
 	[cell applyData:interview];
 	// Assign logic to cell
 	cell.logic = _logic;

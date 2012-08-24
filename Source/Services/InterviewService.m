@@ -89,8 +89,7 @@
     if(success)
     {
         NSArray * jsonInterviews = (NSArray *)[jsonDict objectForKey:@"Interviews"];
-        NSLog(@"%@",[jsonInterviews description]);
-        for(NSDictionary * jsonInterview in jsonInterviews)
+       for(NSDictionary * jsonInterview in jsonInterviews)
         {
             Interview * interview = [[Interview alloc] init];
             
@@ -117,6 +116,7 @@
             [formatEnd setDateFormat:@"HH:mm:ss"];            
             interview.startTime = [formatStart dateFromString:startStr];
             interview.endTime = [formatEnd dateFromString:endStr];
+            
             // end de rutina que no tiene que estar
             interview.visited = ![startStr isEqualToString:@"00:00:00"]; 
             

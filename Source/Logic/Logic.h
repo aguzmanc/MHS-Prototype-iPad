@@ -78,6 +78,9 @@
 
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass;
 
+
+-(void)yesClickDelegate;
+
 -(Interview *)getDummyInterview;
 -(Interview *)getInterviewAt:(int)row ForWeekday:(int)weekday;
 -(NSArray *)getInterviewsForWeekday:(int)weekday;
@@ -85,7 +88,7 @@
 -(void)makeInterview:(Interview *)interview;
 -(void)makeClientInterviewRelations;
 
--(void)interviewSaveService:(NSString *)interviewId andStarTime:(NSString *)startime andEndTime:(NSString *)endtime andTimespent:(NSString *)timespent andCommint:(NSString *)commint andCost:(NSString *)cost;
+-(void)interviewSaveService:(NSString *)interviewId andStarTime:(NSDate *)startime andEndTime:(NSDate *)endtime andTimespent:(NSDate *)timespent andComment:(NSString *)comment andCost:(NSString *)cost;
 
 @end
 
@@ -123,6 +126,8 @@
 -(void)applyDataInterviewView:(Interview *)interview;
 -(void)successSaveInterview:(BOOL)status andMessage:(NSString *)message;
 -(void)errorSaveInterview:(NSString *)message;
+-(void)interviewMessageSave;
+
 @end
 
 

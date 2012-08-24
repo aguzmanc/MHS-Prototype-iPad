@@ -11,6 +11,8 @@
     IBOutlet UILabel * _lblLastVisited;
     IBOutlet UIImageView * _imgClient;
     IBOutlet UIButton * _btnAction;
+    IBOutlet UIImageView * _imgInter;
+    IBOutlet UIImageView * _imgView;    
     IBOutlet UIImageView * _imgTick;
     IBOutlet UIActivityIndicatorView * _indicator;
     

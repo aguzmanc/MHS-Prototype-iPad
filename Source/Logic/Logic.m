@@ -36,7 +36,11 @@
     return self;
 }
 
-
+-(void)yesClickDelegate
+{
+    NSLog(@"YES");  
+    [_interviewDelegate interviewMessageSave];
+}
 
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass
 {
@@ -46,16 +50,32 @@
 
 
 -(void)interviewSaveService:(NSString *)interviewId 
-                andStarTime:(NSString *)startime 
-                 andEndTime:(NSString *)endtime 
-               andTimespent:(NSString *)timespent 
-                 andCommint:(NSString *)comment andCost:(NSString *)cost
+                andStarTime:(NSDate *)startime 
+                 andEndTime:(NSDate *)endtime 
+               andTimespent:(NSDate *)timespent 
+                 andComment:(NSString *)comment andCost:(NSString *)cost
 {
-    [_interviewSave interviewSaves:interviewId andStarTime:startime andEndTime:endtime andTimespent:timespent andCommint:comment andCost:cost];
-      //algo falta
+    NSDateFormatter * format_start = [[NSDateFormatter alloc] init];
+    NSDateFormatter * format_end = [[NSDateFormatter alloc] init];
+    NSDateFormatter * format_time = [[NSDateFormatter alloc] init];
+    
+    [format_start setDateFormat:@"hhmm"];
+    [format_end setDateFormat:@"hhmm"];
+    [format_time setDateFormat:@"hhmm"];
+       
+    
+    [_interviewSave interviewSaves:interviewId andStarTime:[format_start stringFromDate: startime] andEndTime:[format_end stringFromDate: endtime] andTimespent:[format_time stringFromDate: timespent] andComment:comment andCost:cost];
+      
     _selectedInterview.visited = true;
     _selectedInterview.interviewId = interviewId;
     
+    _selectedInterview.startTime = startime;    
+    _selectedInterview.endTime = endtime;
+    _selectedInterview.interviewTime = timespent;
+    _selectedInterview.comment = comment;
+    _selectedInterview.cost = [cost doubleValue];
+       
+        
     [self switchToAssignedInterviews];
     [_assignedInterviewsDelegate reload];
 }

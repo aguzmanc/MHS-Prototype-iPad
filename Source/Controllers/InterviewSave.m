@@ -25,7 +25,7 @@
 
 #pragma mark Public Methods
 
--(void)interviewSaves:(NSString *)interviewId andStarTime:(NSString *)startime andEndTime:(NSString *)endtime andTimespent:(NSString *)timespent andCommint:(NSString *)commint andCost:(NSString *)cost
+-(void)interviewSaves:(NSString *)interviewId andStarTime:(NSString *)startime andEndTime:(NSString *)endtime andTimespent:(NSString *)timespent andComment:(NSString *)comment andCost:(NSString *)cost
 {
     // Build request URL with al parameters
 	NSString * requestURL = [NSString stringWithFormat:@"%@?interview_id=%@&start_time=%@&end_time=%@&interview_time=%@&cost=%@&comments=%@", INTERVIEW_SERVICE_REQUEST_PAGE
@@ -34,7 +34,7 @@
                                           , endtime
                                           , timespent
                                           , cost
-                                          , commint];
+                                          , comment];
 	
 	responseData = [[NSMutableData data] retain];
     	

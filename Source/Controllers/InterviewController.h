@@ -2,7 +2,7 @@
 
 #import "Logic.h"
 
-@interface InterviewController : UIViewController <InterviewDelegate>
+@interface InterviewController : UIViewController <InterviewDelegate,UITextViewDelegate>
 {
     Logic * _logic;
     IBOutlet UIButton * _backTolist;
@@ -28,8 +28,7 @@
     
     NSString *_interview_id;
     NSDate *_start_Time;
-    NSDate *_end_Time;
-       
+    NSDate *_end_Time;       
 }
 
 @property(nonatomic,retain) IBOutlet UIButton * _backTolist;

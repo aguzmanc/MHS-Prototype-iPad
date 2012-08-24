@@ -26,7 +26,8 @@
     NSString * user = _user.text;
     NSString * pass = _pass.text;
     NSLog(@"Hacemos click en login: %@-%@",user, pass);    
-    [_logic loginUser:user Pass:pass];    
+    [_logic loginUser:user Pass:pass];
+    [_pass resignFirstResponder];
     
 }
 
@@ -68,6 +69,11 @@
     [super viewDidLoad];
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_user resignFirstResponder];
+    [_pass resignFirstResponder];
+}
 
 - (void)viewDidUnload
 {

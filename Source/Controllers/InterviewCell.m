@@ -42,18 +42,9 @@
         _lblLastVisited.text = @"Not Visited";
     
     _imgTick.hidden = (interview.visited == false);
+    _imgInter.hidden = (interview.visited == true);
+    _imgView.hidden = (interview.visited == false);    
     
-           
-    if(interview.visited) 
-    {
-        _btnAction.titleLabel.text = @"View";
-        NSLog(@"true visited");
-    }
-    else
-    {
-        _btnAction.titleLabel.text = @"Interview";
-        NSLog(@"false visited");
-    }
 }
 
 
@@ -65,17 +56,12 @@
     [_logic makeInterview:_interview];
 }
 
-
-
-
-
-
 #pragma mark - View lifecycle
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	return YES;
+	return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 @end

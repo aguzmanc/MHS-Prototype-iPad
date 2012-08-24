@@ -28,6 +28,7 @@
 -(void)updatePercentageProgress:(int)percentage
 {
     _myprogressview.progress = percentage/100.0f;
+    
 }
 
 

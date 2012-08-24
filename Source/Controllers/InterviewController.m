@@ -1,9 +1,13 @@
 #import "InterviewController.h"
+#import "MessageDialogView.h"
 
 @implementation InterviewController
 
 
 @synthesize _backTolist;
+
+
+MessageDialogView *messageDialogView;
 
 #pragma mark Initialization
 
@@ -24,15 +28,36 @@
 
 -(void)finishClick:(id)sender
 {
-    UIAlertView *messages = [[UIAlertView alloc] initWithTitle:@"SAVE INTERVIEW"
-                                                       message:@"Are you sure to finish the interview"
-                                                      delegate:self
-                                             cancelButtonTitle:@"No"
-                                             otherButtonTitles:@"Yes", nil];
-    [messages show];
+    messageDialogView = [[MessageDialogView alloc] initWithNibName:@"MessageDialogController" bundle:nil];
+    
+    [messageDialogView setLogic:_logic];
+    
+    [self.view.superview addSubview:messageDialogView.view];
     
 }
-
+-(void)interviewMessageSave
+{
+    _end_Time = [NSDate date];
+    NSDateFormatter * formatDate = [[NSDateFormatter alloc] init];
+    [formatDate setDateFormat:@"HH:mm:ss"];
+    [_lblEndTime setText:[formatDate stringFromDate:_end_Time]];
+    NSTimeInterval interval = [_start_Time timeIntervalSinceDate: _end_Time];
+    int hour = interval / 3600;
+    int minute = (int)interval % 3600 /60;
+    
+    hour = ABS(hour);
+    minute = ABS(minute);
+    
+    [_lblTimeSpent setText:[NSString stringWithFormat:@"%d:%d", hour, minute]];         
+    
+    [formatDate setDateFormat:@"HH:mm:ss"];    
+    [_logic interviewSaveService:_interview_id
+                     andStarTime:_start_Time
+                      andEndTime:_end_Time
+                    andTimespent:[formatDate dateFromString:_lblTimeSpent.text] 
+                      andComment:_textComment.text 
+                         andCost:_lblCost.text];
+}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -46,22 +71,19 @@
         [_lblEndTime setText:[formatDate stringFromDate:_end_Time]];
          NSTimeInterval interval = [_start_Time timeIntervalSinceDate: _end_Time];
          int hour = interval / 3600;
-         hour = ABS(hour);
+        int minute = (int)interval % 3600 /60;
         
-        NSLog(@"startime:%@",[_start_Time description]);
-        NSLog(@"endtime:%@",[_end_Time description]);
+        hour = ABS(hour);
+        minute = ABS(minute);
         
-        [_lblTimeSpent setText:[NSString stringWithFormat:@"%d", hour]];         
-        NSDateFormatter * format_start = [[NSDateFormatter alloc] init];
-        NSDateFormatter * format_end = [[NSDateFormatter alloc] init];
-        [format_start setDateFormat:@"hhmm"];
-        [format_end setDateFormat:@"hhmm"];
-        
+        [_lblTimeSpent setText:[NSString stringWithFormat:@"%d:%d", hour, minute]];         
+       
+        [formatDate setDateFormat:@"HH:mm:ss"];    
         [_logic interviewSaveService:_interview_id
-                         andStarTime:[format_start stringFromDate:_start_Time]
-                          andEndTime:[format_end stringFromDate:_end_Time]
-                        andTimespent:_lblTimeSpent.text 
-                          andCommint:_textComment.text 
+                         andStarTime:_start_Time
+                          andEndTime:_end_Time
+                        andTimespent:[formatDate dateFromString:_lblTimeSpent.text] 
+                          andComment:_textComment.text 
                              andCost:_lblCost.text];
     }
 }
@@ -87,7 +109,7 @@
 
 -(void) slideFrame:(BOOL)up
 {
-    const int movementDistance = 280; // lo que sea necesario, en mi caso yo use 80
+    const int movementDistance = 250; // lo que sea necesario, en mi caso yo use 80
     const float movementDuration = 0.3f; // lo que sea necesario
     
     int movement = (up ? -movementDistance : movementDistance);
@@ -97,6 +119,19 @@
     [UIView setAnimationDuration: movementDuration];
     self.view.frame = CGRectOffset(self.view.frame, 0, movement);
     [UIView commitAnimations];
+}
+
+
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+ [self slideFrame:YES];
+
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+[self slideFrame:NO];
+    NSLog(@"entra");
 }
 
 
@@ -131,7 +166,7 @@
     [formatDate setDateFormat:@"yyyy-MM-dd"];    
     _lblDate.text = [formatDate stringFromDate:interview.date];
     NSDateFormatter * formatStart = [[[NSDateFormatter alloc] init] autorelease];
-    [formatStart setDateFormat:@"HH:mm:ss"];
+    [formatStart setDateFormat:@"HH:mm a"];
     _lblStartTime.text = [formatStart stringFromDate:interview.startTime];
     _lblEndTime.text = @"";
     _lblTimeSpent.text = @"";
@@ -158,19 +193,20 @@
     {
         _img_Photo.image = [UIImage imageNamed:@"default_photo.png"];
     }
-    
+       
     //Interview Details
     NSDateFormatter * formatDate = [[NSDateFormatter alloc] init];
 	[formatDate setDateFormat:@"E MMM yy"];
     [_lblDate setText:[formatDate stringFromDate:interview.date]];
     
-    [formatDate setDateFormat:@"hh:mm a"];
+    [formatDate setDateFormat:@"HH:mm a"];
     _lblStartTime.text = [formatDate stringFromDate:interview.startTime];
     _lblEndTime.text = [formatDate stringFromDate:interview.endTime];
     _textComment.text = interview.comment;
-    _lblTimeSpent.text = interview.interviewTime;
-    _textComment.userInteractionEnabled = TRUE;
-    _lblCost.userInteractionEnabled = TRUE;
+    [formatDate setDateFormat:@"HH:mm"];    
+    _lblTimeSpent.text = [formatDate stringFromDate:interview.interviewTime];
+    _textComment.userInteractionEnabled = FALSE;
+    _lblCost.userInteractionEnabled = FALSE;
     _lblCost.text = [NSString  stringWithFormat:@"%g" ,interview.cost];
     _btnFinish.hidden = TRUE;
 }
@@ -204,10 +240,16 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_lblCost  resignFirstResponder];
+    [_textComment resignFirstResponder];
+}
 
 - (void)viewDidLoad
 {
-    _backTolist.transform = CGAffineTransformMakeRotation(M_PI/ -4);    
+    _backTolist.transform = CGAffineTransformMakeRotation(M_PI/ -4);
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -236,6 +278,7 @@
     _lblTimeSpent = nil;
     [_lblAge release];
     _lblAge = nil;
+     [messageDialogView release];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
