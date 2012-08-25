@@ -47,7 +47,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">loading-bg.png</string>
+							<string key="NSResourceName">loading-sys-bg.png</string>
 						</object>
 					</object>
 					<object class="IBUIProgressView" id="1002201898">
@@ -187,7 +187,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">loading-bg.png</string>
+			<string key="NS.key.0">loading-sys-bg.png</string>
 			<string key="NS.object.0">{768, 1024}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">933</string>

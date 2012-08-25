@@ -27,9 +27,7 @@
 	NSString * requestURL = [NSString stringWithFormat:@"%@?user_id=%@", INTERVIEWS_SERVICE_REQUEST_PAGE, userId];
 	
 	_responseData = [[NSMutableData data] retain];
-    
-	NSLog(@"%@", requestURL);
-	
+    	
 	NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
 }

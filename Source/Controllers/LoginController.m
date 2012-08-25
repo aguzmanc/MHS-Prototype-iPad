@@ -24,8 +24,7 @@
 -(IBAction)loginClick:(id)sender
 {
     NSString * user = _user.text;
-    NSString * pass = _pass.text;
-    NSLog(@"Hacemos click en login: %@-%@",user, pass);    
+    NSString * pass = _pass.text;        
     [_logic loginUser:user Pass:pass];
     [_pass resignFirstResponder];
     
@@ -34,8 +33,7 @@
 #pragma mark - Login Users Delegate
 
 -(void)loginError:(NSString *)message
-{
-    NSLog(@"entro con  el mensaje Error:%@", message);
+{    
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"LOGIN FAILED" message:message delegate:nil cancelButtonTitle:@"Accept" otherButtonTitles:nil];
 	
 	[alert show];
@@ -44,9 +42,8 @@
 }
 
 -(void)errorLogin:(NSString *)message
-{
-    NSLog(@"Error de conexion:%@", message);
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"CONNECTION ERROR" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+{   
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"CONNECTION ERROR" message:@"Failed to connect to login, please verify" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	
 	[alert show];
 	[alert release];

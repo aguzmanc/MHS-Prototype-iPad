@@ -28,6 +28,8 @@
 
     int _selectedWeekday;
     
+    IBOutlet UILabel * _lblMessage;
+    
     NSArray * _currentInterviews;
 }
 

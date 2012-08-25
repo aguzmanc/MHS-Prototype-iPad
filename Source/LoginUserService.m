@@ -65,7 +65,7 @@
 	[connection release];
 	
 	responseString = [[NSMutableString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-	NSLog(@"%@",responseString);
+	
 	NSDictionary * results = [responseString JSONValue];
 	NSString * res = [results objectForKey:@"Success"];
     
@@ -74,9 +74,7 @@
     NSString * firstName = [userData objectForKey:@"first_name"];
     NSString * lastName = [userData objectForKey:@"last_name"];
     NSString * email = [userData objectForKey:@"email"];
-    
-    NSLog(@"%@", userId);
-	
+    	
 	BOOL success  = [res isEqualToString:@"True"];
     
 	NSString * reason = nil;

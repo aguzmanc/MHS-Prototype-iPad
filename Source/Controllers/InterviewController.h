@@ -2,7 +2,7 @@
 
 #import "Logic.h"
 
-@interface InterviewController : UIViewController <InterviewDelegate,UITextViewDelegate>
+@interface InterviewController : UIViewController <InterviewDelegate,UITextFieldDelegate>
 {
     Logic * _logic;
     IBOutlet UIButton * _backTolist;

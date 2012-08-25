@@ -25,8 +25,6 @@
 	
 	responseData = [[NSMutableData data] retain];
     
-	NSLog(@"%@", requestURL);
-	
 	NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];  
 }
@@ -36,7 +34,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response 
 {
 	totalSize = [NSNumber numberWithLongLong:[response expectedContentLength]];
-    NSLog(@"size %i",[totalSize intValue]);    
+   
     NSHTTPURLResponse *HTTPresponse = (NSHTTPURLResponse *)response; 
 	NSInteger statusCode = [HTTPresponse statusCode];
 	if ( 404 == statusCode || 500 == statusCode ) {

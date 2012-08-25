@@ -116,7 +116,8 @@
             _currentInterviews = [_logic getInterviewsForWeekday:__SUN];
             break;
     }
-    
+     
+    _lblMessage.hidden = !([_currentInterviews count] == 0);
     [_tblInterviews reloadData];
 }
 

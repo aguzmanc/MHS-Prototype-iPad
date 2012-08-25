@@ -37,14 +37,12 @@
 }
 
 -(void)yesClickDelegate
-{
-    NSLog(@"YES");  
+{    
     [_interviewDelegate interviewMessageSave];
 }
 
 -(void)loginUser:(NSString *)user Pass:(NSString *)pass
-{
-    NSLog(@"Entramos a la logica para pasarle al servicio");
+{    
     [_loginUserService loginUser:user Pass:pass];
 }
 
@@ -55,6 +53,7 @@
                andTimespent:(NSDate *)timespent 
                  andComment:(NSString *)comment andCost:(NSString *)cost
 {
+        
     NSDateFormatter * format_start = [[NSDateFormatter alloc] init];
     NSDateFormatter * format_end = [[NSDateFormatter alloc] init];
     NSDateFormatter * format_time = [[NSDateFormatter alloc] init];
@@ -62,7 +61,8 @@
     [format_start setDateFormat:@"hhmm"];
     [format_end setDateFormat:@"hhmm"];
     [format_time setDateFormat:@"hhmm"];
-       
+    NSLog(@"%@",[format_time stringFromDate: timespent]);
+
     
     [_interviewSave interviewSaves:interviewId andStarTime:[format_start stringFromDate: startime] andEndTime:[format_end stringFromDate: endtime] andTimespent:[format_time stringFromDate: timespent] andComment:comment andCost:cost];
       

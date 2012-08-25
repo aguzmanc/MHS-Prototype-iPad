@@ -28,13 +28,26 @@ MessageDialogView *messageDialogView;
 
 -(void)finishClick:(id)sender
 {
-    messageDialogView = [[MessageDialogView alloc] initWithNibName:@"MessageDialogController" bundle:nil];
     
-    [messageDialogView setLogic:_logic];
+    if ([_lblCost.text length]==0) {
+        UIAlertView *messagesCost = [[UIAlertView alloc] initWithTitle:@"NO VALUE"
+                                                           message:@"Must be a value in the Cost"
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+        [messagesCost show];
+    }
+    else
+    {
+        messageDialogView = [[MessageDialogView alloc] initWithNibName:@"MessageDialogController" bundle:nil];
     
-    [self.view.superview addSubview:messageDialogView.view];
+        [messageDialogView setLogic:_logic];
     
+        [self.view.superview addSubview:messageDialogView.view];
+    }    
+
 }
+
 -(void)interviewMessageSave
 {
     _end_Time = [NSDate date];
@@ -48,45 +61,22 @@ MessageDialogView *messageDialogView;
     hour = ABS(hour);
     minute = ABS(minute);
     
-    [_lblTimeSpent setText:[NSString stringWithFormat:@"%d:%d", hour, minute]];         
-    
-    [formatDate setDateFormat:@"HH:mm:ss"];    
+    NSLog(@"antes%@",_lblTimeSpent.text);
+    [_lblTimeSpent setText:[NSString stringWithFormat:@"%d:%d:00", hour, minute]];
+    NSLog(@"despues%@",[[formatDate dateFromString:_lblTimeSpent.text] description]);
+ 
+    NSNumberFormatter *formatter = [[[NSNumberFormatter alloc] init] autorelease];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];    
+    _lblCost.text = [formatter stringFromNumber:[formatter numberFromString:_lblCost.text]];
+          
     [_logic interviewSaveService:_interview_id
                      andStarTime:_start_Time
                       andEndTime:_end_Time
-                    andTimespent:[formatDate dateFromString:_lblTimeSpent.text] 
+                    andTimespent:[formatDate dateFromString:_lblTimeSpent.text]
                       andComment:_textComment.text 
                          andCost:_lblCost.text];
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
-    if([title isEqualToString:@"Yes"])
-    {
-         
-        _end_Time = [NSDate date];
-        NSDateFormatter * formatDate = [[NSDateFormatter alloc] init];
-        [formatDate setDateFormat:@"HH:mm:ss"];
-        [_lblEndTime setText:[formatDate stringFromDate:_end_Time]];
-         NSTimeInterval interval = [_start_Time timeIntervalSinceDate: _end_Time];
-         int hour = interval / 3600;
-        int minute = (int)interval % 3600 /60;
-        
-        hour = ABS(hour);
-        minute = ABS(minute);
-        
-        [_lblTimeSpent setText:[NSString stringWithFormat:@"%d:%d", hour, minute]];         
-       
-        [formatDate setDateFormat:@"HH:mm:ss"];    
-        [_logic interviewSaveService:_interview_id
-                         andStarTime:_start_Time
-                          andEndTime:_end_Time
-                        andTimespent:[formatDate dateFromString:_lblTimeSpent.text] 
-                          andComment:_textComment.text 
-                             andCost:_lblCost.text];
-    }
-}
 
 
 -(IBAction)backToListClick:(id)sender
@@ -122,16 +112,19 @@ MessageDialogView *messageDialogView;
 }
 
 
--(void)textViewDidBeginEditing:(UITextView *)textView
-{
- [self slideFrame:YES];
-
-}
-
--(void)textViewDidEndEditing:(UITextView *)textView
-{
-[self slideFrame:NO];
-    NSLog(@"entra");
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSString *resultingString = [textField.text stringByReplacingCharactersInRange: range withString: string];
+    
+    // This allows backspace
+    if ([resultingString length] == 0) {
+        return true;
+    }
+    
+    double holder;
+    NSScanner *scan = [NSScanner scannerWithString: resultingString];
+    
+    return [scan scanDouble: &holder] && [scan isAtEnd];
 }
 
 
@@ -180,8 +173,6 @@ MessageDialogView *messageDialogView;
 
 -(void)applyDataInterviewView:(Interview *)interview
 {
-    NSLog(@"applyDataInterviewView");
-    
     // Banner principal    
     _lblFirts_Name.text = interview.client.firstName;
     _lblLast_Name.text = interview.client.lastName;
@@ -225,7 +216,14 @@ MessageDialogView *messageDialogView;
                                              cancelButtonTitle:@"OK"
                                              otherButtonTitles:nil];
     [messages show];
-
+    _lblEndTime.text = @"";
+    _lblTimeSpent.text = @"";
+    _lblCost.text = @"";
+    _textComment.text = @"";
+    _textComment.userInteractionEnabled = TRUE;
+    _lblCost.userInteractionEnabled = TRUE;
+    _btnFinish.hidden = FALSE;
+    
 }
 
 
@@ -249,7 +247,7 @@ MessageDialogView *messageDialogView;
 - (void)viewDidLoad
 {
     _backTolist.transform = CGAffineTransformMakeRotation(M_PI/ -4);
-    
+    _lblCost.delegate = self;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -288,8 +286,6 @@ MessageDialogView *messageDialogView;
 {
     return UIInterfaceOrientationIsPortrait(orientation);
 }
-
-
 
 - (void)dealloc {
     

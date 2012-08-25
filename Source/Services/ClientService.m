@@ -59,9 +59,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data 
 {
 	[_responseData appendData:data];
-    
-    //NSLog(@"%@", [[NSMutableString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding]);
-    
+        
     int size = [_responseData length];
     
     [_delegate updateClientBytesReceived:size];

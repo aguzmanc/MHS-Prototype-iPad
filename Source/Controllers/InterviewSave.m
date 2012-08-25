@@ -35,7 +35,8 @@
                                           , timespent
                                           , cost
                                           , comment];
-	
+	NSLog(@"%@",requestURL);    
+    
 	responseData = [[NSMutableData data] retain];
     	
 	NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
@@ -76,7 +77,7 @@
 	[connection release];
 	
 	responseString = [[NSMutableString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-	NSLog(@"%@",responseString);
+	
 	NSDictionary * results = [responseString JSONValue];
 	NSString * res = [results objectForKey:@"Success"];
 	

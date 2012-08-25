@@ -28,9 +28,7 @@
 	NSString * requestURL = [NSString stringWithFormat:@"%@?service=%@&user_id=%@", TOTAL_SIZE_SERVICE_REQUEST_PAGE, serviceId, userId];
 	
 	_responseData = [[NSMutableData data] retain];
-    
-	NSLog(@"%@", requestURL);
-	
+    	
 	NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
